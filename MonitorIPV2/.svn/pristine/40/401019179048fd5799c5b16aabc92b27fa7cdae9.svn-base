@@ -1,0 +1,10 @@
+<style type="text/css">
+ @import "box-tools/css/jquery-ui.css";
+ @import "box-tools/css/style.css";
+</style>
+
+    <div id="dialog"></div>
+
+	<script type="text/javascript" src="box-tools/js/jquery.js"></script>
+	<script type="text/javascript" src="box-tools/js/jquery-ui.js"></script>
+  	<script type="text/javascript" src="box-tools/js/ui.js"></script>

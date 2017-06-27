@@ -1,0 +1,320 @@
+
+.marcarConsulta{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+#marcarConsultaform fieldset{
+	width: 530px;
+	border: solid 1px #ddd;
+	border-radius: 2px;
+	padding: 6px 15px 16px;
+	border: solid 1px #ddd;
+}
+#marcarConsultaform legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+
+/* Tipo de Plano*/
+
+.consSelect label{
+	font-size: 14px;
+	color: #444;
+	font-weight: bold;
+	padding: 8px 0 5px;
+	text-align: right;
+	min-width: 140px;
+	margin-right: 10px;
+}
+.consSelect select{  
+	width: 396px;
+	line-height: 30px;
+  	min-height: 30px;
+  	border: 1px solid #aaa;
+  	padding: 6px 10px;
+}
+
+/* Lista de consultas*/
+
+/*Table Left css*/
+#marcarConsultaform .scrollableContainer{
+	margin-top: 20px;
+}
+#marcarConsultaform table.cruises { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+    width: 471px;   
+    }
+#marcarConsultaform table.cruises tbody { 
+    top: 2.7em;
+    height: 302px; 
+    width: 530px; 
+    overflow: auto; 
+    position: absolute;
+}
+#marcarConsultaform table.cruises td { 
+    border-left: 1px solid #999; 
+    border-top: 1px solid #999;  
+    border: 1px solid #ccc;  
+	padding: 9.2px 4px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+#marcarConsultaform table.cruises tr:first-child td {
+    border-top: none;
+}
+#marcarConsultaform table.cruises th { 
+    border: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: white;
+    }
+#marcarConsultaform table.cruises td { 
+  	background: #eee; 
+  	overflow: hidden; 
+}
+#marcarConsultaform div.scrollableContainer { 
+    position: relative; 
+    width: 530px; 
+    padding-top: 0px;     
+    border: 0px solid #999;
+    background: #646473;
+}
+#marcarConsultaform div.scrollingArea { 
+    height: 337px; 
+    overflow: auto; 
+}
+#marcarConsultaform table.scrollable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;  
+}
+#marcarConsultaform table.cruises .analise  div { width: 225px; }
+#marcarConsultaform table.cruises .preco    div { width: 140px; }
+#marcarConsultaform table.cruises .accao    div { width: 120px;  text-align:center; }
+
+#btn-middle-consultas{
+	width: auto;
+	position: absolute;
+	bottom: 40%;
+	left: 45%;
+	padding: 15px 2em 10px;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+}
+#btn-middle-consultas input.btn-lista-consultas{
+	padding: 8px 17px;
+	min-width: 80px;
+	color: #222;
+	font-size: 13px;
+	text-align: center;
+	font-weight: normal;
+	font-variant: small-caps;	
+	border: solid 1px #aaa;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+
+#btn-middle-exames{
+	width: auto;
+	position: absolute;
+	bottom: 10%;
+	left: 45%;
+	padding: 15px 2em 10px;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+}
+#btn-middle-exames input.btn-lista-exame{
+	padding: 8px 17px;
+	min-width: 80px;
+	color: #222;
+	font-size: 13px;
+	text-align: center;
+	font-weight: normal;
+	font-variant: small-caps;	
+	border: solid 1px #aaa;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+
+
+/*Beneficios css*/
+
+.beneficios{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	float: right;
+}
+.beneficios tbody img{
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+.beneficios tbody a{
+	color: #333;
+	vertical-align: middle;
+	font-size: 12px;
+}
+.beneficios tbody a:HOVER{
+	color: #666;
+}
+#beneficiosform fieldset{
+	width: 545px;
+	border: solid 1px #ddd;
+	border-radius: 2px;
+	padding: 2px 15px 16px;
+	border: solid 1px #ddd;
+}
+#beneficiosform legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+
+/*Table Right css*/
+
+#beneficiosform table.cruises { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+    width: 471px;    
+    }
+#beneficiosform table.cruises tbody { 
+    top: 2.7em;
+    height: 356px; 
+    width: 545px; 
+    overflow: auto; 
+    position: absolute;
+}
+#beneficiosform table.cruises td { 
+    border-left: 1px solid #999; 
+    border-top: 1px solid #999;  
+    border: 1px solid #ccc;  
+	padding: 9.2px 4px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+#beneficiosform table.cruises tr:first-child td {
+    border-top: none;
+}
+#beneficiosform table.cruises th { 
+    border: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: white;
+    }
+#beneficiosform table.cruises td { 
+  	background: #eee; 
+  	overflow: hidden; 
+}
+#beneficiosform div.scrollableContainer { 
+    position: relative; 
+    width: 545px; 
+    padding-top: 0px;     
+    border: 0px solid #999;
+    background: #646473;
+}
+#beneficiosform div.scrollingArea { 
+    height: 392px; 
+    overflow: auto; 
+}
+#beneficiosform table.scrollable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;  
+}
+#beneficiosform table.cruises .servico  div { width: 290px; }
+#beneficiosform table.cruises .preco    div { width: 110px; }
+#beneficiosform table.cruises .accao    div { width: 100px;  text-align:center; }
+
+#beneficiosform fieldset.qtd{
+ margin-top: 10px;
+ padding: 0.8em 1em 0.2em;
+}
+#beneficiosform fieldset .floatRight{
+ width: 100%;
+ float: right;
+}
+
+#beneficiosform fieldset.qtd label{
+ font-size: 14px;
+ color: #444;
+ text-align: left;
+ margin: 0 6px;
+ text-transform: uppercase;
+ font-weight: bold;
+}
+#beneficiosform fieldset.qtd input[type=text] {
+  color: #666;
+  font-size: 14px;
+  padding: 5px 12px;
+  font-weight: normal;
+  width: 80px;
+  margin-bottom: 8px;
+  background: #F2F2F2;
+  border: solid 1px #ccc;
+}
+
+#beneficiosform fieldset.qtd input.quant {
+  width: 55px;
+}
+#beneficiosform .btns-beneficios{
+	float: right;
+	right: 18px;
+	top: 10px;
+	margin-bottom: 20px;
+	position: relative;
+}
+#beneficiosform input.btn-beneficio{
+	padding: 8px 12px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 10px 0 0;
+	background: url('../img/Save-icon.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 22px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#beneficiosform input.btn-limpar-beneficio{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0;
+	background: url('../img/Eraser-icon.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+

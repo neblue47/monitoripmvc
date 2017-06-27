@@ -1,0 +1,47 @@
+package ao.co.smpip.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ao.co.smpip.entidades.Diverso;
+import ao.co.smpip.utils.MetodosBuscas;
+
+/**
+ * Servlet implementation class controller
+ */
+@WebServlet("/PaisController")
+public class PaisController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public PaisController() {
+        super();
+        
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out =  response.getWriter();
+		
+		int cd = Integer.parseInt(request.getParameter("codigopais"));
+		MetodosBuscas eDao = new MetodosBuscas(); 
+		List <Diverso> lp = eDao.buscaProvincia(cd);
+		StringBuilder sb = new StringBuilder();
+		for(int i=0;i<lp.size();i++)
+			sb.append(lp.get(i).getProvincia()+"-"+lp.get(i).getNomeProv()+":");
+		out.write(sb.toString());
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

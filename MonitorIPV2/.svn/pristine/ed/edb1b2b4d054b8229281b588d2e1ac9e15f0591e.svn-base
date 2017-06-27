@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=uft-8">
+<title>Novo Posto</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<link rel="stylesheet" href="../css/jquery-ui-1.8.18.custom.css"/>
+<link rel="stylesheet" type="text/css" href="../css/estilo.css"/>
+
+<script type="text/javascript">
+            var map;
+            var geocoder;
+            function initialize()
+            {
+                var myLatlong   =   new google.maps.LatLng(-8.823973, 13.236727);
+                var myOptions   =   {
+                                        zoom:16,
+                                        center:myLatlong,
+                                        mapTypeId:google.maps.MapTypeId.ROADMAP
+                                    };
+               map          =   new google.maps.Map(document.getElementById('map_canvas'),myOptions);
+               geocoder      =   new google.maps.Geocoder();   
+            }
+            
+          $(document).ready(function(){
+              $("#autocomplete").autocomplete({
+                  source:function(request,response){
+                      geocoder.geocode({'address':request.term},function(results){
+                          response($.map(results,function(item){
+                              return {
+                                 label:item.formatted_address,
+                                 value:item.formatted_address,
+                                 latitude:item.geometry.location.lat(),
+                                 longitude:item.geometry.location.lng(),
+                              }
+                              
+                          }))
+                      })
+                 },
+                  select:function(event,ui) {
+                    var location    =   new google.maps.LatLng(ui.item.latitude,ui.item.longitude);
+                    marker          =   new google.maps.Marker({
+                        map:map,
+                        draggable:true
+                    })
+                   var stringvalue     =   'latitude:<input name ="LAT" type="text" value="'+ui.item.latitude+'" >Longitude:<input name ="LNG" type="text" value="'+ui.item.longitude+'">Descricao: <input name ="DSCR" type="text" ><br/>';
+                    $("#lat").remove();
+                    $("#lng").remove();
+                    $("#lat_c").append('<input class="champ" name="lat" id="lat" type="text" value="'+ui.item.latitude+'"/>');
+                    $("#lng_c").append('<input class="champ" name="lng" id="lng" type="text" value="'+ui.item.longitude+'"/>');
+                    marker.setPosition(location);
+                    map.setCenter(location);
+    
+                }
+                  
+              })
+          
+            });
+        </script>
+</head>
+<body  onload="initialize()">
+ <div id="col_esq">
+ <fieldset class="altx">
+           <legend> Google Maps </legend>
+           <div id="map_canvas" style="width:620px;height:450px;margin: auto; background: #CCC;">
+		
+           </div>
+ </fieldset>
+ </div>
+<div id="col_direita">
+<form method="post" action="PostosController" id="form_set">
+     <fieldset class="alt">
+           <legend> Adicionar Nova Caixa </legend>
+           <div id="div_contact">
+             <span class="texte"><label>Descrição </label></span> 
+             <span id="champ_contact"><input class="champ" name="desc" type="text" id="autocomplete" class="form-control" required="required" /></span>
+           </div>
+           <div id="div_contact">
+             <span class="texte"><label>Designação da Caixa </label></span> 
+             <span id="champ_contact"><input class="champ" name="nomep" type="text" class="form-control" required="required" /></span>
+           </div>
+           <div id="div_contact">
+             <span class="texte"><label>Quantidade de Lampadas </label></span> 
+             <span id="champ_contact"><input class="champ" name="qdtLp" type="text" class="form-control" required="required" /></span>
+           </div>
+           
+           <div id="div_contact">
+             <span class="texte"><label>Latitude </label></span> 
+             <span id="champ_contact"><span id="lat_c"> <input class="champ" name="lat" id="lat" type="text" class="form-control" required="required" /> </span></span>
+           </div>
+           <div id="div_contact">
+             <span class="texte"><label>Longitude </label></span> 
+             <span id="champ_contact" ><span id="lng_c"> <input class="champ" name="lng" id="lng"  type="text" class="form-control" required="required" /></span></span>
+           </div>
+     </fieldset>
+
+     <div id="div_contact_button" align="right">
+			 <span class="botao">  <input type="submit" name ="btSalvar" class="btn-salvar" value="Salvar"> </span>
+			 <span class="botao">  <input type="reset" name ="btLimpar" class="btn-limpar" value="Limpar"> </span>
+	 </div>
+</form>
+</div>
+</body>
+</html>

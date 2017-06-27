@@ -1,0 +1,15 @@
+package ao.co.smpip.testejsp;
+
+import ao.co.smpip.serial.SerialConexao;
+
+
+public class testUsuarioDAO {
+
+	
+	public static void main(String[] args) {
+		 
+	}
+
+	
+	
+}

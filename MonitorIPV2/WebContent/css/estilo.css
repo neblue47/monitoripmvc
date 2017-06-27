@@ -1,0 +1,1074 @@
+@charset "utf-8";
+
+#foot       {
+	height: 15px;
+	width: 1350px;
+	position: fixed;
+	bottom: 0;
+	font-family: Helvetica; 
+	font-size:12px; 
+	font-weight:bold;
+	padding-top: 10px;
+	padding-left: 10px;
+	text-align:center;
+	color:#000000;
+}
+
+#div_contact {
+	height: auto;
+	padding:5px;
+}
+#div_contacts {
+	height: auto;
+	padding:10px;
+	float: left;
+}
+#col_esq {
+	height: auto;
+	width: 50%;
+	float: left;
+}
+#col_direita {
+	height: auto;
+	width: auto;
+}
+.atived{
+	color: red;
+}
+ .ver {
+	color: blue;
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+ .elim {
+	color: red;
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#champ_contact {
+	padding-left: 190px;
+	width: 200px;
+	height: 20px;
+	/*border: 1px solid blue;*/
+}
+#champ_btPes {
+	padding-left: 500px;
+	width: 200px;
+	height: 20px;
+	/*border: 1px solid blue;*/
+}
+#champ_contac {
+	
+	padding-left: 100px;
+	width: 200px;
+	height: 20px;
+	/*border: 1px solid blue;*/
+}
+.texte {
+	position: absolute;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 170px;
+	height: 20px;
+	padding-left: 10px;
+	padding-top:3px;
+	text-align: right;
+}
+.texto {
+	position: absolute;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 170px;
+	height: 20px;
+	padding:3px;
+	
+}
+#listar {
+	padding-left: 10px;
+	padding-top:3px;
+	font-family:  Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	
+	height: 20px;
+	font-variant: small-caps;
+	
+}
+.champ {
+	font-family:  Helvetica, sans-serif;
+	font-size: 12px;
+	width: 350px;
+	height:19px;
+	padding-left:5px;
+	border: 1px solid #CCC;	
+}
+textarea.tr-txtarea {
+	font-family:  Helvetica, sans-serif;
+	font-size: 12px;
+	width: 340px;
+	height: 100px;
+	padding-left:5px;
+	border: 1px solid #CCC;	
+}
+.txt_pesquis {
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	width: 28%;
+	height:15px;
+	padding-left:5px;
+	border: 1px solid #CCC;	
+}
+.txt_pesquisa {
+	font-family:  Helvetica, sans-serif;
+	font-size: 12px;
+	width: 75%;
+	height:15px;
+	padding-left:5px;
+	border: 1px solid #CCC;	
+}
+textarea.champ {
+	font-family:  Helvetica, sans-serif;
+	font-size: 11px;
+	width: 350px;
+	height: 100px;
+}
+#div_contact_button {
+	margin: 6px 10px 0 0;
+	}
+#div_contact_pesq {
+	margin: 6px 10px 10px 0px;
+	
+	}
+.botao{width:50px;height:30px; padding:5px;}
+.champ1 {
+	font-family:  Helvetica, sans-serif;
+	font-size: 12px;
+	width: 170px;
+	height:19px;
+	padding-left:5px;
+	border: 1px solid #CCC;	
+}
+#contactForm .all_form{
+	height: auto;
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+ .d_contact_buttom{
+	float: right;
+}
+
+#div_contact_button input,#div_contact_pesq input {
+		padding: 5px 11px;
+		color:#000;
+		font-family: Helvetica, sans-serif;
+		font-size:13px;
+		font-variant:small-caps;
+		margin-left: 5px;
+}
+
+#div_button input {
+		padding: 5px 13px;
+		color:#000;
+		font-family: Helvetica, sans-serif;
+		font-size:11px;
+		font-variant:small-caps;	
+}
+
+.acervotab{   	
+    font:12px  helvetica, sans-serif;	
+	overflow: visible;
+	border: 1px solid #CCC;	
+	border-collapse:collapse;  
+	margin: 3px 5px;
+	  
+}
+.div_tab{
+	
+	height: 400px;
+	width: 200px;
+	overflow: scroll;
+	margin: auto;
+}
+#div_tabb{
+	margin-left: 185px;
+	top: 9px;
+	position: relative;
+	overflow: auto ;
+}
+
+.acervotab th { 
+	padding:3px;
+	font: bolder 12px  helvetica, sans-serif;
+	text-align: center;
+	color:#000;
+	background-color: #999999;
+	border: thin solid #CCC;	
+}
+.acervotab td {
+	padding:6px;
+	font: bold 11px  helvetica, sans-serif;
+	border: 1px solid #CCC;	
+}
+#form_set {
+	
+	height:auto;
+	overflow:hidden;
+	display:block;
+	margin:auto;
+	}
+#form_set	.alt{
+	height: 470px;
+}
+.fieldAl{
+	height: 450px;
+}
+.fieldgr{
+	height: 450px;
+}
+fieldset{
+border: solid 1px #CCC;
+	margin: 10px;
+	/* border-radius:4px; */
+	height: auto;
+	overflow: hidden;
+	margin-left: 20px;
+	padding-left: 20px;
+	}
+ .scrool{
+ background-color:gray;
+   display: ;
+   width: 100%;
+   overflow: scroll;
+   
+}
+.head {
+	background-color: #CCC;
+	 
+}
+.field {
+	width: 600px;
+	border: thin solid #CCC;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	float:left;
+}
+.dadosInc {
+	width: 640px;
+	border: thin solid #CCC;
+	height: 455px;
+	overflow:hidden;
+	margin-left:10px;
+	padding-left:10px;
+	float:left;
+}
+.field_tr {
+	width: 620px;
+	border: thin solid #CCC;
+	height: 455px;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:10px;
+	float:left;
+}
+.fiEs{
+	width: 620px;
+	border: thin solid #CCC;
+	height: 455px;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	float:left;
+}
+.fiDr{
+	width: 620px;
+	border: thin solid #CCC;
+	height: 455px;
+	overflow:hidden;
+	padding-left:20px;
+	float: right;
+}
+.mc_fieldEsq {
+	width: 640px;
+	border: thin solid #CCC;
+	height: 470px;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	float:left;
+}
+.mc_Esq {
+	width: 630px;
+	border: thin solid #CCC;
+	height: 470px;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:10px;
+	float:left;
+}
+.mc_Dir {
+	width: 630px;
+	border: thin solid #CCC;
+	height: 470px;
+	overflow:hidden;
+	margin-left:5px;
+	padding-left:10px;
+	float:right;
+}
+.field1 {
+	width: 600px;
+	border: thin solid #CCC;
+	height:auto;
+	overflow:hidden;
+	margin-left:5px;
+	padding-left:20px;
+	float:right;
+	
+}
+#form_set .camp_esq
+{
+	width: 600px;
+	border-width:thin;
+	height:450px;
+	margin-left:20px;
+	margin-right:30px;
+	padding-left:20px;
+	float:left;
+}
+#form_set .camp_dir
+{
+	width: 600px;
+	border-width:thin;
+	height:450px;
+	margin-left:20px;
+	margin-right:30px;
+	padding-right:10px;
+	float: right;
+}
+.field2{
+	width: 600px;
+	border-width:thin;
+	height:450px;
+	margin-left:20px;
+	margin-right:30px;
+	padding-left:20px;
+	float:left;
+}
+.field3 {
+	width: 650px;
+	border-width:thin;
+	height:250px;
+	
+}
+
+
+legend {padding-left:5px;padding-right:5px;text-align:left;}
+#div_contact select {height:24px;width: 180px;border: 1px solid #CCC;	}
+#div_contact .comb {height:24px;width: 358px;border: 1px solid #CCC;	}
+#div_contact .com_ano {height:24px;width: 118px;border: 1px solid #CCC;	}
+#div_contacts select {height:25px;}
+#div_contact_pesq .comb_g {height:30px;width: 200px;border: 1px solid #CCC;	}
+#conteudo{width: 800px; margin: 0 auto;}
+#conteudo .acervotab{   	
+    font:12px arial, verdana, helvetica, sans-serif;	
+	border: 1px solid #11A6D4;
+	border: 1px solid #CCC;	
+	border-collapse:collapse;    
+}
+#conteudo .acervotab th {
+	padding:3px;
+	font: bolder 12px  helvetica, sans-serif;
+	text-align: left;
+	color:#FFF;
+	background-color: #09F;
+	border-right-style: solid;
+	border-right-width: thin;
+}
+#conteudo .acervotab td {
+	padding:6px;
+	font: bold 11px  helvetica, sans-serif;
+}
+
+
+.opcao
+{
+	width: 90 px;
+}
+.valot
+{
+	width: 90 px;
+}
+
+.fieldform{
+	height: 120px;
+}
+.tbAlt{
+	height: 284px;
+}
+.campos {
+	font-family:  Helvetica, sans-serif;
+	font-size: 12px;
+	width: 350px;
+	height:19px;
+	padding-left:5px;
+	border: solid 1px #CCC;
+}
+.fieldform input{
+	border: solid 1px #eee;
+	box-shadow: none;
+	margin: 5px 0;
+	min-height: 22px;
+	
+}
+
+.fieldform .nomefunc {	
+	width: 230px;
+	border: solid 1px #CCC;
+	 
+}
+#div_contact .d_semana{
+	width: 230px;
+	border: solid 1px #CCC;
+	
+}
+.fieldform .d_semanas{
+	margin-left: 30px;
+}
+.fieldform .input_hora_fim{
+	margin-left: 9px;
+}
+ .input_hora{
+	width: 120px;
+	border: solid 1px #000;
+	
+}
+ .label_{
+	padding-right: 10px;
+	width: 120px;	 
+	display: inline-block;
+}
+ .label_h{
+	margin-left: 10px;
+	width: 100px;	 
+	display: inline-block;
+}
+
+/*
+#######################################################################################
+#####Esta area esta reservada para a aparencia dos botões
+*/
+
+.botaozinho{
+	background-image: url(../img/save.png); 
+    background-color:#ccc; 
+    background-repeat: no-repeat;  
+    background-position: 2px 3px;  
+    border:#808080 1px Solid;           
+    cursor: pointer;       
+    height: 30px;           
+    width:90px;
+    padding-left: 20px;     
+    vertical-align: middle;
+    font-weight: bolder;
+}
+
+.btnmodificar{
+	background-image: url(../img/edit.png); 
+    background-color:#ccc; 
+    background-repeat: no-repeat;  
+    background-position: 2px 3px;  
+    border:#808080 1px Solid;           
+    cursor: pointer;        
+    height: 30px;           
+    width:130px;
+    padding-left: 20px; 
+    vertical-align: middle;
+    font-weight: bolder;
+}
+
+.btnlimpar{
+	background-image: url(../img/rubber.png);
+    background-color:#ccc;
+    background-repeat: no-repeat;  
+    background-position: 2px 3px;  
+    border:#808080 1px Solid;          
+    cursor: pointer;        
+    height: 30px;           
+    width:100px;
+    padding-left: 20px;     
+    vertical-align: middle; 
+    font-weight: bolder;
+}
+
+/*
+###################################################################################
+#####FIM DA ÁREA RESERVADA PARA OS BOTÕES
+*/
+
+
+.divaesquerda{
+	line-height:30px;
+    /*background-color:#eeeeee;*/
+    height:400px;
+    width:49%;
+    padding:5px; 
+    float:left;
+}
+
+.divadireita{
+	width:49%;
+    padding:5px; 
+	/*background-color:#eedee5;*/
+	height:400px;
+	line-height:30px;
+	float:right;
+}
+
+/*##############################################################################################################
+#################ESTA PARTE ESTA RESERVADA PARA O ESTILO PARA OS SERVIÇOS E ESPECIALIDADES
+*/
+.field {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	float:left;
+}
+label.textos {
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	display: inline-block;
+	width: 100px;
+	margin: 10px 2px;
+	vertical-align: top;
+}
+.textleft{
+	width: 670px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	margin-right:20px;
+}
+
+.field_servico {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+}
+
+#div_contact select {height:24px;width: 180px;}
+.fieldTpSer {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	
+}
+
+#div_contact {
+	height: auto;
+	padding:2px;
+	vertical-align: middle;
+}
+#div_contacts {
+	height: auto;
+	padding:10px;
+	float: left;
+}
+#div_esp-servico {
+	 height: auto;
+	 padding: 2px 2px;
+	 vertical-align: middle;
+}
+#div_esp-servico .txt-valor {
+	text-transform: uppercase;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 370px;
+	height: 27px; 
+	padding-left:5px; 
+	 border: solid 1px #CCC;
+}
+#div_esp-servico .txt-pesquisar {
+	 border: solid 1px #CCC;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 547px;
+	height: 27px; 
+	padding-left:5px; 
+	 
+}
+
+
+
+#buttongeral{
+	margin-left:20px;
+}
+
+#form_servic{
+	width:643px;
+	overflow:hidden;
+	height:auto;
+	float:left;
+	margin-right:20px;
+}
+
+#contactForm .all_form{
+	height: auto;
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+/*##############################################################################################################
+#################FIM DA ÁREA RESERVADA PARA OS SERVIÇOS E ESPECIALIDADES
+*/
+.f_espec {
+	width: 610px;
+	border-color: #CCC;
+	border-width:thin;
+	height:50px;
+	overflow:hidden;
+	padding-left:10px;
+	padding-bottom:10px;
+	padding-top:10px;
+	
+}
+.textleft{
+	width: 670px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	margin-right:20px;
+}
+.text{
+	margin-top:0;
+	width:650px;
+	height:auto;
+	overflow:hidden;
+}
+.fieldTpSer {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	
+}
+.list_servic{
+}
+#buttongeral{
+	margin-left:20px;
+}
+.botaoespec{
+	padding: 4px 10px;
+	border: solid 1px #ccc;
+	cursor: pointer;	
+}
+.fieldserv {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+}
+.texteespec {
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	display: inline-block;
+	width: 100px;
+}
+.champcombox {
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 400px;
+	height:19px;
+	padding-left:5px;
+}
+
+
+/* css configuracao*/
+/*##############################################################################################################
+#################INICIO DA AREA RESERVADA PARA O ESTILO DA PAGINA CONFIGURACAO
+*/
+
+table.table_conf{
+	  	float: right;
+	  }
+	  table.menor_idade { 
+	    font-family: 'Open Sans', sans-serif;
+	    font-size: 13px;
+	    font-weight: bold;
+	    cellspacing: 0; 
+	    border-collapse: collapse; 
+	    width: 310px;    
+	    }
+	    table.menor_idade th { 
+	    border-left: 1px solid #999; 
+	    padding: 8px 4px;
+	    background: #646473;
+	    color: white;
+	    }
+	  table.menor_idade td { 
+	    border: 1px solid #ccc;  
+	    padding: 10px 4px;
+	    text-align: center;
+	    font-size: 13px;
+	    font-weight: bold;
+	    background: #F2F2F2; 
+	    overflow: hidden;
+	    }
+	    /*Form*/
+	    #configurar fieldset{
+	    	width: 610px;
+	    	border: solid 1px #ddd;
+	    	border-radius: 6px;
+	    	padding: 10px;
+	    }
+	    #configurar legend{
+	    	font-family: 'Open Sans', sans-serif;
+	    	font-size: 17px;
+	    	font-weight: normal;
+	    	padding: 7px;	    
+	    }
+	    #configurar .conf_form{
+	    	float: left;
+	    }
+	    #configurar .conf_form label{
+	    	font-family: 'Open Sans', sans-serif;
+	    	font-size: 15px;
+	    	font-weight: normal;
+	    	padding-right: 5px;	    	
+	    }
+	    #configurar .conf_form span{
+	    	font-family: 'Open Sans', sans-serif;
+	    	font-size: 12px;
+	    	font-weight: normal;
+	    		    	
+	    }
+	    #configurar .conf_form div{
+	    	padding: 10px 8px 5px;	    	
+	    }
+	    #configurar .conf_form input.idade{
+	    	border: solid 1px #ccc;
+	    	padding: 4px 7px;
+	    	max-width: 150px;	    	
+	    }
+	    #configurar input.btn-salvar{
+	    	padding: 5px 8px;
+	    	color: #222;
+	    	font-size: 13px;
+	    	font-weight: normal;
+	    	font-variant: small-caps;
+	    	text-indent: 18px;
+	    	border: solid 1px #ccc;
+	    	margin: 0 0 10px 30px;
+	    	background: url('img/write15.png') #F2F2F2;
+	    	background-repeat: no-repeat;
+	    	background-size: 18px;
+	    	background-position: 7px;
+	    	border-radius: 3px;
+	    	cursor: pointer;
+	    }
+	    
+	    #configurar input.btn-limpar{
+	    	padding: 5px 8px;
+	    	color: #222;
+	    	font-size: 13px;
+	    	font-weight: normal;
+	    	font-variant: small-caps;
+	    	text-indent: 18px;
+	    	border: solid 1px #ccc;
+	    	margin: 0 0 10px 8px;
+	    	background: url('img/rubber2.png') #F2F2F2;
+	    	background-repeat: no-repeat;
+	    	background-size: 18px;
+	    	background-position: 7px;
+	    	border-radius: 3px;
+	    	cursor: pointer;
+	    }
+	    
+/*---------------------------- -------------------------------------------------*/
+input.bt-sel{
+ 	margin-top: 10px;
+ 	padding: 5px 5px;
+	width: 18px;
+	height: 18px;
+	color: #222;
+	font-size: 12px;
+	font-weight: normal;
+	text-indent: 18px;
+	border: #808080 1px Solid;
+/* 	background: url('../img/select.png')  ; */
+	background-color: #FFF;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	border-radius: 3px;
+	cursor: pointer;
+	background-position: 2px 2px;
+	}
+
+.tam{
+	float: left;
+	width: 400px;
+	height: auto;
+}
+	    
+ #cadastro{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	float:left;
+	
+}
+#cadastro fieldset{  
+	width: 400px;
+	height: auto;
+	overflow: hidden;
+	padding: 0 25px 10px;
+	border: solid 1px #aaa;	
+	
+} 
+.cadastrar_funcionario{
+	overflow: hidden;
+	height: auto;
+	margin: 5px 0;
+	
+}
+#cadastro .cadastrar{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+}
+#cadastro .cadastrar label{
+	text-align: right;
+	padding-right: 8px; 
+	float: left;
+	width: 110px;
+	display: block;	
+	font-size: 14px;
+	color: #222;
+}
+#cadastro .cadastrar input{
+	min-height: 25px;
+	line-height: 25px;
+	min-width: 250px;
+	padding: 0 10px;
+	margin-left: 1px;	
+	display: block;
+	border: solid 1px #aaa;
+}
+#cadastro .btn{
+	margin-top: 15px;
+}
+.btn a{
+	padding: 6px 8px 6px 30px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 55px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px;
+	background: url('../img/write15.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: 7px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+
+
+ .btn-direita{
+	float: right;
+	margin-right: 10px;
+}
+.cadastrar_funcionario textarea{
+	min-width: 250px;
+	padding: 10px;
+	border: solid 1px #aaa;
+}
+#filcontrol{
+	border: solid 1px #aaa ;
+	width: 850px;
+	border-radius: 0px;
+	padding: 10px; 
+	margin-top: 15px;
+	float:right;
+}
+
+.pesquisa input[type=text]{
+	width: 730px;
+	height: 24px;
+	margin-bottom: 7px;
+	margin-left: 5px;
+}
+
+.pesquisa input[type=submit]{
+	width: 97px;
+	padding: 5px 6px;
+}
+
+
+ #filcontrol table.table_conf{
+	float: right;
+}
+	  
+#filcontrol table.menor_idade { 
+	    font-family: 'Open Sans', sans-serif;
+	    font-size: 13px;
+	    font-weight: bold;
+	    cellspacing: 0; 
+	    border-collapse: collapse; 
+	    width: 100%;    
+	    }
+#filcontrol	    table.menor_idade th { 
+	    border : 1px solid #999; 
+	    padding: 8px 4px;
+	    background: #646473;
+	    color: white;
+	    }
+#filcontrol	  table.menor_idade tbody td  { 
+	    border: 1px solid #ccc;  
+	    padding: 10px 4px;
+	     
+	    font-size: 13px;
+	    font-weight: bold;
+	    background: #F2F2F2; 
+	    overflow: hidden;
+	    }
+
+	/*--------------------------------         --------------------------*/
+table.assegurados { 
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 100%;    
+}
+table.assegurados th { 
+	border: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: #fff;
+}
+table.assegurados td { 
+	border: 1px solid #ccc;  
+	padding: 10px 4px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+.file_nome_empresa{
+	height: auto;
+	width:400px;
+	float:left;
+}
+.filempresa{
+	width: 250px;
+	height: auto;
+	overflow: hidden;
+	margin-right: 20px;
+	float: left;
+
+}
+.ensa input{
+	width: 196px;
+	border: solid 1px #ccc;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+	background: #F2F2F2;
+}
+#ass_novo fieldset{
+	width: 200px;
+	height: auto;
+	overflow: hidden;
+	padding: 5px;
+	border-radius: 0px;
+	border: solid 1px #ccc;		
+	 
+} 
+#cadastro_aseguradora fieldset{
+	width: 250px;
+	height: auto;
+	overflow: hidden;
+	padding: 0 10px 10px;
+	border-radius: 0px;
+	border: solid 1px #ccc;		
+	
+} 
+ass_novo{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+}
+
+/*          ################################################################    */
+.geral_servic{
+	width:643px;
+	overflow:hidden;
+	height:auto;
+	margin-right:20px;
+	float:left;
+}
+
+#form_servic_pacient{
+	width:643px;
+	overflow:hidden;
+	height:auto;
+}
+
+.field_servico {
+	width: 600px;
+	border-color: #CCC;
+	border-width:thin;
+	height:auto;
+	overflow:hidden;
+	margin-left:20px;
+	padding-left:20px;
+	float:left;
+}
+
+#form_servic{
+	width:643px;
+	overflow:hidden;
+	height:auto;
+	margin-right:20px;
+}
+
+#form_servic_aridja{
+	width:643px;
+	overflow:hidden;
+	height:auto;
+	margin-right:20px;
+}
+
+#buttonplano{
+	margin-right:65px;
+	text-align:right;
+}

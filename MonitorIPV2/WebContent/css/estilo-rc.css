@@ -1,0 +1,229 @@
+body {
+	font-family:   Helvetica;
+	background: #FFF;
+	color: #000;
+	font-size:12px;
+    }
+    table{
+     border: 1px solid #F00;   
+     width: 98%;
+     border-style: solid;
+      }
+ .divEsq
+ {
+	width: 20%;
+	 height: 515px;
+	 float:left;
+	 margin-left: 10px;
+	 padding-top: 5px;
+	 border: 1px solid #CCC;	
+	 border-radius:15px;
+ }
+ .cont_pac{
+	 border: 1px solid #CCC;
+	 height: 170px;
+	 overflow:scroll;
+	  width:250px;
+ }
+  .divDir
+ {
+	 width: 73%;
+	 height: 515px;
+	 float:right;
+	 margin-right: 10px;
+	 border: 1px solid #CCC;
+	 border-radius:15px;
+ }
+ .botons input
+ {
+	 width:90px;
+	 height: 27px;
+	 margin-left:25px;
+	 margin-top:2px;
+	 color:#000;
+	 font-family:Arial, Tahoma, Helvetica, sans-serif;
+	 font-size:13px;
+	 font-variant:small-caps;
+	 
+ }
+ .boton
+ {
+	 width:252px;
+	 height: 32px;
+	 margin:3px 0;
+ }
+ .ative_b
+ {
+  background-color: #999;
+  color: #FFF;
+  font-variant:small-caps;
+ }
+  .bt-fim {
+	background-color: green;
+	 width:125px;
+	 height: 36px;
+	 margin:3px 0;
+	 color: #FFF;
+     font-variant:small-caps;
+}
+ .cancel {
+	background-color: #F00;
+	 width:125px;
+	 height: 36px;
+	 margin:3px 0;
+	 color: #FFF;
+  font-variant:small-caps;
+}
+ .txtpesq{
+	 width:250px;
+	 height: 20px;
+	 margin:3px 0;
+	 border: 2px solid #FFF;	
+	 font-family: Arial, Tahoma, Helvetica, sans-serif;
+	 font-size: 16px;
+	 font-weight:bold;
+	 font-variant: small-caps;
+	 color: #F00;
+ }
+ .txtLabel{
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 155px;
+	height: 20px;
+	padding:3px;
+	
+	 }
+	 
+	 .divEsq_s
+ {
+	 width: 30%;
+	 height: 480px;
+	 float:left;
+	 margin-left: 10px;
+	border: 1px solid #CCC;	
+	border-radius:15px;
+ }
+ .cont_pac_s{
+	 border: 1px solid #CCC;
+	 height: 178px;
+	 overflow:scroll;
+	  width:270px;
+ }
+  .divDir_s
+ {
+	 width: 72%;
+	 height: 260px;
+	 float:right;
+	 margin-right: 10px;
+	 border: 1px solid #CCC;
+	 border-radius:15px;
+ }
+  .divDirb_s
+ {
+	 width: 72%;
+	 height: 170px;
+	 float:right;
+	 margin-right: 10px;
+	 margin-top: 18px;
+	 border: 1px solid #CCC;
+	 border-radius:15px;
+	 padding-top: 20px;
+	
+ }
+ .contor_b{
+	 border: 1px solid #CCC;
+	 height: 270px;
+ }
+  .contor{
+	 border: 1px solid #CCC;
+	 height: 150px;
+ }
+  .cont_1
+ {
+	 width: 75%;
+	 height: auto;
+	 float:right;
+	 margin-right: 15px;
+ }
+ .cont_2
+ {
+	 width: 75%;
+	 height: 259px;
+	 float:right;
+	 margin-right: 15px;
+ }
+ 
+ .txtLabel{
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	width: 170px;
+	height: 20px;
+	padding:3px;
+	 }
+	 .tbs
+	 {
+		 width:98%;
+		 font:12px arial, verdana, helvetica, sans-serif;	
+		 overflow: visible;
+	     border: 1px solid #CCC;	
+	     border-collapse:collapse;  
+	     margin: 3px 0px;
+	 }
+	 .tbs th{
+		 
+		 padding:3px;
+	font: bold 12px arial, verdana, helvetica, sans-serif;
+	text-align: center;
+	color:#000;
+	background-color: #999999;
+	border: thin solid #CCC;
+	}
+	 .tbs tr{
+		 
+		 padding:3px;
+		font: bolder 12px arial, verdana, helvetica, sans-serif;
+		text-align: center;
+		
+		color:#000;
+		border: thin solid #CCC;
+	}
+	
+.label_{
+	padding-right: 5px;
+	width: 110px;	 
+	display: inline-block;
+	margin: 5px 5px;
+	font: bolder 12px arial, verdana, helvetica, sans-serif;
+}
+	.tbs td {
+	padding:6px;
+	font: bold 11px arial, verdana, helvetica, sans-serif;
+	border: 1px solid #CCC;	
+}
+.comb_campotxt{
+   margin: 10px auto;
+   width: 280px;
+   height: 25px;
+   border: 1px solid #CCC;
+  margin-right: 70px;
+ }
+ .input_{
+	width: 230px;
+	border: solid 1px #CCC;
+	display: inline-block;
+	padding-right: 50px;
+	height: 20px;
+	 margin:3px 0;
+}
+.mais{
+  margin-left:20px;
+}
+
+textarea {
+  width: 920px;
+  height: 30px;
+  margin: 5px auto;
+  border: solid 1px #CCC;
+}

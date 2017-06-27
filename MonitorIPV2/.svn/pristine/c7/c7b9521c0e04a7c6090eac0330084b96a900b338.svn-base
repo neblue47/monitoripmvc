@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<div class="row" >
+<div class="col-md-10 col-md-offset-1" >
+<div class="widget-proc " style="margin: 10px auto;">
+   <div class="procediment">
+   		<div class="procediment-tab-menu">
+		     <ul class="nav nav-tabs nav-justified">
+			    	<li id="receituarios">e-Mensagem</li>
+			        <li id="internamento">GSM-Mensagem</li> 
+			        <li id="medicacao">Equipa Manutenção</li>                
+			 </ul>
+		</div>
+ <div class="procediment-content">     
+   <!-- Email novo - 1 Tab  -->
+    	<div id="fromReceituarios">
+   			<form name="form1" method="post" action="requesitar.do" class="tamanhoReqExa"> 
+      			<div class="form-group input-group">
+		       	 	<span class="input-group-addon">De:</span>                    
+                    <input class="form-control" name="from" value="sistemampip@gmail.com" />
+	           	</div>		             
+				<div class="form-group input-group">
+				    <span class="input-group-addon">Para:</span>                    
+		            <input class="form-control" name="tomail"  id="tomail" />
+			   </div>
+			    <div class="form-group input-group">
+		       	 	<span class="input-group-addon">Assunto:</span>                    
+                    <input class="form-control" name="subj">
+	           	</div>
+	           			<div class="form-group input-group">
+						<span class="input-group-addon">Mensagem:</span>
+						<textarea class="form-control" name="msg"></textarea>  	   	
+					</div>
+	           <div class="pull-right">
+			<button type="submit" class="btn btn-success btn-sm" name="commit">
+				<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar
+			</button>
+		</div>
+	</form>
+
+   </div>
+   
+   
+    <!-- SMS - 2 Tab  -->
+   <div id="fromMedicacao" >
+   			   		     		
+      	  <form name="form1" method="get" action="requesitar.do" class="tamanhoReqExa"> 
+      	  <div class="form-group input-group">
+	        			 	 <span class="input-group-addon">Tipo Mensagem : </span>   		   
+	             			 <select class="form-control"  name="categoria" required="required" >
+	             				 <option value=""> -- Seleccione -- </option>
+	             				 <option value="1"> E-Mensagem </option>
+	             				 <option value="2"> GSM-Mensagem </option>		                   
+             				</select>							
+	        			</div>
+      			<div class="form-group input-group">
+		       	 	<span class="input-group-addon">De:</span>                    
+                    <input class="form-control" name="from" value="244924044145" readonly="readonly">
+	           	</div>		             
+				<div class="form-group input-group">
+				    <span class="input-group-addon">Para:</span>                    
+		            <input class="form-control"  name="tofone"  id="tofone" placeholder="Destinatario ">
+			   </div>
+	           			<div class="form-group input-group">
+						<span class="input-group-addon">Mensagem:</span>
+						<textarea class="form-control" name="msg"></textarea>  	   	
+					</div>
+	           <div class="pull-right">
+			<button type="submit" class="btn btn-success btn-sm" name="commit">
+				<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar
+			</button>
+		</div>
+	</form>  
+	 
+   </div>
+   
+   <div id="fromInternamento" >
+   			   		     		
+      	  <form name="form1" method="get" action="requesitar.do" class="tamanhoReqExa"> 
+      			
+      			<div class="form-group input-group">
+		       	 	<span class="input-group-addon">De:</span>                    
+                    <input class="form-control" name="from" value="244924044145" readonly="readonly">
+	           	</div>		             
+				<div class="form-group input-group">
+				    <span class="input-group-addon">Para:</span>                    
+		            <input class="form-control"  name="tofone"  id="tofone" placeholder="Destinatario ">
+			   </div>
+	           			<div class="form-group input-group">
+						<span class="input-group-addon">Mensagem:</span>
+						<textarea class="form-control" name="msg"></textarea>  	   	
+					</div>
+	           <div class="pull-right">
+			<button type="submit" class="btn btn-success btn-sm" name="commit">
+				<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Enviar
+			</button>
+		</div>
+	</form>  
+	 
+   </div>
+</div>    
+</div>
+</div> 
+</div>
+</div>
+
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  	<script type="text/javascript" src="js/autocomple-ui.js"></script>
+  
+  	

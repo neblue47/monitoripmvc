@@ -1,0 +1,28 @@
+package ao.co.smpip.testejsp;
+
+import java.io.File;
+
+
+public class testejsp 
+{
+	public static final String PATH_CHAVE_PRIVADA = "C:/keysss/private.key";
+	public static void main(String[] args) {
+        try
+        {   
+        	 File chavePrivadaFile = new File(PATH_CHAVE_PRIVADA);
+        	 if (chavePrivadaFile.getParentFile() != null) {
+                 chavePrivadaFile.getParentFile().mkdirs();
+               }
+            Runtime rt = Runtime.getRuntime();
+            //put your directory path instead of your_directory_path
+            Process proc = rt.exec("attrib -s -h -r "+PATH_CHAVE_PRIVADA); 
+            int exitVal = proc.exitValue();
+        } catch (Throwable t)
+          {
+            t.printStackTrace();
+          }
+
+    }
+	
+	
+}

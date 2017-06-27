@@ -1,0 +1,753 @@
+
+/*Facturacao*/
+
+#facturacao fieldset{
+	width: 610px;
+	border: solid 1px #ddd;
+	border-radius: 8px;
+	padding: 5px 20px;
+	margin-bottom: 20px;
+}
+#facturacao legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+
+#facturacao a > div{
+	margin: 10px 0;
+	padding: 15px 5px;
+	background: green;
+	border-radius: 8px;
+}
+#facturacao a {
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*Facturacao Troco*/
+
+.trocoGeral{
+	width: 687px;
+	height: auto;
+	overflow: hidden;
+	float: right;
+}
+#facturacaoTroco fieldset{
+	width: 610px;
+	border: solid 1px #ddd;
+	border-radius: 8px;
+	padding: 15px 20px 10px;
+	margin-bottom: 20px;
+}
+#facturacaoTroco legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+
+#facturacaoTroco a > div{
+	margin: 10px 0;
+	padding: 15px 5px;
+	background: green;
+	border-radius: 8px;
+}
+#facturacaoTroco a {
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*Troco css*/
+
+table.table_facturacao { 
+	font-family: 'Open Sans', sans-serif;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 610px;  
+}
+table.table_facturacao td { 
+	border: 1px solid #ccc;  
+	padding: 12px 15px 10px;
+	font-size: 32px;
+	font-weight: normal;
+	background: #F2F2F2; 
+	overflow: hidden;
+	text-align: right;
+}
+
+/*Pacientes*/
+.pacientsGeral{
+	width: 660px;
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+#pacients fieldset{
+	width: 610px;
+	border: solid 1px #ddd;
+	border-radius: 8px;
+	padding: 4px 10px 10px;
+}
+#pacients legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+/*Tabela Consultas css*/
+
+table.table_fact { 
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 310px;    
+}
+table.table_fact th { 
+	border: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: white;
+}
+table.table_fact .th_nome 	 div { width: 218px; }
+table.table_fact .th_nome_exa 	 div { width: 335px; }/*th Exames css*/
+table.table_fact .th_servico div { width: 110px; }
+table.table_fact .th_preco 	 div { width: 75px; }
+table.table_fact .th_accoes  div { width: 170px; }
+
+table.table_fact td { 
+	border: 1px solid #ccc;  
+	padding: 10px 4px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+table.table_fact td a{ 
+	vertical-align: middle;
+	text-decoration: none;
+	color: #222;
+}
+table.table_fact td a img{ 
+	vertical-align: middle;
+	height: 24px;
+	width: 24px;
+}
+
+
+/*table scroll*/
+
+table.cruises { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+    width: 535px;    
+    }
+table.cruises td { 
+    border-left: 1px solid #999; 
+    border-top: 1px solid #999;  
+    border: 1px solid #ccc;  
+	padding: 9.3px 4px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+table.cruises tr:first-child td {
+    border-top: none;
+}
+table.cruises th { 
+    border: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: white;
+    }
+table.cruises td { 
+  	background: #eee; 
+  	overflow: hidden; 
+}
+table.cruises tbody {
+	top: 2.7em;
+    height: 208px; 
+    width: 611px; 
+    overflow: auto; 
+    position: absolute;	
+}
+div.scrollableContainer { 
+    position: relative; 
+    width: 611px; 
+    padding-top: 0px;     
+    border: 0px solid #999;
+    background: #646473;
+}
+div.scrollingArea { 
+    height: 243px; 
+    overflow: auto; 
+}
+table.scrollable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;
+}
+table.cruises .name     div { width: 280px; }
+table.cruises .name_exa     div { width: 464px; }/*th Exames css*/
+table.cruises .servico div { width: 175px; }
+table.cruises .preco    div { width: 111px;  text-align:center; }
+  
+/*Perfil right css*/
+
+.perfilGeral{
+	width: 680px;
+	height: auto;
+	overflow: hidden;
+	float: right;
+	padding: 0;
+}
+#perfil fieldset{
+	width: 635px;
+	border: solid 1px #ddd;
+	border-radius: 8px;
+	padding: 5px 10px 20px;
+}
+.perfilConsulta fieldset{
+	margin-bottom: 35px;
+}
+.perfilExames fieldset{
+	margin-bottom: 15px;
+}
+#perfil legend{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 7px;	    
+}
+#perfil .img_perf{
+	float: left;
+	border: solid 1px #eee;
+	width: 170px;
+	height: 150px;
+}
+#perfil .table_perfil{
+	float: right;
+}
+table.table_perfil { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+    width: 450px;    
+    }
+table.table_perfil td { 
+    border-left: 1px solid #999; 
+    border-top: 1px solid #999;  
+    border: 1px solid #ccc;  
+	padding: 10px 8px;
+	text-align: left;
+	font-size: 13px;
+	font-weight: bold;
+	overflow: hidden;
+}
+table.table_perfil td span{  
+	font-size: 14px;
+	font-weight: normal;
+	color: #aaa;
+	padding-left: 7px;
+}
+table.table_perfil td.num {background: #F2F2F2;}
+table.table_perfil td.nome {background: #fff;}
+table.table_perfil td.fone {background: #fff;}
+table.table_perfil td.idade {background: #F2F2F2;}
+table.table_perfil td.address {background: #F2F2F2;}
+
+/*Totla AKZ right consultas*/
+
+#total {
+	width: 635px;
+	border: solid 1px #ccc;
+	border-radius: 8px;
+	padding: 15px 10px 10px;
+	background: #ECECFB;
+	margin-left: 20px;
+}
+table.table_total { 
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 635px; 
+	margin: 20px 0 15px;   
+}
+table.table_total th { 
+	border: 1px solid #999; 
+	padding: 8px 6px;
+	background: #646473;
+	color: white;
+}
+table.table_total .num 	 div { width: 32px; text-align: center}
+table.table_total .servico div { width: 460px; text-align: left}
+table.table_total .preco 	 div { width: 85px; text-align: center}
+
+table.table_total td { 
+	border: 1px solid #ccc;  
+	padding: 10px 6px;
+	font-size: 13px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+	text-align: center
+}
+table.table_total td.serv_left { 
+	text-align: left;
+}
+
+/*Totla AKZ right Exames*/
+
+#total {
+	width: 635px;
+	border: solid 1px #ccc;
+	border-radius: 8px;
+	padding: 15px 10px 10px;
+	background: #ECECFB;
+	margin-left: 20px;
+}
+/*table scroll*/
+
+/*Table Left css*/
+#total .scrollingArea?{
+	margin: 10px 0;
+}
+#total table.cruises { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+    width: 630px;  
+    border: solid 0px red; 
+    }
+#total table.cruises tbody { 
+    top: 2.5em;
+    height: 93px; 
+    width: 632px; 
+    overflow: auto; 
+    position: absolute;
+   
+}
+#total table.cruises td { 
+    border-left: 1px solid #999; 
+    border-top: 1px solid #999;  
+    border: 1px solid #ccc;  
+	padding: 8px 4px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+#total table.cruises tr:first-child td {
+    border-top: none;
+}
+#total table.cruises th { 
+    border: 1px solid #999; 
+	padding: 6px 4px;
+	background: #646473;
+	color: white;
+    }
+#total table.cruises td { 
+  	background: #eee; 
+  	overflow: hidden; 
+}
+#total div.scrollableContainer { 
+    position: relative; 
+    width: 632px; 
+    padding-top: 0px;     
+    border: 0px solid #999;
+    background: #646473;
+    margin: 15px 0 15px 2px;
+}
+#total div.scrollingArea { 
+    height: 123px; 
+    overflow: auto; 
+}
+#total table.scrollable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;  
+}
+#total table.cruises .numero    div { width: 120px;  text-align:center; }
+#total table.cruises .analise  div { width: 312px; text-align:left; padding-left: 5px;}
+#total table.cruises .preco    div { width: 150px; }
+
+
+
+/*######### AND #######*/
+
+#total label{
+	font-size: 28px;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	vertical-align: middle;
+}
+#total label.descont{
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+	width: 400px;
+	margin-bottom: 25px;
+}
+#total label.desconts{
+ float: right;
+ text-align: right;
+ padding-right: 10px;
+ width: 400px;
+ margin-bottom: 15px;
+}
+
+:focus  {
+  color: #333;
+  text-decoration: none;
+  outline: -webkit-focus-ring-color auto 0;
+}
+#total input.totalAkz {
+	line-height: 35px;
+  	min-height: 35px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px;
+  	width: 430px;
+  	float: right;
+  	vertical-align: middle;
+  	text-align: right;
+  	font-size: 20px;
+}
+#total input.descontos {
+	line-height: 30px;
+  	min-height: 32px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px;
+  	width: 200px;
+  	float: right;
+  	vertical-align: middle;
+  	text-align: right;
+}
+
+#total input[type="button"]:disabled {
+	background: url('../img/lock.png') #fff;
+	background-repeat: no-repeat;
+	background-size: 12px;
+	background-position: 10px;
+	border-radius: 3px;
+	cursor: default;
+}
+ #total input.btn-isencao{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 0;
+	background: url('../img/kzfw.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#total input.btn-isencaoIdade{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 5px;
+	background: url('../img/crawling.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#total input.btn-seguro{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 5px;
+	background: url('../img/pharmacy19.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#total input.btn-atm{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 5px;
+	background: url('../img/prepaid.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#total input.btn-cash{
+	padding: 8px 10px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 5px;
+	background: url('../img/hand129.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+ 
+ /*************************
+*******Form Pagar CSS******
+**************************/
+
+/*Form Pagar*/	
+.modalFazerPag > div {
+	 width: 615px;
+	 height: auto;
+	 overflow: hidden;
+	 position: relative;
+	 left: 22px;
+	 top: 25px;
+	 padding: 20px 20px 10px;
+	 background: #ECECFB;
+	 border: solid 1px #ccc;
+	 border-radius: 2px;
+ }
+#fazerPag input.apagar {
+	line-height: 35px;
+  	min-height: 35px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px;
+  	margin-bottom: 15px; 
+  	text-align: right;
+  	font-size: 20px;
+  	width: 360px;
+  	float: right;
+  	vertical-align: middle;
+}
+#fazerPag label{	
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	float: right;
+	margin: 10px 10px 0;
+	vertical-align: middle;
+}
+#fazerPag .btn_pagar{
+	float: right;
+	height: auto;
+}
+#fazerPag input.btn-cash{
+	padding: 6px 18px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 20px;
+	border: solid 1px #ccc;
+	margin: 0 0 5px 8px;
+	background: url('../img/hand129.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+/* Pagar multicaixa*/	
+
+#fazerPag select{
+	float: right;
+	width: 382px;
+	line-height: 35px;
+  	min-height: 35px;
+  	border: 1px solid #D4D7D9;
+  	padding: 8px 10px;
+  	margin-bottom: 12px;
+  	vertical-align: middle;
+}
+#fazerPag .fieldInput{
+	height: auto;
+	overflow: hidden;
+	width: 350px;
+	float: right;
+	margin-bottom: 10px;
+}
+#fazerPag .ter{
+	float: right;
+	width: 100px;
+	line-height: 35px;
+  	min-height: 35px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px; 
+  	text-align: right;
+  	vertical-align: middle;
+}
+
+
+/*************************
+*******Janela modal CSS******
+**************************/
+.modalDialog {
+	 position: fixed;
+	 font-family: Arial, Helvetica, sans-serif;
+	 top: 14%;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 background: rgba(0,0,0,0.5);
+	 z-index: 99999;
+	 opacity:0;
+	 -webkit-transition: opacity 400ms ease-in;
+	 -moz-transition: opacity 400ms ease-in;
+	 transition: opacity 400ms ease-in;
+	 pointer-events: none;
+	 overflow:scroll; /* activa scroll da pana se a modal for muito comprida */
+ }
+	
+ .modalDialog:target {
+ opacity:1;
+ pointer-events: auto;
+ }
+a.close{
+	 color: #000;
+	 line-height: 25px;
+	 position: absolute;
+	 right: 25px;
+	 top: 10px;
+	 width: auto;
+	 text-decoration: none;
+	 font-weight: bold;
+	 font-size: 12px;
+ }
+	
+a.close:hover { color: #444; }
+
+/*Form Cadastro*/
+	
+.modalFormCadastro > div {
+	 width: 630px;
+	 height: auto;
+	 overflow: hidden;
+	 position: relative;
+	 margin: 5% auto; 
+	 background: #fff;
+	 border: solid 1px #bbb;
+	 box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
+ }
+.modalFormTitle {
+	 width: 100%;
+	 background: #EDEDED;
+ }
+.modalFormCadastro h2{
+	font-size: 18px;
+	color: #333;
+	padding: 20px 25px 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 0;
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+	border-bottom: solid 1px #D4D7D9;
+	vertical-align: middle;
+}	
+	
+.form_cadastro{
+	width: 630px;
+	height: auto;
+	padding: 4px 25px 15px 25px;
+}
+
+ #textarea label {
+	display: block;
+	width: 580px;
+	border-radius: 2px;
+	padding: 10px 0px 0px 0px;
+	border: 1px solid #b6b6b7;
+	background: #f8f8f8;
+	font-size: 15px;
+	color: #222;
+	margin: 10px 0px;
+}
+ #textarea label span {
+	border-bottom: 1px solid #b6b6b7;
+	display: block;
+	padding: 0px 10px 10px 10px;
+	font-family: "TazLight";
+	font-size: 15px;
+	text-transform: uppercase;
+	}
+ #textarea textarea {
+	width: 556px;
+	height: 100px;
+	overflow: auto;
+	border: 0px;
+	color: #818282!important;
+	text-align: left;
+	background: #f8f8f8;
+	padding: 10px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 12px;
+	margin: 0px 0px 5px;
+	resize: none;
+}
+#cadastroForm input.btn-primary {
+  background: #0b2b3d;
+  color:#fff;
+  font-size: 15px;
+  text-transform: uppercase;
+  border: 0;
+  box-shadow: none;
+  line-height: 30px;
+  min-height: 30px;
+  padding: 2px 40px;
+  border-radius: 2px;
+  opacity: .9;
+  cursor: pointer;
+}
+
+#cadastroForm .btn-primary:hover {
+ opacity: 1;
+}

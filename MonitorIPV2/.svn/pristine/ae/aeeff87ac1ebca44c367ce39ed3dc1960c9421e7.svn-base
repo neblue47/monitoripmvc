@@ -1,0 +1,47 @@
+<%@ page isErrorPage="true" import="java.util.*"%>
+ 
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GestHosp - Pagina de Erros </title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css"  />
+<link rel="stylesheet" type="text/css" href="css/style.css"  />
+<link rel="stylesheet" type="text/css" href="css/stylegr.css"  />
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
+	
+    <script src="js/form-validation.js"></script>
+    <script src="js/addcampos.js"></script>
+    <script src="tmp/jquery-1.8.2.js"></script>
+	<script src="tmp/jquery-ui.js"></script>
+    <script src="tmp/jquery.maskedinput-1.3.min.js"></script>
+    <script src="js/ajax_val.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/ajaxtela.js"></script>
+    <script src="js/ajax_pc.js"></script>
+</head>
+<body>
+<div id="view">
+      <div id="main">
+        <img src="img/Log gesthosp.jpg" alt="" width="298" height="67" class="left" />
+
+          <a href="index.jsp?mod=ag" >Agenda</a> 
+          <a href="#" >Facturação</a>  
+          <a href="#" >Procedimentos</a> 
+          <a href="#" >Laboratorio</a> 
+          <a href="index.jsp?mod=ad" >Administração </a>  
+          <a href="#" >Ajuda</a>   
+      </div>
+  <div id="sob_main">  </div>
+  <div id="mainMenu">  </div>
+  <div id="content">
+       <h1 style="font-family: sans-serif;color: red;text-align: center;">Falha a carregar a pagina</h1>
+  </div>
+  <div id="foot">
+       Angotech - Todos Direitos Reservados &copy; 2014 
+  </div>
+</div>
+</body>
+
+</html>

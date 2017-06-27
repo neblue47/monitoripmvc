@@ -1,0 +1,45 @@
+div.scrollableContainer_gr { 
+    position: relative; 
+    width: 100%;     
+    }
+  div.scrollingArea_gr { 
+    height: 282px; 
+    overflow: auto; 
+}
+/* head*/
+
+table.cruises_gr th { 
+    padding: 10px 4px;
+    background: #999999;
+    color: black;
+    font-variant: small-caps;
+}
+table.scrollable_gr thead tr {
+    left: -1px; top: 0;
+    position: absolute;
+}
+
+/* body */
+
+table.cruises_gr { 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 11px;
+    cellspacing: 0; 
+    border-collapse: collapse; 
+    width: 95%; 
+	margin-top: 36px;
+}
+table.cruises_gr td { 
+    border: 1px solid #CCC;	
+    border-top: 1px solid #999;  
+    padding: 5px 4px;
+}
+  table.cruises_gr tr:first-child td {
+    border-top: none;
+  }
+  
+  table.cruises_gr td {   overflow: hidden; }
+  
+  table.cruises_gr .name     div { width: 69%; }
+  table.cruises_gr .actions   div { width: 31%; }
+  table.cruises_gr .action   div { width: 15%; text-align:center}

@@ -1,0 +1,181 @@
+$(document).ready(function(){
+	$('select[name=pais]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'Provinciacontroller',
+			data: 'codigopais='+$('select[name=pais]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=provincia] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{
+					$('select[name=provincia]').append('<option > Nenhuma Provincia </option>');
+					}
+				else{
+					$('select[name=provincia]').append('<option > Selecione  </option>');
+					for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=provincia]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>');
+				}
+			}
+				
+			}
+		});		
+	})
+});
+$(document).ready(function(){
+	$('select[name=provincia]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'municipiocontroller',
+			data: 'codigoprovincia='+$('select[name=provincia]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=municipio] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{
+					$('select[name=municipio]').append('<option > Nenhum municipio </option>')
+					}
+				else{
+					$('select[name=municipio]').append('<option > Selecione  </option>');
+				for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=municipio]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>')
+				}
+			}
+				
+			}
+		});		
+	})
+});
+
+
+$(document).ready(function(){
+	$('select[name=municipio]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'Distritocontroller',
+			data: 'codigomunicipio='+$('select[name=municipio]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=distrito] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{
+					$('select[name=distrito]').append('<option > Nenhum distrito </option>')
+					}
+				else{
+					$('select[name=distrito]').append('<option > Selecione  </option>');
+				for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=distrito]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>')
+				}
+			}
+				
+			}
+		});		
+	})
+});
+
+
+$(document).ready(function(){
+	$('select[name=distrito]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'Bairrocontroller',
+			data: 'codigodistrito='+$('select[name=distrito]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=bairro] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{
+					$('select[name=bairro]').append('<option > Nenhum bairro </option>')
+					}
+				else{
+					$('select[name=bairro]').append('<option > Selecione  </option>');
+				for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=bairro]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>')
+				}
+			}
+				
+			}
+		});		
+	})
+});
+
+//----- Atualizar tipo de servico ----------------
+$(document).ready(function(){
+	$('select[name=especialidade]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'ServicoController',
+			data: 'codigoespecialidade='+$('select[name=especialidade]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=servico] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{ 
+					$('select[name=servico]').append('<option > Nenhum servico </option>');
+					}
+				else{
+					$('select[name=servico]').append('<option > -- Selecione -- </option>');
+				for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=servico]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>');
+				}
+			}
+				
+			}
+		});		
+	})
+});

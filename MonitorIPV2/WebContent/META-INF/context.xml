@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+	
+	<Resource auth="Container"
+	 driverClassName="com.mysql.jdbc.Driver"
+	 maxActive="20" maxldle="10"  maxWait="100000"
+	 name = "jdbc/atgesthosp"
+	 type="javax.sql.DataSource"
+	 url="jdbc:mysql://localhost:3306/atgesthosp"
+	 username="root"
+	 password="angotech" />
+</Context>

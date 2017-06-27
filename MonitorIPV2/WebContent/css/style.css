@@ -1,0 +1,50 @@
+
+div.scrollableContainer { 
+    position: relative; 
+    width: 1300px;     
+    }
+  div.scrollingArea { 
+    height: 282px; 
+    overflow: auto; 
+}
+/* head*/
+
+/* table.cruises th { 
+    padding: 10px 4px;
+    background: #999999;
+    color: black;
+}
+table.scrollable thead tr {
+    left: -1px; top: 0;
+    position: absolute;
+} */
+
+/* body */
+
+table.cruises { 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 11px;
+    cellspacing: 0; 
+    border-collapse: collapse; 
+    width: 900px; 
+	margin-top: 36px;
+}
+table.cruises td { 
+    border: 1px solid #CCC;	
+    border-top: 1px solid #999;  
+    padding: 5px 4px;
+}
+  table.cruises tr:first-child td {
+    border-top: none;
+  }
+  
+  table.cruises td {   overflow: hidden; }
+  
+  table.cruises .name     div { width: 200px; }
+  table.cruises .data div { width: 150px; text-align:center; }
+  table.cruises .fone    div { width: 150px;  text-align:center; }
+  table.cruises .email  div { width: 200px;   }
+  table.cruises .address   div { width: 240px; }
+  table.cruises .actions   div { width: 290px; }
+  table.cruises .action   div { width: 88px; text-align:center}
+  

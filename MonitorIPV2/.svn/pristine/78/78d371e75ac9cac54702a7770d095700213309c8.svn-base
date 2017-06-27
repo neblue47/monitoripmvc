@@ -1,0 +1,322 @@
+package ao.co.smpip.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ao.co.smpip.entidades.Turnos;
+import ao.co.smpip.entidades.Diverso;
+import ao.co.smpip.entidades.Equipa;
+import ao.co.smpip.entidades.Funcionario;
+import ao.co.smpip.entidades.Posto;
+import ao.co.smpip.entidades.Usuario;
+import ao.co.smpip.jdbc.AgendaDAO;
+import ao.co.smpip.jdbc.EquipaDAO;
+import ao.co.smpip.jdbc.FuncionarioDAO;
+import ao.co.smpip.jdbc.MapaDAO;
+import ao.co.smpip.jdbc.UserDAO;
+import ao.co.smpip.utils.MetodosBuscas;
+
+/**
+ * Servlet implementation class NavegController
+ */
+@WebServlet("/navegacao")
+public class NavegController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public NavegController() {
+        super();
+        
+    }
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher saida = null;
+		String mod = request.getParameter("mod");
+		FuncionarioDAO fdao = new FuncionarioDAO();
+		if(mod!=null && mod.equals("ng"))
+		{
+			saida = request.getRequestDispatcher("index.jsp?mod=ng");
+			saida.forward(request, response);
+		}
+		if(mod!=null && mod.equals("ad"))
+		{
+			String tela = request.getParameter("pesquisar");
+			if(tela==null){
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=rh");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("rh"))
+			{
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=rh");
+				saida.forward(request, response);
+				
+			}
+
+			if(tela!=null && tela.equals("u")){
+				String hab1 = "disabled='disabled'";
+				String hab2 = "disabled='disabled'";
+				List <Funcionario> lista = new FuncionarioDAO().getFuncionario();
+				request.setAttribute("lista", lista);
+				request.setAttribute("hab1", hab1);
+				request.setAttribute("hab2", hab2);
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=u");
+				
+				saida.forward(request, response);
+			}
+			if(tela!=null && tela.equals("ut")){
+				String hab1 = "disabled='disabled'";
+				String hab2 = "disabled='disabled'";
+				String cod = request.getParameter("cod");
+				Funcionario f = new FuncionarioDAO().getUtilizador(cod);
+				Usuario u = new UserDAO().buscarPorId(cod);
+				List <Funcionario> lista = new FuncionarioDAO().getFuncionario();
+				request.setAttribute("lista", lista);
+				request.setAttribute("nome_c", f.getNome()+" "+f.getSnome());
+				if(u.getNivel()!=0)
+				{
+					request.setAttribute("nomeu", u.getNome());
+					request.setAttribute("senha", u.getSenha());
+					request.setAttribute("grupou",u.getNivel());
+					request.setAttribute("txtid",cod);
+					request.setAttribute("hab1", hab1);
+					request.setAttribute("hab2", "");
+				}
+				else {
+					request.setAttribute("txtid",0);
+					request.setAttribute("hab1", "");
+					request.setAttribute("hab2", hab2);
+				}
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=u");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("eq")){
+				List <Funcionario> lista = new FuncionarioDAO().getFuncionarioTecnico();
+				List<Equipa> lista_eq = new EquipaDAO().getEquipas();
+				request.setAttribute("lista", lista);
+				request.setAttribute("lista_eq", lista_eq);
+				String acao		  = request.getParameter("acao");
+				if(acao!=null && acao.equals("edit")){
+					int cod = Integer.parseInt(request.getParameter("cod"));							
+					Equipa equipa = new EquipaDAO().getEquipas(cod);
+					request.setAttribute("equipa", equipa);
+					request.setAttribute("acao", acao);
+				}
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=eq");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("ag")){
+				List <Funcionario> lista = new FuncionarioDAO().getFuncionario();
+				List <Diverso> dsemanas = new MetodosBuscas().buscaDiasSemanasEnum();
+				request.setAttribute("lista", lista);
+				request.setAttribute("dsemanas", dsemanas);
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=ag");
+				saida.forward(request, response);
+			}
+
+			if(tela!=null && tela.equals("f")){
+				MetodosBuscas func = new MetodosBuscas();
+				List <Diverso> lista_esp = func.buscaEspecialidade();
+				List <Diverso> lista_prof = func.buscaProfissaoEnum();
+				List <Diverso> lista_est = func.buscaEstadoCivilEnum();
+				List <Diverso> lista_ocu = func.buscaCategoriaEnum ();
+				
+				List <Diverso> lista_tdoc = func.buscaTipoDocEnum ();
+				List <Diverso> lista_pais = func.buscaPais();
+				List <Diverso> lista_fnc = func.buscaCategoriaEnum ();
+				String num = "FUN00" + (1 + new FuncionarioDAO().novaNum());
+				request.setAttribute("especialidade", lista_esp);
+				request.setAttribute("profissao", lista_prof);
+				request.setAttribute("estCivil", lista_est);
+				request.setAttribute("lista_ocu", lista_ocu);
+				request.setAttribute("pais", lista_pais);
+				request.setAttribute("tipodoc", lista_tdoc);
+				request.setAttribute("categoria", lista_fnc);
+				request.setAttribute("num", num);
+				saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=f");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && (tela.equals("p")||tela.equals("Pesquisar")) ){
+				String n1 = request.getParameter("id");
+			    String n2 = request.getParameter("nomep");
+			
+			    String axu = request.getParameter("pesquisar");
+				
+				List <Funcionario> lista =fdao.buscaPorNome(n2);
+			    request.setAttribute("lista", lista);
+				request.setAttribute("aux", axu);
+			    saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=p");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && (tela.equals("edit") )){
+				String num = request.getParameter("num");
+			    int id = Integer.parseInt(num);
+				
+				Funcionario lista =fdao.buscaEditFuncionario(id);
+			    
+			    MetodosBuscas func = new MetodosBuscas();
+				List <Diverso> lista_esp = func.buscaEspecialidade();
+				List <Diverso> lista_prof = func.buscaProfissao();
+				List <Diverso> lista_est = func.buscaEstadoCivil();
+				List <Diverso> lista_ocu = func.buscaOcupacao();
+				
+				List <Diverso> lista_tdoc = func.buscaTipoDocumento();
+				List <Diverso> lista_pais = func.buscaPais();
+				List <Diverso> lista_fnc = func.buscaFuncao();
+			
+				request.setAttribute("especialidade", lista_esp);
+				request.setAttribute("profissao", lista_prof);
+				request.setAttribute("estCivil", lista_est);
+				request.setAttribute("lista_ocu", lista_ocu);
+				request.setAttribute("pais", lista_pais);
+				request.setAttribute("tipodoc", lista_tdoc);
+				request.setAttribute("funcao", lista_fnc);
+				request.setAttribute("f", lista);
+			    saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=edit");
+				saida.forward(request, response);
+			}
+			
+		}
+		if(mod!=null && mod.equals("ag"))
+		{
+			String tela = request.getParameter("pesquisar");
+			if(tela!=null && tela.equals("pc")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=pc");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("ps")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=ps");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("ht")){
+				MapaDAO m = new MapaDAO();
+				List<Posto> logs = m.getLogs_sensor();
+				request.setAttribute("logs", logs);
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=ht");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("rq")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=rq");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("rt")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=rt");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("rtd")){
+							
+							saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=rtd");
+							saida.forward(request, response);
+						}
+			if(tela!=null && tela.equals("rts")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=rts");
+				saida.forward(request, response);
+			}
+			if(tela!=null && tela.equals("rtm")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=rtm");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("not")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=not");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("msg")){
+				
+				saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=msg");
+				saida.forward(request, response);
+			}
+			if(tela==null){
+				saida = request.getRequestDispatcher("index.jsp?mod=ag");
+				saida.forward(request, response);
+			}
+			
+		}
+		
+		if(mod!=null && mod.equals("cf"))
+		{
+			String tela = request.getParameter("pesquisar");
+			if(tela!=null && tela.equals("nc")){
+				List<Diverso> provincia = new MetodosBuscas().buscaProvincia (1);
+				request.setAttribute("provincia", provincia);
+				saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=nc");
+				saida.forward(request, response);
+			}
+			if(tela!=null && tela.equals("ns")){
+				List<Posto> armarios = new MapaDAO().getSensores();
+				request.setAttribute("armarios", armarios);
+				String cod = request.getParameter("cod");
+				if(cod!=null){
+					int idposto = Integer.parseInt(cod);
+					Posto posto = new MapaDAO().buscaPorPosto(idposto);
+					request.setAttribute("posto", posto);
+				}
+				saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=ns");
+				saida.forward(request, response);
+			}
+			if(tela!=null && tela.equals("mt")){
+				List<Posto> armarios = new MapaDAO().buscaPorPostos();
+				List<Diverso> provincia = new MetodosBuscas().buscaProvincia (1);
+				request.setAttribute("provincia", provincia);
+				request.setAttribute("armarios", armarios);
+				String cod = request.getParameter("cod");
+				if(cod!=null){
+					int idposto = Integer.parseInt(cod);
+					Posto posto = new MapaDAO().buscaPorPosto(idposto);
+					request.setAttribute("posto", posto);
+				}
+				saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=mt");
+				saida.forward(request, response);
+			}
+			
+			if(tela!=null && tela.equals("mts")){
+				List<Posto> logs_manutencao = new MapaDAO().getLogs_manutencao();
+				request.setAttribute("logs_manutencao", logs_manutencao);
+				String cod = request.getParameter("cod");
+				if(cod!=null){
+					int idposto = Integer.parseInt(cod);
+					List<Equipa> lista_eq = new EquipaDAO().getEquipas();
+					request.setAttribute("lista_eq", lista_eq);
+					Posto posto = new MapaDAO().buscaPorPostoNoHistorico(idposto);
+					request.setAttribute("posto", posto);
+				}
+				saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=mts");
+				saida.forward(request, response);
+			}
+			if(tela==null){
+				saida = request.getRequestDispatcher("index.jsp?mod=cf");
+				saida.forward(request, response);
+			}
+			
+		}
+	}
+
+}

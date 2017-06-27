@@ -1,0 +1,119 @@
+package ao.co.smpip.serial;
+
+import gnu.io.CommPortIdentifier;
+import gnu.io.SerialPort;
+import gnu.io.SerialPortEvent;
+import gnu.io.SerialPortEventListener;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.Enumeration;
+
+import ao.co.smpip.entidades.ListaBean;
+import ao.co.smpip.entidades.SerialBean;
+import ao.co.smpip.jdbc.MapaDAO;
+
+
+public class SerialConexao implements SerialPortEventListener {
+
+	SerialPort serialPort = null;
+	public ListaBean lista = new ListaBean();
+	private String appName;
+	private BufferedReader input;
+	private OutputStream output;
+	
+	private static final int TIME_OUT = 2000;
+	private static final int DATA_RATE = 9600;
+	
+	private String serialPortNome = "COM3";
+	// Metodo que inicializa a serial --
+	public boolean iniciaSerial(){
+		boolean status = false;
+		
+		try {
+			// Obter as portas seriais da minha maquina 
+			CommPortIdentifier portId = null;
+			Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
+			while (portId == null && portEnum.hasMoreElements()) {
+				CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
+				if(currPortId.getName().equals(serialPortNome) || currPortId.getName().startsWith(serialPortNome)){
+					serialPort = (SerialPort) currPortId.open(appName,TIME_OUT);
+					portId = currPortId;
+					System.out.println("Conexao efetuada... em: "+currPortId.getName());
+					break;
+				}
+			}
+			
+			if(portId == null || serialPort == null ){
+				return false;
+			}
+			serialPort.setSerialPortParams(DATA_RATE,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
+			serialPort.addEventListener(this);
+			serialPort.notifyOnDataAvailable(true);
+			status = true;
+			
+			Thread.sleep(1000);
+			
+		} catch (Exception e) {
+			status = false;
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+	public synchronized void close() {
+		if (serialPort != null) {
+			serialPort.removeEventListener();
+			serialPort.close();
+		}
+	}
+	
+	@Override
+	public void serialEvent(SerialPortEvent evt) {
+		try {
+			switch (evt.getEventType()) {
+			case SerialPortEvent.DATA_AVAILABLE:
+				if(input  == null){
+					input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
+				}
+				if(input.ready()){
+					String inputLine = input.readLine();
+					String [] logs = inputLine.split("-");
+					lista = getLogs(logs);
+					for (SerialBean sb : lista.getLista()) {
+						new MapaDAO().adicionaLogSerial(sb);
+						System.out.println("ARMARIO "+sb.getId_posto()+ "  <->  "+sb.getDoSerial());
+					}
+				}
+				 
+				break;
+
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public ListaBean getLogs(String [] logs){
+		ListaBean logss = new ListaBean();
+		try {
+			int tam = logs.length;
+			for(int n = 0;n<tam; n++){
+				SerialBean sb = new SerialBean();
+				sb.setId_posto(n+1);
+				sb.setDoSerial(logs[n]);
+				sb.setStream(Double.parseDouble(logs[n]));
+				logss.adLista(sb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return logss;
+	}
+	
+}

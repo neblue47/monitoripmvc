@@ -1,0 +1,15 @@
+package ao.co.smpip.testejsp;
+
+
+public class testejsp 
+{
+	public static void main(String ar[])
+	{
+		try
+		{
+			EmailJava email = new EmailJava();
+			email.EnviarMail("khadastros@gmail.com","Teste 2","Esto trabalhando nisso agora","soneljohn@hotmail.com");
+		}
+		catch(Exception e){}
+	}
+}

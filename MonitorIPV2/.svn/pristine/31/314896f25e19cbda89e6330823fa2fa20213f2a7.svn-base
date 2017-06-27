@@ -1,0 +1,143 @@
+<%@page import="ao.co.smpip.jdbc.MapaDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="ao.co.smpip.entidades.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+<!DOCTYPE html >
+<html>
+    <head>
+    <%
+      MapaDAO mp = new MapaDAO();
+      List<Posto> lp = mp.buscaPorPostos(); 
+    %>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script> 
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDXKO8r13-KZ9eXHnAsxh9qT9v_XfCcu0k&libraries=places"></script>
+        <link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css"/>
+        <script type="text/javascript">
+         
+         
+          var infowindowsArray = [];
+          var image ='img/red-marker.png';
+          function initialize()
+          {
+              var cenLatlong   =   new google.maps.LatLng(<%=lp.get(0).getLatitude()%>, <%=lp.get(0).getLongitude()%>);
+              var myOptions   =   {
+                                      zoom:17,
+                                      center:cenLatlong,
+                                      mapTypeId:google.maps.MapTypeId.ROADMAP,
+                                      scrollwheel: false,
+                                      
+                                  };
+             map          =   new google.maps.Map(document.getElementById('mapa'),myOptions);             
+             <%for(Posto p: lp){%>
+             var myLatlong = new google.maps.LatLng(<%=p.getLatitude()%>, <%=p.getLongitude()%>);
+             marker_<%=p.getIdPosto()%> = new google.maps.Marker({
+                 map: map,
+                 draggable: false,
+                 title: '<%=p.getDescricao() + p.getNomPosto()%>',
+                 icon: image
+             });
+             marker_<%=p.getIdPosto()%>.setPosition(myLatlong);
+             
+             var conteudo = '<div><%=p.getDescricao()%></div>';
+             var infowindow = new google.maps.InfoWindow({
+             	content:conteudo
+             });
+             google.maps.event.addListener(marker_<%=p.getIdPosto()%>,'click',function(){
+             	infowindow.open(map,marker_<%=p.getIdPosto()%>);
+             });
+             <%}%>
+          }
+        
+          $(document).ready(function () {
+        	    initialize();
+        	    var marker = new google.maps.Marker({
+             	    map: map,
+             	   draggable:false
+                });
+        	    localizar();
+        	});
+          
+          function localizar(){
+        	  var local = document.getElementById("armario"); 
+        	  var mapLocal = document.getElementById("mapsearch");  
+        	  if(local.value != ''){
+//         		      mapLocal.value = local.value;
+					  alert(local.value);
+        		      var searchbox = new google.maps.places.SearchBox(document.getElementById("armario")); 
+        		      console.log(searchbox);
+        	          google.maps.event.addListener(searchbox, 'places_changed', function(){
+        	    	  var places = searchbox.getPlaces();
+        	    	  var bounds = new google.maps.LatLngBounds();
+        	    	  var i,place;
+        	    	  for(i=0;place=places[i];i++){
+        	    		  console.log(place.geometry.location);
+        	    		  bounds.extend(place.geometry.location);
+        	    		  marker.setPosition(place.geometry.location);
+        	    		  marker.setIcon('img/red-marker.png');
+        	    	  }
+        	    	  map.fitBounds(bounds);
+        	    	  map.setZoom(15);
+        	       });
+        	  }
+          }
+        </script>
+        <style>
+        #mapa{height: 470px; width: auto; margin:auto; background-color:#9CF; }
+        #bloco{
+          width: auto;
+          margin: 3px auto;
+          background: #ccc;
+          text-align: center;
+        }
+        #bloco-lista{
+          width: auto;
+          height: 470px;
+          margin: 3px auto;
+          background: #ccc;
+          
+        }
+        #bloco-lista a{
+         margin-left: 10px ;
+         margin-top: 10px ;
+         text-decoration: none;
+         color: white;
+        }
+        #bloco input{
+            width: 100%;
+            height: 30px;
+            padding: 5px;
+        	border: 0;
+        }
+</style>
+    </head>
+    <body>
+    <div class="row">
+	    <div class="col-md-10">
+            <div id="bloco">
+<!--               <input type="text" id="armario" placeholder="Digite nome de local a visualizar..." onblur="localizar()"/> -->
+              <input type="hidden" id="mapsearch" />
+              <div id="mapa" >
+		
+             </div>
+           </div>
+       </div>
+       <div class="col-md-2">
+        <div id="bloco-lista">
+           <ul>
+           <c:forEach items="${armarios }" var="at">
+           	<li><a href="#"> <i  class="glyphicon glyphicon-eye-open"></i> ${at.nomPosto }</a> </li>
+           </c:forEach>        	
+           </ul>
+        </div>
+       
+       </div>
+     </div>
+        
+    </body>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+  	<script type="text/javascript" src="js/autocomple-ui.js"></script>
+</html>

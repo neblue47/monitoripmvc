@@ -1,0 +1,139 @@
+package ao.co.smpip.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ao.co.smpip.entidades.Funcionario;
+import ao.co.smpip.entidades.Usuario;
+import ao.co.smpip.jdbc.Formatando;
+import ao.co.smpip.jdbc.FuncionarioDAO;
+
+/**
+ * Servlet implementation class EditController
+ */
+@WebServlet("/editcontroller.do")
+public class EditController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public EditController() {
+        super();
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FuncionarioDAO funDao = new FuncionarioDAO();
+		String acao = request.getParameter("acao");
+		if(acao!=null && acao.equals("exc"))
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
+			new FuncionarioDAO().exlcuirFuncionario(id);
+			request.getSession().setAttribute("excluido", "ok");
+			response.sendRedirect("navegacao?mod=ad&pesquisar=p");
+		}
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Chamando pelo Metodo Post");
+	 
+		Funcionario funUp = new Funcionario();
+		FuncionarioDAO funDao = new FuncionarioDAO();
+		Formatando dts = new Formatando();
+		//String acao = request.getParameter("salvar");
+//		try
+//		{
+//			String id    = request.getParameter("arqId");
+//			int cod = Integer.parseInt(request.getParameter("codigo"));                  funUp.setId(cod);
+//			String nome  = request.getParameter("nome");                                 funUp.setNome(nome);
+//			String nomem = request.getParameter("nomem");                                funUp.setNomem(nomem);
+//			String apelido = request.getParameter("apelido");							 funUp.setApelido(apelido);
+//			int estcivil  = Integer.parseInt(request.getParameter("estcivil"));          funUp.setEst_civil(estcivil);
+//			int sexo = Integer.parseInt(request.getParameter("sexo"));                   funUp.setGenero(sexo);
+//			int profissao = Integer.parseInt(request.getParameter("profissao"));		 funUp.setProfissao(profissao);
+//			String nascido    = request.getParameter("nascido"); 
+//			int funcao    = Integer.parseInt(request.getParameter("funcao"));            funUp.setFuncao(funcao);
+//			int especialidade  = Integer.parseInt(request.getParameter("especialidade"));funUp.setEspecialidade(especialidade);
+//			int telefone = dts.fone(request.getParameter("telefone"));			          funUp.setTelefone(telefone);
+//			System.out.println(" 1 Request Tel : "+telefone);
+//			int estado = Integer.parseInt(request.getParameter("estado"));				 funUp.setEstado(estado);
+//			System.out.println(" 1 Request Estado : "+estado);
+//			String email    = request.getParameter("email"); 							 funUp.setEmail(email);
+//			int tipoD  = Integer.parseInt(request.getParameter("tipoD")); 				 funUp.setTipo_doc(tipoD);
+//			System.out.println(" 1 Request Documento : "+tipoD);
+//			String numDoc = request.getParameter("numDoc"); 							 funUp.setNum_doc(numDoc);
+//			String endereco1 = request.getParameter("endereco1");						 funUp.setEndereco(endereco1);
+//			int nacional  = Integer.parseInt(request.getParameter("nacional")); 		 funUp.setPais(nacional);
+//			System.out.print(" 1 Request Nacional : "+nacional);
+//			int natural = Integer.parseInt(request.getParameter("natural")); 			 funUp.setProvincia(natural);
+//			System.out.print(" 1 Request Natural : "+natural);
+//			String numssocail = request.getParameter("numssocail"); 					 funUp.setNum_ss(numssocail);
+//			
+//			String nif    = request.getParameter("nif");								 funUp.setNif(nif);
+//			double salario  = Double.parseDouble(request.getParameter("salario"));		 funUp.setSalario(salario);
+//			System.out.print(" 2 Request Tel: "+salario);
+//			String parente = request.getParameter("parente");							 funUp.setNomep(parente);
+//			System.out.print(" 2 Request Tel: "+parente);
+//			int telefonep = dts.fone(request.getParameter("telefonep"));                 funUp.setTelefonep(telefonep);
+//			System.out.print(" 2 Request Tel: "+telefonep);
+//			int afiliacao = Integer.parseInt(request.getParameter("afiliacao"));		 funUp.setAfiliacao(afiliacao);
+//			System.out.println(nascido);
+//			java.sql.Date data=dts.dataSql(nascido); 
+//			System.out.println(data);
+//			funUp.setDataNasc(data);
+//				funDao.up_estado(funUp);
+//				funDao.up_cidadao(funUp);
+//				funDao.up_funcionario(funUp);
+//				funDao.up_endereco(funUp);
+//				funDao.up_fone(funUp);
+//				funDao.up_naturalidade(funUp);
+//				funDao.up_parente(funUp);
+//				// Extra Email, Endereco e Fone
+//				String fone1 = request.getParameter("telefone1");
+//				if(fone1!=null && !fone1.equals("")){
+//					int telefone1 = dts.fone(fone1);
+//					funUp.setTelefone(telefone1);
+//					funDao.fun_fone(funUp);
+//				}
+//				String email2    = request.getParameter("email2");
+//				if(email2!=null && !email2.equals("")){
+//					if(funUp.getId()==funDao.checkeEmail(email2))
+//					{
+//						funUp.setEmail(email2);
+//						funDao.up_email(funUp);
+//					}
+//					else
+//					{
+//						funUp.setEmail(email2);
+//						funDao.fun_email(funUp);
+//					}
+//					
+//				}
+//				String endereco2 = request.getParameter("endereco2");
+//				if(endereco2!=null && !endereco2.equals("")){
+//					funUp.setEndereco(endereco2);
+//					funDao.fun_endereco(funUp);
+//				}
+//				request.setAttribute("nome", (funUp.getNome()+funUp.getApelido()));
+//				request.getSession().setAttribute("msg", msg);
+//				RequestDispatcher saida = request.getRequestDispatcher("index.jsp?mod=ad&pesquisar=mss&valor="+funUp.getId());
+//				saida.forward(request, response); 
+//		}
+//		catch(NumberFormatException er){}
+	
+		
+	}
+}

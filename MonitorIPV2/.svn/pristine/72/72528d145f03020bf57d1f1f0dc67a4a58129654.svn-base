@@ -1,0 +1,435 @@
+
+.widget-proc{
+  background-image: none;
+  background-color: #fcfcfc;
+  border-bottom-color: #d9d9d9;
+  padding: 10px;
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px; 
+  margin-bottom: 5px; 
+}
+.widget-proc{
+  border: 1px solid #CDCDCD;
+  height: auto;
+  -webkit-box-shadow: 0 1px 0 #ffffff inset;
+  box-shadow: 0 1px 0 #ffffff inset;
+  border-radius: 0;
+}
+.widget-receit{
+  margin-bottom: 10px;
+  border-right: 1px solid #CDCDCD;
+  border-left: 1px solid #CDCDCD;
+  border-bottom: 1px solid #CDCDCD;
+  height: auto;
+  -webkit-box-shadow: 0 1px 0 #ffffff inset;
+  box-shadow: 0 1px 0 #ffffff inset;
+  border-radius: 0;
+}
+
+/* -------- Tab  ----------*/
+/* For Tratamento */
+#fromSinaisVitais, #fromEvolucao {
+	display:none;
+}
+/* For Consultorio */
+#fromInternamento, #fromMedicacao, #fromRecomendacoes, #fromSuspensos, #fromExameInt {
+	display:none;
+}
+/* For Antecedentes */
+#fromAntecedentesFamiliar{
+	display:none;
+}
+.procediment {
+  background:#ffffff;
+  border-radius: 0;
+}
+
+.procediment-tab-menu ul {
+  border: medium none;
+  list-style: none outside none;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.procediment-tab-menu ul li {
+  background: #34495e;
+  color: #fff;
+  cursor: pointer;
+  font-family: ramblabold;
+  font-size: 12px;
+  padding: 8px 0px;
+  text-transform: uppercase;
+  transition: all 0.9s ease 0s;
+  -moz-transition: all 0.9s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  -o-transition: all 0.9s ease 0s;
+  text-align:center;
+  opacity: 0.7;
+}
+
+.procediment-tab-menu ul li:first-child {
+  background: #34495e;
+  color: #fff;
+  opacity: 1;
+}
+/*#################*/
+
+.receituario-border {
+	border: solid 1px #dcdcdc;
+}
+input.input-medicar{
+	padding: 3px;
+	max-width: 40px;
+	border-radius: 3px;
+	border: solid 1px #bbb;
+	text-align: center;
+}
+.btn-medicar{
+	font-size: 12px;
+	padding: 2px 15px;
+	max-width: 40px;
+	margin-top: 4px;
+}
+/*##########*/
+.intern {
+	display: block;
+	padding: 0 0 12px;
+	font-size: 12px;
+}
+.intern input[type=radio]{
+	vertical-align: middle;
+	margin: 0 4px;
+	padding: 0;
+}
+.intern label{
+	vertical-align: middle;
+	margin-bottom: 0;
+	
+}
+table.dignostico{
+	width: 100%;
+	min-height: 80px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 8px 6px 12px;
+	display: block;
+	border: solid 1px #ccc;
+	margin-bottom: 0;
+}
+table.dignostico tr td{
+	text-align: left;
+	font-size: 13px;
+}
+.widget-btn{
+	padding: 10px;
+}
+.pull{float: right; position: absolute;}
+.select-pacients{
+	width: 100%;
+	height: 90px;
+	padding: 0 2.5em;
+	overflow-y: scroll;
+    overflow-x: hidden;
+	display: block;
+	margin: 10px 0;
+	border: solid 1px #ccc;
+	border-radius: 4px;
+	text-transform: uppercase;
+	word-spacing: 0.1px;
+}
+.select-pacients span{
+	font-size: 12px;
+	font-weight: bold;	
+}
+
+.pacient-selecionado {
+	padding: 6px 0;
+	margin-bottom: 6px;
+}
+.pacient-selecionado input{
+	font-size: 16px;
+	font-weight: bold;
+	color: #ba122b;
+	width: 100%;
+	background: #fcfcfc;
+	border: none;
+	text-align: center;
+	padding: 5px 0 7px;
+	text-transform: uppercase;
+}
+.btn-active-proc{
+	background-color: #34495e;
+}
+
+#fromReceituarios .input-group .form-control {
+  z-index: 0;
+}
+#z-index-zero .input-group .form-control {
+  z-index: 0;
+}
+ul.ui-autocomplete{
+	background: #e2e9ef;
+	padding: 6px 10px;
+	width: 640px;
+	z-index: 3;
+}
+ul.ui-autocomplete li a{
+	color: #000000;
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+}
+/* table nova triagem*/
+
+.bg-td{
+	background-color: #f4f4f4;
+}
+#table-style span {
+	font-weight: bold;
+}
+#table-style {
+	width: 100%;
+	margin-bottom: 15px;
+}
+#table-style td {
+	text-align: left;
+	padding: 6px;	
+}
+#table-style tr {	
+	border: solid 1px #eee;
+}
+
+/* Sinais de dados*/
+
+.btn-sinais-dados {
+	margin-top: 6px;	
+}
+.btn-sinais-dados button{
+	padding: 5px 2.65em;	
+	margin: auto;
+}
+.dados-triagem-alinhar{
+	padding-bottom: 12px;
+}
+/* Queixas*/
+
+.queixas textarea {
+	height: 150px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.queixasNovas textarea {
+	height: 115px;
+	padding: 10px;
+	margin-bottom: 2em;
+	resize: none;
+}
+.queixasHist{
+	margin-top: 3.4em;
+}
+.datasx, .data_at, .data_qh, .data_ef, .data_ecv, .data_h, .data_rc, .data_trc{
+ cursor: pointer;
+}
+
+/* Antecedentes*/
+#anteced-name-span span{
+	font-weight: bold;
+	margin-bottom: 2px;
+	padding-bottom: 1px;
+}
+#anteced-name-span .control-label{
+	margin-left: 10px;
+	padding: 0 10px;
+}
+#anteced-name-span .anteced-radios{
+	margin-left: 5px;
+}
+#anteced-name-span i{
+	margin-left: 25px;
+	font-style: normal;
+}
+textarea.anteceent-area{
+	height: 88px;
+	resize: none;
+	text-align: left;
+}
+.antecedent-area textarea {
+	height: 58px;
+	width: 100%;
+	resize: none;
+	text-align: left;
+}
+
+#agenda-perfil textarea {
+	height: 108px;
+	width: 100%;
+	resize: none;
+	text-align: left;
+}
+.antecedent-area2 {
+	margin-top: 8px;
+}
+.antecedent-area2 textarea {
+	height: 200px;
+	width: 100%;
+	resize: none;
+}
+.btn-alter-position{
+	position: relative;
+	right: 15px;
+}
+
+/* Antecedentes*/
+
+.exa-fisico-area textarea{
+	height: 66px;
+	margin-bottom: 10px;
+}
+.exa-fisico-area2 textarea{
+	height: 66px;
+	margin-bottom: 10px;
+}
+.exa-fisico-area span{
+	float: left;
+}
+
+/* Hipoteses*/
+
+input.bt-sel{
+ 	margin-top: 10px;
+ 	padding: 5px 5px;
+	width: 18px;
+	height: 18px;
+	color: #222;
+	font-size: 12px;
+	font-weight: normal;
+	text-indent: 18px;
+	border: #808080 1px Solid;
+ 	background: url('../img/select.png')  ; 
+	background-color: #FFF;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	border-radius: 3px;
+	cursor: pointer;
+	background-position: 2px 2px;
+}
+
+/* Historico e Justificativo*/
+
+.calendar-consult{
+	padding: 14px 20px;
+}
+.calendar-consult label{
+	font-size: 26px;
+	vertical-align: middle;
+}
+.calendar-consult i{
+	font-size: 22px;
+	margin: -7px 10px 0;
+	vertical-align: middle;
+}
+.calendar-consult input{
+	max-width: 210px;
+	padding: 5px 10px 6px;
+	font-size: 18px;
+	line-height: 22px;
+	color: #ff0000;
+	border: solid 1px #ccc;
+}
+.espaco-right{
+	padding-right: 15px;
+}
+
+/* Tratamentos*/
+.textarea-ajust textarea{
+	height: 380px;
+	width: 100%;
+}
+.tratamento-recom textarea {
+	height: 125px;
+	width: 100%;
+	padding: 0 6px;
+}
+.hipotese-obs textarea {
+	height: 90px;
+	width: 100%;
+	padding: 0 6px;
+	resize: none;
+}
+.linedwrap {
+	border: 1px solid #c0c0c0;
+	padding: 0 0 2px 0;
+	margin-bottom: 10px;	
+}
+.linedtextarea {
+	padding: 0px;
+	margin: 0px;
+}
+.linedtextarea textarea, .linedwrap .codelines .lineno {
+	font-size: 10pt;
+	font-family: monospace;
+	line-height: normal !important;
+}
+.linedtextarea textarea {
+	padding-right: 0.3em;
+	padding-top: 0.3em;
+	outline: none;
+	border: 0;
+}
+.linedwrap .lines {
+	margin-top: 0px;
+	max-width: 30px;
+	min-height: 128px;
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #c0c0c0;
+	margin-right: 1px;
+}
+.linedwrap .codelines {
+	padding-top: 5px;
+}
+.linedwrap .codelines .lineno {
+	color:#AAAAAA;
+	padding-left: 0.8em;
+	padding-top: 0.0em;
+	text-align: left;
+	white-space: nowrap;
+}
+
+/* Internamento*/
+.modo-inter span{
+	font-weight: bold;
+}
+.modo-inter {
+	display: block;
+	padding: 0 0 12px;
+	text-align: left;
+}
+.modo-inter input[type=radio]{
+	vertical-align: middle;
+	margin: 0 4px;
+	padding: 0;
+}
+.modo-inter label{
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+table.table-inter{
+	width: 100%;
+	min-height: 60px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 8px 6px 12px;
+	display: block;
+	border: solid 1px #ccc;
+	margin-bottom: 0;
+}
+table.table-inter tr td{
+	text-align: left;
+	font-size: 13px;
+}
+/* Diaginostico */
+#diagn_obs{
+	margin: 9px;
+}

@@ -1,0 +1,401 @@
+@CHARSET "ISO-8859-1";
+/* Estilo Interno das tabelas */
+
+
+table a {
+	color: #555;
+	font-weight: normal;	
+}
+table a:hover {
+	color: #ba122b;
+	text-decoration: none;
+}
+#agenda-perfil .btn-search {
+  display: inline-block;
+  padding: 4.8px 12px; 
+  font-size: 13px;
+}
+.textarea{
+	padding: 10px;
+	height: 100px;
+	width: 100%;
+	border: solid 1px #ccc;
+	resize: none;
+}
+.textareaPeq{
+	padding: 5px 10px;
+	height: 32px;
+	width: 100%;
+	border: solid 1px #ccc;
+	resize: none;
+}
+.sel_width_ano{
+	padding-left: 0;
+	border: solid 1px red
+}
+.sel_width_mes{
+	padding-left: 0;
+	border: solid 1px red
+}
+/*#######*/
+.qtd-e-valor{
+	margin: 0 auto 5px;
+}
+.qtd-e-valor button{
+	font-size: 12px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+.qtd-e-valor .btn-primary {
+  color: #ffffff;
+  background-color: #34495e;
+  border-color: #34495e;
+}
+.qtd-e-valor input[type=text] {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 2px;
+  width: 77px;
+}
+.qtd-e-valor input.quant {
+  width: 40px;
+}
+.qtd-e-valor input.numservice {
+  width: 115px;
+}
+
+#agenda-perfil{
+	position: relative;
+	margin: 3em 0 0;
+	padding: 10px 10px 0;
+	border-top: 1px solid #CDCDCD;
+	border-bottom: 0px solid #CDCDCD;
+}
+
+/* Styele ajax */
+
+/* Modulo facturacao Table especialidade  css*/
+.factu_margin_bottom{
+	margin-bottom: 50px;	
+}
+/*Table consulta css*/
+
+#pacientsform table.cruises { 
+    font-size: 14px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-collapse: collapse; 
+    width: 635px;   
+    }
+#pacientsform table.cruises tbody { 
+    top: 2.91em;
+    height: 111px; 
+    width: 633px; 
+    overflow: auto; 
+    position: absolute;
+}
+#pacientsform table.cruises tr:first-child td {
+    border-top: none;
+}
+#pacientsform table.cruises th {     
+	padding: 8px 10px;
+	background-color:#f4f4f4;  
+	color: #222;
+	clear: both;   
+	line-height: 24px;
+    vertical-align: top; 
+    border-top: 0;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    }
+#pacientsform table.cruises td { 
+  	background-color: #fcfcfc; 
+  	overflow: hidden; 
+  	padding: 8px 10px;
+  	border: 1px solid #dddddd;
+}
+#pacientsform table.cruises tr:hover { 
+  	background-color:#f4f4f4; 
+}
+#pacientsform div.scrolltableContainer { 
+    position: relative; 
+    width: 653px;    
+    background-color: #fcfcfc;
+    border-top: 1px solid #dddddd;
+}
+#pacientsform div.scrollingarea { 
+    height: 150px; 
+    overflow: auto; 
+}
+#pacientsform table.scrolltable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;  
+}
+#pacientsform table.cruises .marca  div { width: 48px; text-align:center;}
+#pacientsform table.cruises .desc    div { width: 364px;}
+#pacientsform table.cruises .preco    div { width: 140px;  text-align:center; }
+
+/*Table Exames css*/
+#marcarConsultaform table.cruises { 
+    font-size: 14px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-collapse: collapse; 
+    width: 635px;   
+    }
+#marcarConsultaform table.cruises tbody { 
+    top: 2.91em;
+    height: 225px; 
+    width: 633px; 
+    overflow: auto; 
+    position: absolute;
+}
+#marcarConsultaform table.cruises tr:first-child td {
+    border-top: none;
+}
+#marcarConsultaform table.cruises th {     
+	padding: 8px 10px;
+	background-color:#f4f4f4;  
+	color: #222;
+	clear: both;   
+	line-height: 24px;
+    vertical-align: top; 
+    font-variant: none;
+    border-top: 0;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    }
+#marcarConsultaform table.cruises td { 
+  	background-color: #fcfcfc; 
+  	overflow: hidden; 
+  	padding: 8px 10px;
+  	border: 1px solid #dddddd;
+}
+#marcarConsultaform table.cruises tr:hover { 
+  	background-color:#f4f4f4; 
+}
+#marcarConsultaform div.scrolltableContainer { 
+    position: relative; 
+    width: 653px;    
+    background-color: #fcfcfc;
+    border-top: 1px solid #dddddd;
+}
+#marcarConsultaform div.scrollingarea { 
+    height: 210px; 
+    overflow: auto; 
+}
+#marcarConsultaform table.scrolltable thead tr {
+    left: 0px; 
+    top: 0;
+    position: absolute;  
+}
+#marcarConsultaform table.cruises .analise  div { width: 364px; }
+#marcarConsultaform table.cruises .preco    div { width: 140px; text-align:center;}
+#marcarConsultaform table.cruises .accao    div { width: 48px;  text-align:center; }
+
+
+/*Success Message*/
+#conFirm{
+	margin-top: 4em;
+	padding: 2em;
+}
+#conFirm div{
+	margin-left: 10px;
+	padding: 4px 0;
+}
+.success{
+	margin: 10px 0px;
+	padding-top: 4em;
+	background-repeat: no-repeat;
+	background-position: 0 center;	
+	height: 30px;
+	text-indent: 3em;
+}
+.success {
+	color: #4F8A10;
+	background-image:url('../img/Success.png');
+	background-size: 30px; 
+}
+.success{
+	font-size: 14px;
+	font-weight: normal;
+	padding-top: 0px;
+}
+.btn-position{
+	margin-bottom: 6px;
+}
+
+/* Tela CadPaciente e formatando Validação error */
+
+#nome-error, #apelido-error, #tlf-error, #emailp-error {
+	font-weight: normal;
+	margin: 15px 6px 0;
+	padding: 20px 2px 3px;
+	color: red;
+}
+
+.labTxt input[type=checkbox]{
+	position: relative;
+	margin: 10px 10px 0;
+	float: left;
+}
+.labtxt{
+	position: relative;
+	margin: 7px 0 0;
+	float: left;
+}
+.genero, 
+.estadoCiv {
+	display: block;
+	padding: 0 0 12px;
+	text-align: left;
+}
+.genero input[type=radio], 
+.estadoCiv input[type=radio]{
+	vertical-align: middle;
+	margin: 0 4px;
+	padding: 0;
+}
+.genero label, 
+.estadoCiv label{
+	vertical-align: middle;
+	margin-bottom: 0;
+}
+/* ################## */
+.input-group-addon-ajust {
+  min-width: 160px;
+  text-align: right;
+} 
+.input-group-addon-ajust .input-group-addon {
+  min-width: 160px;
+  text-align: right;
+} 
+.input-group-addon-ajust3 .input-group-addon {
+  min-width: 170px;
+  text-align: right;
+} 
+.input-group-addon-ajust2 .input-group-addon {
+  min-width: 180px;
+  text-align: right;
+} 
+.tamanhoReqExa .input-group-addon {
+  min-width: 150px;
+  text-align: right;
+} 
+.tamanhoMarcons .input-group-addon {
+  min-width: 125px;
+  text-align: right;
+}
+.pesAdmin .input-group-addon {
+  min-width: 80px;
+  text-align: right;
+} 
+.pesModif .input-group-addon{
+  min-width: 110px;
+  text-align: right;
+}
+.procInter .input-group-addon {
+  min-width: 105px;
+  text-align: right;
+} 
+
+/*Style facturacao*/
+
+#table-pag span {
+	font-weight: bold;
+}
+#table-pag {
+	width: 100%;	
+}
+
+#table-pag th {
+	background-color: #f4f4f4;
+	padding: 8px;
+	border: solid 1px #eee;	
+}
+#table-pag td {
+	padding: 8px;
+	border: solid 1px #eee;	
+	text-align: left;
+}
+#table-pag tr {	
+	border: solid 1px #eee;
+}
+#total {
+	position: relative;
+	height: auto;
+	overflow: hidden;
+	border: solid 1px #ccc;
+	border-radius: 8px;
+	padding: 15px 10px;
+	background: #fcfcfc;
+	margin-top: 10px;
+}
+#total label{
+	font-size: 28px;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	vertical-align: middle;
+}
+#total label.descont{
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+	width: 400px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+:focus  {
+  color: #333;
+  text-decoration: none;
+  outline: -webkit-focus-ring-color auto 0;
+}
+#total input.totalAkz {
+	line-height: 35px;
+  	min-height: 35px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px;
+  	width: 430px;
+  	float: right;
+  	vertical-align: middle;
+  	text-align: right;
+  	font-size: 20px;
+}
+#total input.descontos {
+	line-height: 30px;
+  	min-height: 32px;
+  	border: 1px solid #D4D7D9;
+  	padding: 0 10px;
+  	width: 200px;
+  	float: right;
+  	vertical-align: middle;
+  	text-align: right;
+  	margin-top: 15px;
+}
+table.table_facturacao { 
+	font-family: 'Open Sans', sans-serif;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 100%;  
+	margin-bottom: 10px;
+}
+table.table_facturacao td { 
+	border: 1px solid #ccc;  
+	padding: 5px 15px 0;
+	font-size: 32px;
+	font-weight: normal;
+	background: #F2F2F2; 
+	overflow: hidden;
+	text-align: right;
+}
+.troco-link a{
+	text-transform: uppercase;
+	font-size: 32px;
+	margin-bottom: 20px;
+}

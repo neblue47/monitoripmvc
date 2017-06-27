@@ -1,0 +1,30 @@
+package ao.co.smpip.entidades;
+
+import java.io.Serializable;
+
+public class SerialBean implements Serializable {
+
+	private String posto;
+	private int id_posto;
+	private String doSerial;
+	public String getPosto() {
+		return posto;
+	}
+	public void setPosto(String posto) {
+		this.posto = posto;
+	}
+	public int getId_posto() {
+		return id_posto;
+	}
+	public void setId_posto(int id_posto) {
+		this.id_posto = id_posto;
+	}
+	public String getDoSerial() {
+		return doSerial;
+	}
+	public void setDoSerial(String doSerial) {
+		this.doSerial = doSerial;
+	}
+	
+	
+}

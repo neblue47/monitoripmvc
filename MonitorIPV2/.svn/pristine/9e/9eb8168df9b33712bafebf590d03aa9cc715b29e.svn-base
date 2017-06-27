@@ -1,0 +1,469 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" import="java.sql.*" errorPage="erros/404.jsp" %>
+<%@page import="javax.websocket.Session"%>
+<%@page import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+<c:if test="${not empty nomeUsa }">
+
+<%--  <%if(session.getAttribute("nome_us")!=null) {%> --%>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" type="image/png" href="img/icone.pgn" >
+<!-- <link rel="icon" type="image/png" href="/icons/consulta.png" /> -->
+<title>.:Monitor de Iluminação Publica:.</title>
+
+ <!-- Bootstrap -->
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+ <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+ <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+ <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+<!-- /Bootstrap -->
+
+<link rel="stylesheet" type="text/css" href="css/menu-css.css" media="all" />
+
+<!-- Table Script-->
+<script src="js/js-table/jquery.min.js" ></script>
+<script src="js/js-table/bootstrap.min.js" ></script>
+<script src="js/js-table/bootstrap-table.js" ></script>
+<script src="js/js-table/tab-main.js" ></script>
+<!-- /Table Script-->
+
+<!-- DialogBox personalizado -->
+<script src="js/dialogBox/jquery.blockUI.js" ></script>
+<script src="js/dialogBox/sweetalert-dev.js" ></script>
+<link rel="stylesheet" type="text/css" href="js/dialogBox/sweetalert.css" >
+<!-- /DialogBox personalizado -->
+
+<script type="text/javascript">
+//var $tool = jQuery.noConflict();
+//$tool.widget.bridge('uitooltip', $tool.ui.tooltip);
+/* $tool?(document).ready(function(){
+    $tool?('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+}); */
+</script>
+<style type="text/css">
+	.bs-example{
+    	margin: 100px 50px;
+    }
+</style>
+
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/ajax_marc.js"></script>
+<script src="js/ajax_sinais.js" charset="iso-8859-1"></script>
+<script src="js/scripts-js.js"></script>
+<script src="js/scripts-internados.js"></script>
+<script src="js/script.js"></script>
+<script src="js/ajax_cid.js" ></script>	
+<script src="js/addcampos.js"></script>
+<script src="js/jquery-1.11.1.js"></script>
+
+<script src="js/jquery.mask.min.js"></script>
+<script src="js/ajax_val.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/ajaxtela.js"></script>
+<script src="js/ajax_pc.js"></script>   
+<script src="js/ajax-transf.js"></script> 
+
+<script type="text/javascript" src="js/bootstrap-datepicker.js "></script>  
+
+</head>
+
+<body class="body">
+ <header id="header_top" >
+	<div class="row">
+		<div class="col-sm-3">								
+			<img src="img/logoIP.png" alt="Logo GestHosp" class="img-responsive" border="0"/>
+		</div>
+		<div class="col-sm-9">
+			<div class="bg_white">
+				<ul>					
+  					<li>
+  						<a href="#" onclick="confirmSair()">
+  							<i class="fa fa-power-off"></i> Sair
+  						</a>
+  					</li> 
+  					<li>
+	  					<i class="fa fa-user"></i> <span>Bem vindo</span><strong> ${nomeUsa} </strong>
+  					</li> 								
+  				</ul>
+  			</div>
+		</div>
+	</div>
+
+	<div id="nav_menu">
+		<div class="row">				
+			<div class="col-md-9 col-md-offset-3 sub_menu">
+                <div id="container">
+                <ul>
+          		<%
+	    
+	             	String ative = "class='ative'";
+	             	String menu = request.getParameter("mod");
+	             	String nome_us = "";
+              
+             if(menu.equals("ad")){
+          %>
+          <li><a href="navegacao?mod=ag"> <i class="fa fa-calendar"></i> Serviços</a></li>
+          <li><a href="navegacao?mod=ad" class="ative"> <i class="fa fa-group"></i> Administração</a></li>
+          <li><a href="navegacao?mod=cf"> <i class="fa fa-question-circle"></i> Configuração</a></li>
+          <li><a href="navegacao?mod=ajd"> <i class="fa fa-question-circle"></i> Ajuda</a></li>
+          <%} if(menu.equals("ag")){ %>
+          <li><a href="navegacao?mod=ag" class="ative"> <i class="fa fa-calendar"></i> Serviços</a></li>
+          <li><a href="navegacao?mod=ad" > <i class="fa fa-group"></i> Administração</a></li>
+          <li><a href="navegacao?mod=cf"> <i class="fa fa-question-circle"></i> Configuração</a></li>
+          <li><a href="navegacao?mod=ajd"> <i class="fa fa-question-circle"></i> Ajuda</a></li> 
+            
+          <%} if(menu.equals("cf")){ %>
+          <li><a href="navegacao?mod=ag" > <i class="fa fa-calendar"></i> Serviços</a></li>
+          <li><a href="navegacao?mod=ad" > <i class="fa fa-group"></i> Administração</a></li>
+          <li><a href="navegacao?mod=cf" class="ative"> <i class="fa fa-question-circle"></i> Configuração</a></li>
+          <li><a href="navegacao?mod=ajd"> <i class="fa fa-question-circle"></i> Ajuda</a></li>  
+           
+          <%} %>  
+		          </ul>   
+     		    </div>
+          	</div>  
+      	</div>
+      </div>
+</header>
+<!-- <div class="container header-content">
+	<h4><i class="glyphicon glyphicon-calendar"></i> Agenda</h4>
+</div> -->
+<div id="main_menu">
+ <div class="container"> 
+  <div class="row">
+ 	<div class="col-md-12">	
+     <ul >
+          <% 
+          String mod = request.getParameter("mod");
+          String cont = request.getParameter("pesquisar");
+       // Telas do Administracao
+          if(mod.equals("ad")){
+	          if(cont!=null && !cont.equals(""))
+	          {  
+	        	  if(cont.equals("f") )   {
+	     		     %>
+	                     <li class="ative"><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
+	                     <li><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
+	                     <li><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
+	                     <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
+	                     <li><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+	                 <% }
+	        	  if (cont.equals("p") || cont.equals("Pesquisar")) { %>
+	                
+	                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
+	                <li class="ative"><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
+	                <li><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
+	              	<li><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+	                <% } 
+				 if (cont.equals("u")) { %>
+	                
+	                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
+	                <li class="ative"><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
+	                <li><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+	                
+	                <% }
+				 
+				 if (cont.equals("eq")) { %>
+	                
+	                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
+	                 <li class="ative"><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+	                
+	                <% }
+				 if (cont.equals("ag")) { %>
+	                
+	                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
+	                <li ><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
+	                 <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
+	                <li class="ative"><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+	                
+	                <% }
+		       if (cont.equals("edit")) { %>
+	                
+	                <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;">Voltar >></a><a href="#"><span style="color:#BA122B;">Modificar</span></a></li>
+	               
+	                <% }
+		           if (cont.equals("Arquivo")) { %>
+	                <li ><a href="index.jsp?pesquisar=f" onclick = "Window.history.back()" style="color:#CCC;"> Voltar >></a><a href="#"><span style="color:#BA122B;">Arquivos</span></a></li>
+	                <%}
+	          }
+          }//- Fim Modulo Administracao (telas) 
+             
+       //   <!-- MODULO SERVIÇO -->  
+            
+         if(mod.equals("ag")) {
+            	 
+            	  if(cont!=null && !cont.equals("")){
+            		  if(cont.equals("pc")){%>
+              		<!-- MENU SERVIÇO -->
+                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	<li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	<li><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li> 
+              		<% }
+            		  
+            		  if(cont.equals("ps")){%>
+                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	<li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	<li><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li>	 
+              		 <% }
+            		  
+            		  if(cont.equals("rq")){%>
+                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	<li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	<li class="ative"><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li>	 
+              		 <% }
+            		  
+            		  if(cont.equals("ht")){%>
+                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li class="ative"><a href="index.jsp?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	  <li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li>	 
+              		 <% }
+            		  
+            		  if(cont.equals("rt")||cont.equals("rtd")||cont.equals("rts")||cont.equals("rtm")){%>
+                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li ><a href="index.jsp?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	  <li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li>	 
+              		 <% }
+            		  
+            		  if(cont.equals("not")){%>
+                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
+                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
+                      <li ><a href="index.jsp?mod=ag&pesquisar=ht">Historico<span></span></a></li>
+                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
+                  	  <li class="ative"><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
+                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Requisições<span></span></a></li>	 
+              		 <% }
+            	  }
+                }
+         //   <!-- MODULO configuracao -->  
+             if(mod.equals("cf")) {
+            	 if(cont!=null && !cont.equals("")){
+            		 if(cont.equals("nc")){%>
+                 	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=nc">Novo Armario<span></span></a></li>
+                 	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armarios<span></span></a></li>
+                     <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
+                     <li ><a href="navegacao?mod=cf&pesquisar=mts">Manutenção<span></span></a></li>
+               <%}
+                 if(cont.equals("mt")){%>
+                 	<li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armario<span></span></a></li>
+                 	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armarios<span></span></a></li>
+                     <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
+                     <li ><a href="navegacao?mod=cf&pesquisar=mts">Manutenção<span></span></a></li>
+                 <%}
+                 if(cont.equals("ns")){%>
+              	<li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armario<span></span></a></li>
+              	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armarios<span></span></a></li>
+                  <li class="ative"><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
+                  <li ><a href="navegacao?mod=cf&pesquisar=mts">Manutenção<span></span></a></li>
+              <%}
+                 
+                 if(cont.equals("mts")){%>
+               	<li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armario<span></span></a></li>
+               	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armarios<span></span></a></li>
+                   <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
+                   <li class="ative"><a href="navegacao?mod=cf&pesquisar=mts">Manutenção<span></span></a></li>
+               <%}
+            	 }
+            }
+             if(mod.equals("ajd")) {%>
+            	 <!-- MENU AJUDA -->
+	                    <li><a href="#">Ajuda</a></li>
+	                    
+            <% }  %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+      <!--#####################################################################################################
+                       ESTA PARTE ESTA RESERVADA PARA O CONTEUDO QUE VAI APARECER NA TELA
+      -->
+  <div class="container">
+       <%
+          String modcont  = request.getParameter("mod");
+          String pes = request.getParameter("pesquisar");
+          if(modcont.equals("ad")){// Modulo Administracao
+          if(modcont.equals("ad") && pes==null ){
+       %>
+          <jsp:include page="administracao/moduloAd.jsp" />
+       <%  } else if(pes.equals("rh")&& mod.equals("ad")){  %>
+          <jsp:include page="administracao/rhtelas.jsp" /> 
+       <%  } else if(pes.equals("f")&& mod.equals("ad")){  %>
+       <jsp:include page="administracao/funcionario/CadFuncionario.jsp" /> 
+       <%  }
+       else if((pes.equals("p")||pes.equals("Pesquisar"))&& mod.equals("ad")){  %>
+          <jsp:include page="administracao/funcionario/pesquisar.jsp" /> 
+       <%  }else if(pes.equals("cg")&& mod.equals("ad")){  %>
+<%--              <jsp:include page="administracao/funcionario/cr_grupo.jsp" /> --%>
+         <%  } else if(pes.equals("u")&& mod.equals("ad")){%>
+          <jsp:include page="administracao/funcionario/utilizadores.jsp" />
+         <% } else if(pes.equals("ag")&& mod.equals("ad")){%>
+          <jsp:include page="administracao/funcionario/agenda.jsp" />
+          <%} else if(pes.equals("eq")&& mod.equals("ad")){%>
+         <jsp:include page="administracao/funcionario/equipas.jsp" />
+         <%}else if(pes.equals("ms")&& mod.equals("ad")){%>
+           <jsp:include page="administracao/funcionario/mensagem.jsp" />
+          <%}else if(pes.equals("edit")&& mod.equals("ad")){%>
+          <jsp:include page="administracao/funcionario/EdiFuncionario.jsp" />
+         <%}else if(pes.equals("mss")&& mod.equals("ad")){%>
+         <jsp:include page="administracao/funcionario/mensagenss.jsp" />
+        <%}else if(pes.equals("Arquivo")&& mod.equals("ad")){%>
+        <jsp:include page="administracao/funcionario/arquivos.jsp" />
+       <%}else if(pes.equals("msl")&& mod.equals("ad")){%>
+       <jsp:include page="administracao/funcionario/mensagem.jsp" />
+      <%}
+          } 
+           if(modcont.equals("ag")){// Modulo serviço
+          	if(modcont.equals("ag") && pes==null ){%>
+         	  <jsp:include page="servicos/servico.jsp" />
+         	<%}else	if(pes.equals("pc")&& mod.equals("ag") ){%>
+          	<jsp:include page="servicos/telas/monitor.jsp" />
+          	<%} else if(pes.equals("ms")&& mod.equals("ag") ){%>
+          	<jsp:include page="servicos/telas/mapaDoBD.jsp" />
+          	<%} else if(pes.equals("ps")&& mod.equals("ag") ){%>
+          	<jsp:include page="servicos/telas/mapaDoBD.jsp" /> 
+          	<%} 
+          	 else if(pes.equals("ht")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/historico.jsp" />
+           	<%}
+          	else if(pes.equals("rt")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/relatorios.jsp" />
+           	<%}
+          	else if(pes.equals("rtd")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/relatorios-d.jsp" />
+           	<%}
+          	else if(pes.equals("rts")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/relatorios-s.jsp" />
+           	<%}
+          	else if(pes.equals("rtm")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/relatorios-m.jsp" />
+           	<%}
+          	else if(pes.equals("rq")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/requesitando.jsp" />
+           	<%}
+          	else if(pes.equals("msg")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/mensagem.jsp" />
+           	<%}
+          	else if(pes.equals("not")&& mod.equals("ag") ){%>
+           	<jsp:include page="servicos/telas/notificaçoes.jsp" />
+           	<%}
+          }
+           if(modcont.equals("cf")){// Modulo Configurar
+             	if(modcont.equals("cf") && pes==null ){%>
+             	    <jsp:include page="configuracao/servico.jsp" />          		
+             	<%}else if(pes.equals("nc")&& mod.equals("cf") ){%>
+             	<jsp:include page="configuracao/novoposto.jsp" />
+          		<% }
+             	else if(pes.equals("mt")&& mod.equals("cf") ){%>
+       			<jsp:include page="configuracao/gerirarmarios.jsp" />
+    			<% }
+             	else if(pes.equals("ns")&& mod.equals("cf") ){%>
+       			<jsp:include page="configuracao/sensor.jsp" />
+    			<% }
+             	else if(pes.equals("mts")&& mod.equals("cf") ){%>
+       			<jsp:include page="configuracao/manutencao.jsp" />
+    			<% }
+           
+           }
+		        
+		   // NAVEGAÇÃO INICIAL     
+			if (modcont.equals("ng")) {	%>	<jsp:include page="navegacao.jsp" />  <%  }
+			if (modcont.equals("ajd")) {	%>	<jsp:include page="erros/404.jsp" />  <%  }
+           %>
+      </div>
+      <footer id="footer">
+      	<div class="container">
+        	<p>Copyright &copy; 2015 MONITOR-IP.- Versão <span>1.0</span></p>
+        </div>
+      </footer>
+</body>
+
+<script type="text/javascript">
+	function calcularIMC()
+	{
+		var camp1 = document.getElementById("peso");
+		var camp2 = document.getElementById("altura");
+		var camp3 = document.getElementById("imc");
+	
+		if(camp1.value != "" && camp2 !="")
+		{
+			var x = camp1.value/(camp2.value*camp2.value);
+			camp3.value = Math.round(x);
+		}
+		else
+			{
+			camp3.value = 0.0;
+			}
+	}
+	function checkpeso()
+	{
+		var camp1 = document.getElementById("temp");	
+		if(camp1.value >=10 && camp1.value <= 50)
+		{
+			return false;
+			alert('Erro');
+		}
+	}
+	function voltar() {
+	    history.back();
+	}
+	
+	function confirmSair() {     
+		swal({
+			title : "Sair do Monitor IP?",
+			text : "Tem certeza que deseja sair do Sistema!",
+			type : "warning",
+			showCancelButton : true,
+			cancelButtonText : "Cancelar",
+			confirmButtonColor : "#DD6B55",
+			confirmButtonText : "Sim, Sair!",
+			closeOnConfirm : false			
+		}, function() {
+			location.href="LoginController?acao=out";  
+		}); 
+		}
+	
+	
+	
+</script>
+</html>
+
+
+ </c:if>
+ <c:if test="${empty nomeUsa}">
+     <jsp:forward page="login.jsp"></jsp:forward>
+ </c:if>
+<!-- else -->
+<!-- { -->
+<!-- 	RequestDispatcher saida = request.getRequestDispatcher("login.jsp"); -->
+<!-- 	saida.forward(request, response); -->
+<!-- } -->
+<!-- %> -->
+ 

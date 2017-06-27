@@ -1,0 +1,222 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%
+  String id = request.getParameter("cod");
+%>
+<div class="rowm">
+	<div class="col-md-12">
+		<form action="UploadFile" method="post" enctype="multipart/form-data">
+			<div class="widget-title tratamento-recom">
+			 		<h5><i class="fa fa-tasks"></i> Arquivos</h5>	
+			 		<div id="agenda-perfil">
+					<div class="row">
+						<div class="col-md-4">
+							 <div class="form-group">
+							 <label>Foto </label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="foto" id="foto" accept="image/*"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+					    </div>
+					    <div class="col-md-4">
+					       <div class="form-group">
+							 <label>Bilhete de Identidade</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="bi" id="bi" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+				       </div>
+				       <div class="col-md-4">
+				       	   <div class="form-group">
+							 <label>Registo Criminal</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="rg_criminal" id="rg_criminal" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+				       </div>
+				    </div>
+				    <div class="row">
+				       <div class="col-md-4">
+				       	   <div class="form-group">
+							 <label>Atestado Médico</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="at_medico" id="at_medico" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>					      
+				       </div>
+				       <div class="col-md-4">
+				       	   <div class="form-group">
+							 <label>Declaração Militar</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="dec_militar" id="dec_militar" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>					
+				       </div>
+				       <div class="col-md-4">
+				       	  <div class="form-group">
+							 <label>Certificado de Habilitações</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="cert_hb" id="cert_hb" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+				       </div>
+				     </div>
+				     <div class="row">
+				     	<div class="col-md-4">
+				     		<div class="form-group">
+							 <label>Carta de Condução</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="carta" id="carta" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+				       </div>
+				       <div class="col-md-4">
+				       	  <div class="form-group">
+							 <label>Diploma 1</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="diploma1" id="diploma1" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+				       </div>
+				       <div class="col-md-4">
+				       	  <div class="form-group">
+							 <label>Diploma 2</label>
+							    <div class="fileupload fileupload-new" data-provides="fileupload">
+							        <div class="input-group">
+							            <div class="form-control uneditable-input"><i class="icon-file fileupload-exists"></i> 
+							                <span class="fileupload-preview"></span>
+							            </div>
+							            <div class="input-group-btn">							            	
+							                <a class="btn btn-primary btn-file btn-search">
+							                    <span class="fileupload-new"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;Selecione o ficheiro</span>
+							                    <span class="fileupload-exists"><i class="glyphicon glyphicon-edit"></i> &nbsp;Mudar</span>
+							                    <input type="file" class="file-input" name="diploma2" id="diploma2" accept="image/pdf"/>
+							                </a>
+							                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="glyphicon glyphicon-trash"></i> &nbsp;Remover</a>
+							            </div>
+							        </div>
+							    </div>
+							</div> 
+				       </div>				    
+				  </div>        
+		     	</div>
+		     </div>
+		             
+		     <div class="pull-right">
+		     	<input name="id" id="id" type="hidden" value="${cod.id }" /> 
+			   	<input type="hidden" name="acao" value="salvar"/>
+			   	<button type="submit" class="btn btn-success btn-sm">
+				  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Salvar
+				</button>
+				<button type="button" onclick="voltar();" class="btn btn-default btn-sm">
+				  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+				</button>
+			</div>	        	            
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/js-table/file-input-upload.js"></script>
+<script type="text/javascript">
+function voltar(){
+	location.href="navegacaoad?&mod=ad&pesquisar=p";
+}
+</script>

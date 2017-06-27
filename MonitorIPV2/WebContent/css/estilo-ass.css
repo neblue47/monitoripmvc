@@ -1,0 +1,172 @@
+  .contanier{
+	width: 1300px;
+	height: auto;
+	overflow: hidden;
+	background: lime;
+}
+table.table_conf{
+	float: left;
+}
+#div_ass{
+	width: auto;
+	height: auto;
+	overflow: hidden;
+}
+
+#filcontrol-ass{
+	border: solid 1px #aaa ;
+	width: auto;
+	border-radius: 0px;
+	padding: 10px; 
+	margin-top: 15px;
+	float:right;
+}	  
+#div_ass table.assegurados { 
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	cellspacing: 0; 
+	border-collapse: collapse; 
+	width: 100%;    
+}
+#div_as table.assegurados th { 
+	border-left: 1px solid #999; 
+	padding: 8px 4px;
+	background: #646473;
+	color: #fff;
+	
+}
+#div_as table.assegurados td { 
+	border: 1px solid #ccc;  
+	padding: 10px 4px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	background: #F2F2F2; 
+	overflow: hidden;
+}
+.file_nome_empresa{
+	height: auto;
+	width:400px;
+	float:left;
+}
+.filempresa{
+	width: 250px;
+	height: auto;
+	overflow: hidden;
+	margin-right: 10px;
+	float: left;
+
+}
+.ensa input{
+	width: 98%;
+	border: solid 1px #ccc;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+	background: #F2F2F2;
+	height: 25px;
+	padding: 2px;
+}
+
+#ass_novo fieldset{
+	width: 210px;
+	min-height: 190px;
+	overflow: hidden;
+	padding: 0 10px 10px 5px;
+/* 	border-radius: 20px; */
+	border: solid 1px #ccc;		
+} 
+#cadastro_aseguradora fieldset{
+	width: 340px;
+	height: auto;
+	overflow: hidden;
+	padding: 0 10px 10px;
+/* 	border-radius: 20px; */
+	border: solid 1px #ccc;		
+} 
+#ass_novo{
+	width: auto;
+	height: auto;
+}
+.filcobertura{
+	width: 526px;
+	overflow: hidden;
+	height: auto;
+	padding: 20px;
+	margin: 5px;
+	background: lime;
+}
+
+.btn input{
+	padding: 5px 8px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 25px;
+	border: solid 1px #ccc;
+	margin: 0 8px 10px 10px;
+	background: url('../images/save8(1).png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+
+}
+.btn-limpar{
+	padding: 5px 8px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 25px;
+	border: solid 1px #ccc;
+	margin: 0 0 10px 8px;
+	background: url('../images/rubber2.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: 7px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.btn a{
+	padding: 6px 8px 6px 30px;
+	color: #222;
+	font-size: 13px;
+	font-weight: normal;
+	font-variant: small-caps;
+	text-indent: 55px;
+	border: solid 1px #ccc;
+	background: url('../images/write15.png') #F2F2F2;
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: 7px;
+	border-radius: 3px;
+	text-decoration: none;
+	margin-top: 0;
+}
+.directo{
+	float: right;
+	margin-right: 7px;
+}
+
+	
+#ass_novo.tam_cd{
+	width: 250px;
+	border-radius: 0px;
+	 
+} 
+fieldset.tam_ls{
+	width: 635px;
+	border-radius: 0px;
+	float: right;
+	margin-right: 10px;
+	padding: 5px;
+	height: 190px;
+	overflow: auto;
+}   

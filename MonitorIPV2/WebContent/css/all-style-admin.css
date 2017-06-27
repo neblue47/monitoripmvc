@@ -1,0 +1,1201 @@
+/****** Style CID *****/
+
+.resul-cid{
+	border: solid 1px red;
+	height: auto;
+	border: 0px   #E0E0E0;
+  	-moz-border-radius: 4px;
+  	-ms-border-radius: 4px;
+  	border-radius: 4px;
+ 	 background-color: #F9F9F9;
+  	background-image: -webkit-linear-gradient(top,#fff 0,#f0f0f0 100%);
+  	background-image: linear-gradient(to bottom,#fff 0,#f0f0f0 100%);
+  	background-repeat: repeat-x;
+  	margin-bottom: 20px;
+}
+.resul-cid h5{
+	border-bottom: solid 1px #E0E0E0;
+	padding: 12px 15px;
+	margin: 0;
+	width: 100%;
+	color: #444;
+	font-weight: bold;
+	position: relative;
+}
+.resul-cid p.cid-title-strong{
+	padding: 6px 15px;
+	color: #333333;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 10px 20px;
+	background-color: #FFFFA8; 
+	border-radius: 2px;
+}
+.resul-cid p{
+	color: #222;
+	font-size: 13px;
+	font-weight: bold;	
+}
+.resul-cid span{
+	font-weight: normal;	
+}
+.cid-detalhe{
+	border-bottom: 1px solid #eeeeee;
+	margin: 10px 35px;
+	padding-bottom: 7px;
+}
+.cid-detalhe-2{
+	margin: 10px 35px;
+	padding-top: 7px;
+}
+.error-message-cid-pesq{
+	font-weight: normal;
+	text-align: center;
+}
+.admin_assugar{
+	margin-bottom: 7px;
+	
+}
+.btn_benef_cons{
+	margin-top: 12em;
+	height: auto;
+}
+.btn_benef_cons button{
+	margin-bottom: 7px;
+}
+.geral_qtd_valor{
+	margin-right: 10px;
+}
+.isenc_dia button{
+	width: 100%;
+	text-align: left;
+}
+.isenc_dia{
+	margin-bottom: 0;
+	
+}
+/* Style relatorio*/
+
+.relatorio{
+	background: #fff;
+	height: 100%;
+	padding: 30px 30px 0 20px;
+	border: solid 1px #dcdcdc;
+}
+.relatorio .exmo{
+	background: #eee;
+	padding: 10px 10px 0;
+}
+.relatorio h4{
+	text-align: center;
+	font-weight: bold;
+	margin: 2em 0;
+}
+.exmo span{
+	font-size: 12px;
+}
+.exmo p{
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.relatorio .detalhe ul li{
+	list-style: none;
+}
+.relatorio .detalhe ul li span{
+	font-size: 13px;
+	font-weight: bold;
+}
+.relatorio table{
+	margin-top: 2em;
+	width: 100%;	
+}
+
+.relatorio table th, td{
+	padding: 4px 10px;	
+	text-align: center;
+}
+.relatorio .assinatura{
+	margin-top: 6em;
+	text-align: center;
+}
+.relatorio .assinatura hr{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+#footer{
+	margin-top: 4em;
+	border-top: solid 1px #dcdcdc;
+	padding: 10px;
+}
+#footer p{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	color: #555;
+}
+
+/*!
+ * 
+ * ARQUIVOS
+ */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn-file {
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+}
+.btn-file > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+.fileupload {
+  margin-bottom: 9px;
+}
+.fileupload .uneditable-input {
+  display: inline-block;
+  margin-bottom: 0px;
+  vertical-align: middle;
+  cursor: text;
+  overflow: hidden;                 /*Added this line*/
+  max-height: 34px;                 /*Added this line*/
+}
+.fileupload .fileupload-preview {   /*Added this line*/
+  line-height: 21px;                /*Added this line*/
+}                                   /*Added this line*/
+.fileupload .thumbnail {
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  text-align: center;
+}
+.fileupload .thumbnail > img {
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+}
+.fileupload .btn {
+  vertical-align: middle;
+}
+.fileupload-exists {
+  padding-top: 4.8px; 
+  padding-bottom: 4.8px;
+  font-size: 13px;
+}
+.fileupload-exists .fileupload-new,
+.fileupload-new .fileupload-exists {
+  display: none;
+}
+.fileupload-inline .fileupload-controls {
+  display: inline;
+}
+/*==================================*/
+/*.fileupload-new .input-append .btn-file {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}*/
+/*change to this:*/
+.fileupload-new .input-group .btn-file {
+  -webkit-border-radius: 0 3px 3px 0 !important;
+  -moz-border-radius: 0 3px 3px 0 !important;
+  border-radius: 0 3px 3px 0 !important;
+}
+/*==================================*/
+.thumbnail-borderless .thumbnail {
+  border: none;
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.fileupload-new.thumbnail-borderless .thumbnail {
+  border: 1px solid #ddd;
+}
+.control-group.warning .fileupload .uneditable-input {
+  color: #a47e3c;
+  border-color: #a47e3c;
+}
+.control-group.warning .fileupload .fileupload-preview {
+  color: #a47e3c;
+}
+.control-group.warning .fileupload .thumbnail {
+  border-color: #a47e3c;
+}
+.control-group.error .fileupload .uneditable-input {
+  color: #b94a48;
+  border-color: #b94a48;
+}
+.control-group.error .fileupload .fileupload-preview {
+  color: #b94a48;
+}
+.control-group.error .fileupload .thumbnail {
+  border-color: #b94a48;
+}
+.control-group.success .fileupload .uneditable-input {
+  color: #468847;
+  border-color: #468847;
+}
+.control-group.success .fileupload .fileupload-preview {
+  color: #468847;
+}
+.control-group.success .fileupload .thumbnail {
+  border-color: #468847;
+}
+
+
+/* Beneficios */
+
+/* For Beneficios */
+#fromExames, #fromFarmacos {
+	display:none;
+}
+
+.widget-benefic{
+  margin-bottom: 10px;
+  border: 1px solid #CDCDCD;
+  height: auto;
+  -webkit-box-shadow: 0 1px 0 #ffffff inset;
+  box-shadow: 0 1px 0 #ffffff inset;
+  border-radius: 0;
+}
+
+/* Instituição */
+
+.widget-btn-instit{
+	padding: 10px;
+	min-height: 420px;
+}
+.widget-btn-instit2{
+	padding: 10px;
+	
+}
+.widget-btn-instit a{
+	text-transform: uppercase;
+	font-size: 14px;
+	text-align: center;
+	margin: 5px 0;
+	padding: 2.2em 0.5em;
+	display: block;
+}
+.widget-btn-instit2 a{
+	text-transform: uppercase;
+	font-size: 13px;
+	text-align: center;
+	margin: 5px 0;
+	padding: 1.5em 0.5em;
+	display: block;
+	height: 90px;
+}
+.instituicao-text-area textarea{
+	height: 384px;
+	resize: none;
+	margin-bottom: 10px;
+}
+.instituicao-text-area2 textarea{
+	height: 85px;
+	resize: none;
+	margin-bottom: 7px;
+}
+.instituicao-text-area2 button{
+	font-size: 11px;
+	padding: 3px 5px;
+	margin-bottom: 5px;
+}
+
+.instituicao-modelo-area textarea{
+	height: 159px;
+	resize: none;
+	margin-bottom: 10px;
+}
+.instituicao-modelo-area2 textarea{
+	height: 92px;
+	resize: none;
+	margin-bottom: 10px;
+}
+.instituicao-modelo-area3 textarea{
+	height: 386px;
+	resize: none;
+	margin-bottom: 10px;
+}
+.instituicao-modelo-area button, 
+.instituicao-modelo-area2  button{
+	font-size: 11px;
+	padding: 3px 5px;
+	margin-bottom: 5px;
+}
+
+.inst_dados_geral{
+	width: 100%;
+	max-height: 452px;
+	min-height: 452px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	background: #fff;
+		
+}
+.inst_dados_geral h2{
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	margin-top: 0;
+	line-height: 2em;
+	text-transform: uppercase;
+}
+.inst_dados_geral h3{
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	margin-top: 0;
+	line-height: 2em;
+}
+.inst_dados_geral p{
+	font-size: 13px;
+	font-weight: normal;
+	color: #444;
+	line-height: 18px;
+	text-align: justify;
+	text-indent: 2em;
+}
+.inst_dados_geral ol{
+	margin-bottom: 10px;
+}
+.inst_dados_geral ol li{
+	font-size: 13px;
+	font-weight: normal;
+	color: #444;
+	margin-left: 3.2em;
+	list-style: inherit;
+}
+.table-instituicao{
+	border-left: solid 1px #ddd;
+	border-right: solid 1px #ddd;
+}
+/* Tab from Procedimento Paciente atendido Hoje  Emergencia*/
+#fromProcedimentos, #fromMaterias, #fromMedicamentos{
+	display:none;
+
+}
+/* Tab from Procedimento Paciente atendido Hoje Urgencia */
+ #fromHipotese, 
+ #fromExame, 
+ #fromReceituario, 
+ #fromRecomendacoes, 
+ #fromJustificativo, 
+ #fromSinais, 
+ #fromVitais, 
+ #fromDiagnostico{
+	display:none;
+
+}
+
+.input-width-logo{
+	max-width: 423px;
+}
+.btn-logo{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	padding-bottom: 5px;
+}
+/* FModal Logo */
+
+.modalDialog {
+   position: fixed;
+   font-family: Arial, Helvetica, sans-serif;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background: rgba(0,0,0,0.5);
+   z-index: 99999;
+   opacity:0;
+   -webkit-transition: opacity 400ms ease-in;
+   -moz-transition: opacity 400ms ease-in;
+   transition: opacity 400ms ease-in;
+   pointer-events: none;
+   overflow:scroll; /* activa scroll da pana se a modal for muito comprida */
+ }
+  
+ .modalDialog:target {
+ opacity:1;
+ pointer-events: auto;
+ }
+
+a.close{
+   color: red;
+   line-height: 25px;
+   position: absolute;
+   right: 2px;
+   top: 2px;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 16px;
+   width: 25px;
+   height: 25px;
+   border: solid 1px #ccc;
+   border-radius: 50%;
+ }
+  
+a.close:hover { 
+  color: #222;
+ }
+.modalLogo > div {
+   width: 440px;
+   height: auto;
+   overflow: hidden;
+   padding: 20px;
+   text-align: center;
+   position: relative;
+   margin: 15% auto; 
+   background: #fff;
+   border: solid 1px #2077A3;
+   box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
+ }
+
+/*Arvore do 10*/
+#arvore-10{
+	margin-top: 10px;
+}
+.search-arvore form{
+	margin-bottom: 10px;
+}
+#arvore-10 h3{
+	text-align: center;
+	font-size: 20px;
+	color: #333;
+	margin: 5px 0 30px; 
+	font-weight: normal;
+	text-shadow: 1px 1px #fff;
+}
+#arvore-10 .panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+    color: inherit;
+}
+#arvore-10 .panel-default>.panel-heading {
+    background: #f6f6f6 url(../img/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x; 
+    color: #2a6496; 
+}
+
+#arvore-10 .panel-heading {
+    padding: 7px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#arvore-10 .panel-heading:hover{
+	 background: #2a6496;
+	 color: #ffffff;
+}
+#arvore-10 .panel-heading a:hover{
+	 color: #ffffff;
+	 text-decoration: none;
+}
+#arvore-10 .panel-heading{
+	cursor: pointer;
+}
+#arvore-10 .panel-default>.actives{
+	border: 1px solid #2a6496;
+    background: #2a6496;
+    color: #ffffff;
+}
+
+.panel-heading .accordion-toggle:after {
+    font-family: 'Glyphicons Halflings';  
+    content: "\e114";    
+    float: left;        
+    color: grey;  		
+    padding-right: 6px;       
+    font-weight: normal;
+    font-size: 11px;
+    margin-top: 3px;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    content: "\e080"; 
+    color: #fff; 
+}
+
+.configuracao_table{
+	border-left: solid 1px #ddd;
+	border-right: solid 1px #ddd;
+}
+
+/* Janela Modal */
+/* Janela Modal */
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  overflow-y:scroll; 
+  overflow-x:hidden; 
+ }
+ 
+ .modalDialog:target {
+ opacity:1;
+ pointer-events: auto;
+ }
+
+ .agendarExaEpacing{
+ 	position: relative;
+ 	top: 20%;
+ 	border: solid 1px #ccc;
+ 	padding: 5px 10px 10px;
+ 	background: #fff;
+ }
+ 
+
+/*************************
+*Janela modal FACTURACAO CSS
+**************************/
+#fundo{
+	 width: 100%;
+	 height: 100%;
+	 
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 background: #c0c0c0;
+  	 z-index: 99999;
+     opacity:0;
+	 z-index: 99999;
+	 overflow-y: scroll;
+	 overflow-x: hidden; 
+}
+#fundo a.close{
+	 color: #fff;	 
+	 position: absolute;
+	 right: 25px;
+	 top: 18px;
+	 width: 40px;
+	 height: 40px;
+	 line-height: 40px;
+	 text-decoration: none;
+	 font-weight: bold;
+	 font-size: 22px;
+	 text-align: center;
+	 background: #ba122b;
+	 border: solid 1px #fff;
+	 border-radius: 100%;
+	 opacity: .8;
+ }
+ 
+ #fundo a.close-pq{
+	 color: #fff;	 
+	 position: absolute;
+	 right: 13px;
+	 top: 5px;
+	 width: 35px;
+	 height: 35px;
+	 line-height: 35px;
+	 text-decoration: none;
+	 font-weight: bold;
+	 font-size: 20px;
+	 text-align: center;
+	 background: #ba122b;
+	 border: solid 1px #fff;
+	 border-radius: 100%;
+	 opacity: .8;
+ }
+	
+#fundo a.close, a.close-pq:hover { 
+	opacity: 1;
+}
+ 
+#fundo .janela{
+ width: 750px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ margin-left: -375px;
+ margin-top: -200px;
+ padding: 30px 30px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+
+#fundo .janelaExamesPS{
+ width: 750px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ margin-left: -375px;
+ margin-top: -200px;
+ padding: 30px 30px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaIsencaoHs{
+ width: 950px;
+ height: auto;
+ position: absolute;
+ left: 45%;
+ top: 45%;
+ margin-left: -375px;
+ margin-top: -200px;
+ padding: 30px 30px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaTesouraria{
+ width: 1200px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ margin-left: -600px;
+ margin-top: -212px;
+ padding: 20px 20px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaIsencao{
+ width: 1200px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 45%;
+ margin-left: -600px;
+ margin-top: -212px;
+ padding: 20px 20px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaMovimento{
+ width: 1100px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 45%;
+ margin-left: -550px;
+ margin-top: -260px;
+ padding: 20px 20px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaFechoCaixa{
+ width: 800px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ margin-left: -400px;
+ margin-top: -180px;
+ padding: 20px 20px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janelaFacturaHistorico{
+ width: 720px;
+ height: auto;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ margin-left: -360px;
+ margin-top: -220px;
+ padding: 20px 20px 10px;
+ background: #ffffff;
+ border: solid 1px #ddd;
+ box-shadow: 0 0 0 1px #666;
+}
+#fundo .janela, .janelaIsencaoHs h2{
+ font: 22px "uni_sans_semi_bold", arial, sans-serif;
+ color: #000;
+ font-weight: normal;
+ margin-top: 0; 
+} 
+#fundo .janela, .janelaIsencaoHs, .janelaExamesPS p{
+ font: 14px "uni_sans_semi_bold", arial, sans-serif;
+ color: #777; 
+ margin-bottom: 25px;
+} 
+#caixaForm .format-inputs {
+  background: #f5f5f5;
+  border:1px solid #ddd;
+  border-radius: 0;
+  min-height: 40px;
+  width: 100%;
+  box-shadow: none;
+  outline: medium none;
+  margin-bottom: 10px;
+}
+#caixaForm .margin-to-top {
+  margin-top: 8px;
+  color: #000;
+  font-size: 16px;
+  text-align: right;
+}
+
+#caixaForm textarea {
+  width: 100%;
+  background: #fff;
+  border:1px solid #ddd;
+  border-radius: 0;
+  resize: none;
+  box-shadow: none;
+  outline: medium none;
+/*   margin-bottom: 10px; */
+  padding-top: 10px;
+}
+
+/*Folha de caixa*/
+
+.fol-caixa-head h5{
+	margin-top: 4px;
+}
+.theading tr th{
+	background-color: rgb(40, 96, 144);
+	color: #fff;
+	font-weight: normal;
+	border-radius: 0 !important;
+}
+
+.theadingf tr th{
+	background-color: rgb(40, 96, 14);
+	color: #fff;
+	font-weight: normal;
+	border-radius: 0 !important;
+}
+
+tr.theading:hover td{
+	background: #73B9FF;
+}
+tr.tboding:hover td{
+	background: #BFFFCF;
+}
+#fundo table a {
+	font-size: 16px !important;
+	padding: 0 7px;
+}
+.mov{
+	color: #337AB7;
+}
+.fech{
+	color: #008000;
+}
+.print{
+	color: #ba122b;
+}
+#fundo table a:hover {
+	color: #777;
+	text-decoration: none;
+	font-size: 16px !important;
+}
+.janelaMovimento h2,
+.janelaTesouraria h2,
+.janelaFechoCaixa h2,
+.janelaIsencao h2{
+	text-transform: uppercase;
+	color: #333;
+	margin: 6px 0;
+	font-size: 26px;
+}
+.janelaMovimento p,
+.janelaFechoCaixa p{
+	color: #666;
+	font-weight: normal;
+	font-size: 16px;
+	margin: 0 0 2px;
+}
+.mov-contorno{
+	padding: 10px;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border: solid 1px #7597FF;
+	margin-bottom: 15px;
+}
+.mov-contorno span{
+	font-weight: bold;
+}
+.caixa-item h3{
+	font-weight: bold;
+	border-bottom: solid 1px #444;
+	margin: 5px 0 10px;
+	font-size: 20px;
+	padding-bottom: 4px;
+}
+.caixa-item .col-md-4 p{
+	text-align: right;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+.red p{
+	color: #ba122b;
+}
+.caixa-item .row{
+	margin: 0;
+}
+.caixa-item .row:hover{
+	background: #BFFFCF;	
+}
+.net-total p{
+	text-transform: uppercase;
+	font-size: 22px;
+	color: #777;
+	margin-bottom: 10px;
+}
+.net p{
+	margin-top: 6px;
+}
+.net-total p span{
+	font-weight: bold;
+	color: #111;
+}
+
+.net-total p span input{
+	font-weight: bold;
+	color: #111;
+	border: none;
+	text-align: right;
+}
+.janelaFechoCaixa form{
+	margin-top: 15px;
+}
+.janelaFechoCaixa .format-inputs {
+  border:1px solid #ddd;
+  border-radius: 0;
+  min-height: 35px;
+  width: 100%;
+  box-shadow: none;
+  outline: medium none;
+  margin-bottom: 10px;
+}
+.janelaFechoCaixa .margin-to-top {
+  margin-top: 7px;
+  color: #333;
+  font-size: 16px;
+  text-align: right;
+}
+.janelaFechoCaixa textarea {
+  width: 100%;
+  background: #fff;
+  border:1px solid #ddd;
+  border-radius: 0;
+  resize: none;
+  box-shadow: none;
+  outline: medium none;
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+/* Historico de Vendas */
+
+.janelaFacturaHistorico h2{
+	color: #555;
+	margin: 6px 0;
+	font-size: 20px;
+}
+
+/* Devoluções */
+.devolucoes-obs{
+  background-image: none;
+  background-color: #fcfcfc;
+  border-bottom-color: #d9d9d9;
+  padding: 15px 15px 0;
+  height: auto;
+  overflow: hidden;
+  margin-top: 10px; 
+  margin-bottom: 5px; 
+}
+.devolucoes-obs{
+  border: 1px solid #CDCDCD;
+  height: auto;
+  -webkit-box-shadow: 0 1px 0 #ffffff inset;
+  box-shadow: 0 1px 0 #ffffff inset;
+  border-radius: 0;
+}
+.devolucoes-obs textarea {
+	width: 100%;
+	padding: 10px;
+	height: 80px;
+	resize: none;
+}
+
+/* Estatistica */
+
+.estat_gener_input{
+	margin: 15px 4px 2em;
+}
+.estat_gener{
+	margin-right: 25px;
+}
+.spacing-estat input[type=radio]{
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+.widht-input{
+	min-width: 300px;
+	max-width: 100%;
+}
+.space_input_estat{
+	min-width: 55px;
+}
+.spacing-estat select{
+	margin-bottom: 14px;
+	border-radius: 0;
+}
+.spacing-estat{
+	padding: 20px 0;
+	min-height: 498px;
+}
+.format-dias label{
+	margin-top: -25px;
+}
+.ate{
+	margin-left: -18px;
+}
+table thead .th-center{
+	text-align: center;
+}
+.table-format-td tbody tr td{
+	padding: 0 !important;
+}
+td.top-spacing{
+	padding-top: 10px !important;
+	vertical-align: middle !important; 
+}
+#scrolly{
+    width: 640px;
+    height: 50px;
+    overflow: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+    padding: 8px 5px 15px;
+    white-space: nowrap;
+}
+
+#scrolly ul li{
+    margin: 0 4px 0 0;
+    padding: 8px 0 10px 10px;
+    display: inline;
+    background: #003366;
+    color: #fff;
+}
+#scrolly ul li span{
+    background: #B8122B;
+    border-left: 3px solid #fff;
+    padding: 8px 10px 12px;
+    margin-left: 6px;
+}
+
+/*STYLE ALTERNATIVO*/
+/*----Este estilo controla as partes onde os totais aparecem. ex:modal historico de vendas de facturacao geral*/
+.destaque{
+	border:none; 
+	text-align:center; 
+	font-size:20px; 
+	color:#000; 
+	width:180px;
+}
+
+#corPraModalIsenConsulta{
+	background-color:#f0ad4e;	
+	padding: 5px;
+}
+#corPraTextoIsenConsulta{
+	color:#f0ad4e;
+	font-weight: bolder;
+	position: absolute;
+  	margin: 10px 0 0 10px;
+  	font-size: 18px;
+}
+
+#corPraModalIsenExame{
+	background-color:#337ab7;	
+	padding: 5px;
+}
+#corPraTextoIsenExame{
+	color:#337ab7;
+	font-weight: bolder;
+	position: absolute;
+  	margin: 10px 0 0 10px;
+  	font-size: 18px;
+}
+
+#corPraModalIsenGenerico{
+	background-color:#d9534f;	
+	padding: 5px;
+}
+#corPraTextoIsenGenerico{
+	color:#d9534f;
+	font-weight: bolder;
+	position: absolute;
+  	margin: 10px 0 0 10px;
+  	font-size: 18px;
+}
+
+#corPraModalIsenProduto{
+	background-color:#5cb85c;	
+	padding: 5px;
+}
+#corPraTextoIsenProduto{
+	color:#5cb85c;
+	font-weight: bolder;
+	position: absolute;
+  	margin: 10px 0 0 10px;
+  	font-size: 18px;
+}
+
+#corPraModalIsenReceita{
+	background-color:#5bc0de;	
+	padding: 5px;
+}
+#corPraTextoIsenReceita{
+	color:#5bc0de;
+	font-weight: bolder;
+	position: absolute;
+  	margin: 10px 0 0 10px;
+  	font-size: 18px;
+}
+/*----------------------------FEICH DE CAIXA-------------------------------------------------*/
+.fc_font{font-size:28px;}
+
+
+/*------------------------menu sair e trocar a palavra chave---------------------------*/
+.menum_sair{
+  	padding:5px; 
+  	/*position:fixed; */
+  	width:200px;
+   	top:29px;
+   	right:6px;
+   	display:none;
+   	position:absolute;
+}
+body{overflow-x: hidden;}
+
+#mudar_senha{
+	padding: 20px 0px 20px 20px;
+	border:#ccc solid 1px;
+	background-color:#fff;
+}
+#sair_nm{
+	padding: 20px 0px 20px 25px;
+	background-color:#fff;
+	border-left:#ccc solid 1px;
+	border-right:#ccc solid 1px;
+	bordr-top:#ccc solid 0px;
+	border-bottom:#ccc solid 1px;
+}
+#pintar_sair{
+	color:#900;
+	font-size:22px;
+}
+
+.cont_link:HOVER{
+	background-color:red;
+	color:#fff;	
+}
+
+a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+.as_txt{
+	color:#ccc;
+	font-weight: bolder;
+}
+
+.link_sair{
+	color:#fff;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.conteudo-modal {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+#box-senha-formulario{
+	padding:30px 50px 30px 50px;
+}
+/*--------------------------------fim de alterar senha-------------------------------*/

@@ -1,0 +1,144 @@
+package ao.co.smpip.testejsp;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import ao.co.smpip.entidades.Usuario;
+import ao.co.smpip.jdbc.UserDAO;
+
+public class testUsuarioDAO {
+
+	
+	public static void main(String[] args) {
+		 
+		System.out.print(horaAtual());
+	}
+
+	
+	private static void testCadastrar()
+	{
+		 Usuario usu = new Usuario();
+		 usu.setNome("Nelson");
+		 usu.setSenha("nana");
+		 
+		 UserDAO usuDao = new UserDAO();
+		 usuDao.cadastrar(usu);
+	}
+	public static String dia_hoje()
+	{
+		Calendar c = Calendar.getInstance(); // Cria um objeto para armazenar a data atual
+        c.setTime(new Date()); // pega a data atual do sistema
+        int diaAtual = c.get(Calendar.DAY_OF_MONTH); // DIA
+        int mesAtual = c.get(Calendar.MONTH); // MES
+        int anoAtual = c.get(Calendar.YEAR);  // ANO
+        String hoje = anoAtual+"/"+mesAtual+"/"+diaAtual;
+        return hoje;
+	}
+	public static String horaAtual()
+	{
+		Calendar c = Calendar.getInstance(); // Cria um objeto para armazenar a data atual
+        c.setTime(new Date()); // pega a data atual do sistema
+        String agora = ""+c.get(Calendar.HOUR_OF_DAY)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
+        return agora;
+	}
+	public static String dataSql(String data)
+	{
+		Calendar c = Calendar.getInstance(); // Cria um objeto para armazenar a data atual
+        c.setTime(new Date()); // pega a data atual do sistema
+		String dia = data.substring(8);
+		String mes = data.substring(5,7);
+		String ano = data.substring(0,4);
+		/*int atual  = c.get(Calendar.YEAR);
+		int digt = Integer.parseInt(ano);
+		int dif = atual - digt;
+		if(dif>=18)*/
+		String dataSql = ano+"/"+mes+"/"+dia;
+		return dataSql;
+	}
+	private static void testAlterar()
+	{
+		Usuario usu = new Usuario();
+		 usu.setNome("Paulo");
+		 usu.setSenha("pele");
+		 
+		 usu.setId(1);
+		 UserDAO usuDao = new UserDAO();
+		 usuDao.alterar(usu);
+	}
+	private static void testexcluir()
+	{
+		 Usuario usu = new Usuario();
+		 usu.setId(1);
+		 UserDAO usuDao = new UserDAO();
+		 usuDao.excluir(usu);
+	}
+	private static void testBuscar()
+	{
+		
+		 UserDAO usuDao = new UserDAO();
+		 List<Usuario> lista = usuDao.buscaTodos();
+		 for(Usuario u: lista)
+		 {
+			 System.out.print("ID: "+u.getId()+"\tNome: "+u.getNome()+"\tSenha: "+u.getSenha()+"\tLogin: ");
+		 }
+	}
+	private static void testBuscarPorId()
+	{
+		
+		 UserDAO usuDao = new UserDAO();
+		 
+		 Usuario usuRt = null;
+		 if(usuRt!=null)
+		 {
+			 System.out.print("ID: "+usuRt.getId()+"\tNome: "+usuRt.getNome()+"\tSenha: "+usuRt.getSenha()+"\tLogin: ");
+		 }
+	}
+	private static void testAutenticar()
+	{
+		 Usuario usu = new Usuario();
+		 usu.setNome("Nelson");
+		 usu.setSenha("nana");
+		 UserDAO usuDao = new UserDAO();
+		 System.out.print(usuDao.autenticar(usu));
+		 
+		
+	}
+	
+	static Integer fone(String temp)
+	{
+		//123-456-789
+		int aux =0;
+		try
+		{
+		String cod  = temp.substring(0,3);
+		String num1 = temp.substring(4,7);
+		String num2 = temp.substring(8,11);
+		
+		String fonet= cod+num1+num2;
+		aux = Integer.parseInt(fonet);
+		
+		}
+		catch(NumberFormatException er){System.out.print(er);}
+		return aux;
+	}
+	public static String Editfone(int temp)
+	{
+		//123456789
+		String fonetmp = ""+temp;
+		String aux ="";
+		try
+		{
+		String cod  = fonetmp.substring(0,3);
+		String num1 = fonetmp.substring(3,6);
+		String num2 = fonetmp.substring(6);
+		
+		String fonet= cod+" "+num1+"-"+num2;
+		aux = fonet;
+		
+		}
+		catch(NumberFormatException er){System.out.print(er);}
+		return aux;
+	}
+
+}

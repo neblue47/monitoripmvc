@@ -1,0 +1,250 @@
+﻿$(document).ready(function(){
+    $('select[name=idcatcap]').on('change',function(){
+        //console.log('select activo');
+        $.ajax({
+            type:'GET', 
+            url:'CapituloEGrupoDinamicoController',
+            data:'codigocapitulo=' + $ ('select[name=idcatcap]').val(),
+            statusCode:{
+                404:function(){
+                    alert('Pagina nao encontrada');
+                },
+                500: function(){
+                    alert('Erro no servidor!');
+                }
+            },
+            success: function(dados){
+            	 
+            	$('select[name=idcatgru] option').remove();           
+                var pegadados = dados.split(":");
+                if(dados == ''){
+                  $('select[name=idcatgru]').append('<option>Grupo sem Capitulo</option>')
+                }else{
+                    $('select[name=idcatgru]').append('<option > Selecione  </option>');
+                    for(var i = 0; i < pegadados.length - 1; i++){
+                      var codigocapitulo = pegadados[i].split(",")[0];
+                      var nomecapitulo = pegadados[i].split(",")[1];
+                      $('select[name=idcatgru]').append('<option value = "'+ codigocapitulo +'">'+ nomecapitulo +'</option>');	
+                    }
+                }
+            }
+        });
+    })
+});
+
+// ######################################## ---------------------------- ###############################
+
+$(document).ready(function(){
+    $('select[name=capi-cid]').on('change',function(){
+        //console.log('select activo');
+        $.ajax({
+            type:'POST', 
+            url:'CapituloEGrupoDinamicoController',
+            data: 'codCap='+$('select[name=capi-cid]').val()+'&'+'codCat='+$('select[name=cat-cid]').val()+'&'+'codGro='+$('select[name=grup-cid]').val(),
+            statusCode:{
+                404:function(){
+                    alert('Pagina nao encontrada');
+                },
+                500: function(){
+                    alert('Erro no servidor!');
+                }
+            },
+            success: function(dados){
+            	 
+          
+                var pegados = dados.split(":");
+                if(dados == ''){
+                	$(".lstab tbody tr").remove();
+                }else{
+                	$(".lstab tbody tr").remove();
+                	for(var i=0;i<pegados.length-1;i++)
+    				{
+    				
+                		$(".lstab tbody").append("<tr  >"+
+				      	        "<td class='capitulo'>	<div>"+pegados[i].split("*")[0] +"</div></td>"+
+				      			"<td class='grupo'>		<div>"+pegados[i].split("*")[1] +"</div></td>"+
+				      			"<td class='categoria'>	<div>"+pegados[i].split("*")[2] +"</div></td>"+
+				      			"<td class='cid'>		<div>"+pegados[i].split("*")[3] +"</div></td>"+
+				      			"<td class='descricao'>	<div>"+pegados[i].split("*")[4] +"</div></td>"+
+				      			"<td class='classifica'><div>"+pegados[i].split("*")[5] +"</div></td>"+
+				      			"<td class='rsexo'>		<div>"+pegados[i].split("*")[6] +"</div></td>"+
+				      			"<td class='obito'>		<div>"+pegados[i].split("*")[7] +"</div></td>"+
+				      			"<td class='nota'>		<div>"+pegados[i].split("*")[8] +"</div></td>"+
+				      			"<td class='opcoes'>	<div><a href='navegacao?pesquisar=cid&mod=ad&edicid="+pegados[i].split("*")[9] +"'><img src='img/doc_edit.png' width='16' height=''16' /> Editar</a></div></td>"+
+				      			"<td class='opcoes'>	<div><a onclick='confirmExclusao('"+pegados[i].split("*")[9] +"','"+pegados[i].split("*")[10] +"')' href='#' ><img src='img/edit-delete2.png' width='16' height='16'/>Eliminar</a></div></td>"+
+				                "</tr>");
+    				}
+                }
+            }
+        });
+    })
+});
+
+ 
+//######################################## ---------------------------- ###############################
+
+$(document).ready(function(){
+ $('select[name=grup-cid]').on('change',function(){
+     //console.log('select activo');
+     $.ajax({
+         type:'POST', 
+         url:'CapituloEGrupoDinamicoController',
+         data: 'codCap='+$('select[name=capi-cid]').val()+'&'+'codCat='+$('select[name=cat-cid]').val()+'&'+'codGro='+$('select[name=grup-cid]').val(),
+         statusCode:{
+             404:function(){
+                 alert('Pagina nao encontrada');
+             },
+             500: function(){
+                 alert('Erro no servidor!');
+             }
+         },
+         success: function(dados){
+//         	console.log(dados);
+       
+             var pegados = dados.split(":");
+             if(dados == ''){
+             	$(".lstab tbody tr").remove();
+             }else{
+             	$(".lstab tbody tr").remove();
+             	for(var i=0;i<pegados.length-1;i++)
+ 				{
+ 				
+             		$(".lstab tbody").append("<tr  >"+
+			      	        "<td class='capitulo'>	<div>"+pegados[i].split("*")[0] +"</div></td>"+
+			      			"<td class='grupo'>		<div>"+pegados[i].split("*")[1] +"</div></td>"+
+			      			"<td class='categoria'>	<div>"+pegados[i].split("*")[2] +"</div></td>"+
+			      			"<td class='cid'>		<div>"+pegados[i].split("*")[3] +"</div></td>"+
+			      			"<td class='descricao'>	<div>"+pegados[i].split("*")[4] +"</div></td>"+
+			      			"<td class='classifica'><div>"+pegados[i].split("*")[5] +"</div></td>"+
+			      			"<td class='rsexo'>		<div>"+pegados[i].split("*")[6] +"</div></td>"+
+			      			"<td class='obito'>		<div>"+pegados[i].split("*")[7] +"</div></td>"+
+			      			"<td class='nota'>		<div>"+pegados[i].split("*")[8] +"</div></td>"+
+			      			"<td class='opcoes'>	<div><a href='navegacao?pesquisar=cid&mod=ad&edicid="+pegados[i].split("*")[9] +"'><img src='img/doc_edit.png' width='16' height=''16' /> Editar</a></div></td>"+
+			      			"<td class='opcoes'>	<div><a onclick='confirmExclusao('"+pegados[i].split("*")[9] +"','"+pegados[i].split("*")[10] +"')' href='#' ><img src='img/edit-delete2.png' width='16' height='16'/>Eliminar</a></div></td>"+
+			                "</tr>");
+ 				}
+             }
+         }
+     });
+ })
+});
+
+
+//######################################## ---------------------------- ###############################
+
+$(document).ready(function(){
+ $('select[name=cat-cid]').on('change',function(){
+     //console.log('select activo');
+     $.ajax({
+         type:'POST', 
+         url:'CapituloEGrupoDinamicoController',
+         data: 'codCap='+$('select[name=capi-cid]').val()+'&'+'codCat='+$('select[name=cat-cid]').val()+'&'+'codGro='+$('select[name=grup-cid]').val(),
+         statusCode:{
+             404:function(){
+                 alert('Pagina nao encontrada');
+             },
+             500: function(){
+                 alert('Erro no servidor!');
+             }
+         },
+         success: function(dados){
+//         	console.log(dados);
+       
+             var pegados = dados.split(":");
+             if(dados == ''){
+             	$(".lstab tbody tr").remove();
+             }else{
+             	$(".lstab tbody tr").remove();
+             	for(var i=0;i<pegados.length-1;i++)
+ 				{
+ 				
+             		$(".lstab tbody").append("<tr  >"+
+			      	        "<td class='capitulo'>	<div>"+pegados[i].split("*")[0] +"</div></td>"+
+			      			"<td class='grupo'>		<div>"+pegados[i].split("*")[1] +"</div></td>"+
+			      			"<td class='categoria'>	<div>"+pegados[i].split("*")[2] +"</div></td>"+
+			      			"<td class='cid'>		<div>"+pegados[i].split("*")[3] +"</div></td>"+
+			      			"<td class='descricao'>	<div>"+pegados[i].split("*")[4] +"</div></td>"+
+			      			"<td class='classifica'><div>"+pegados[i].split("*")[5] +"</div></td>"+
+			      			"<td class='rsexo'>		<div>"+pegados[i].split("*")[6] +"</div></td>"+
+			      			"<td class='obito'>		<div>"+pegados[i].split("*")[7] +"</div></td>"+
+			      			"<td class='nota'>		<div>"+pegados[i].split("*")[8] +"</div></td>"+
+			      			"<td class='opcoes'>	<div><a href='navegacao?pesquisar=cid&mod=ad&edicid="+pegados[i].split("*")[9] +"'><img src='img/doc_edit.png' width='16' height=''16' /> Editar</a></div></td>"+
+			      			"<td class='opcoes'>	<div><a onclick='confirmExclusao('"+pegados[i].split("*")[9] +"','"+pegados[i].split("*")[10] +"')' href='#' ><img src='img/edit-delete2.png' width='16' height='16'/>Eliminar</a></div></td>"+
+			                "</tr>");
+ 				}
+             }
+         }
+     });
+ })
+});
+
+//################################## ------------------------- ########################################
+
+$(document).ready(function(){
+    $('select[name=grupo]').on('change',function(){
+        //console.log('select activo');
+        $.ajax({
+            type:'GET', 
+            url:'CapituloEGrupoDinamicoController',
+            data:'codigogrupo=' + $ ('select[name=grupo]').val(),
+            statusCode:{
+                404:function(){
+                    alert('Pagina nao encontrada');
+                },
+                500: function(){
+                    alert('Erro no servidor!');
+                }
+            },
+            success: function(dados){
+//            	console.log(dados);
+            	$('select[name=categoria] option').remove();           
+                var pegadados = dados.split(":");
+                if(dados == ''){
+                  $('select[name=categoria]').append('<option>Grupo sem Capitulo</option>')
+                }else{
+                    $('select[name=categoria]').append('<option value ="0" > Selecione  </option>');
+                    for(var i = 0; i < pegadados.length - 1; i++){
+                      var codigocapitulo = pegadados[i].split(",")[0];
+                      var nomecapitulo = pegadados[i].split(",")[1];
+                      $('select[name=categoria]').append('<option value = "'+ codigocapitulo +'">'+ nomecapitulo +'</option>');	
+                    }
+                }
+            }
+        });
+    })
+});
+
+$(document).ready(function(){
+    $('select[name=capitulos]').on('change',function(){
+        //console.log('select activo');
+        $.ajax({
+            type:'GET', 
+            url:'CapituloEGrupoDinamicoController',
+            data:'codigocapitulo=' + $ ('select[name=capitulos]').val(),
+            statusCode:{
+                404:function(){
+                    alert('Pagina nao encontrada');
+                },
+                500: function(){
+                    alert('Erro no servidor!');
+                }
+            },
+            success: function(dados){
+//            	console.log(dados);
+            	$('select[name=grupo] option').remove();           
+                var pegadados = dados.split(":");
+                if(dados == ''){
+                  $('select[name=grupo]').append('<option>Grupo sem Capitulo</option>')
+                }else{
+                    $('select[name=grupo]').append('<option > Selecione  </option>');
+                    for(var i = 0; i < pegadados.length - 1; i++){
+                      var codigocapitulo = pegadados[i].split(",")[0];
+                      var nomecapitulo = pegadados[i].split(",")[1];
+                      $('select[name=grupo]').append('<option value = "'+ codigocapitulo +'">'+ nomecapitulo +'</option>');	
+                    }
+                }
+            }
+        });
+    })
+});
+

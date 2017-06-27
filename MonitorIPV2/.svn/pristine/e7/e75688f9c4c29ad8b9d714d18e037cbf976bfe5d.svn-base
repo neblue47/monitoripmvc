@@ -1,0 +1,68 @@
+
+$(document).ready(function(){
+	$('select[name=nacional]').on('change',function(){
+		$.ajax({
+			type: 'GET',
+			url : 'PaisController',
+			data: 'codigopais='+$('select[name=nacional]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina n�o encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				$('select[name=natural] option').remove();
+				var pegados = dados.split(":");
+				if(dados=='')
+					{
+					$('select[name=natural]').append('<option > Nenhuma Provincia </option>');
+					}
+				else{
+					$('select[name=natural]').append('<option > Selecione </option>');
+				for(var i=0;i<pegados.length-1;i++)
+				{
+					var codprovincia = pegados[i].split("-")[0];
+					var nomprovincia = pegados[i].split("-")[1];
+					$('select[name=natural]').append('<option value="'+codprovincia+'"> '+nomprovincia+'</option>');
+				}
+			}
+				
+			}
+		});		
+	})
+});
+// Atualizar dosagem do farmoco na tela Recetuarios
+$(document).ready(function(){
+	$('input[name=farmaco]').on('blur',function(){
+		
+		$.ajax({
+			type: 'GET',
+			url : 'RecetuarioController',
+			data: 'farmaco='+$('input[name=farmaco]').val(),
+			statusCode: {
+				404: function(){
+					alert('Pagina não encontrada');
+				},
+				500: function(){
+					alert('Erro no servidor');
+				}
+			},
+			success: function (dados){
+				
+				if(dados=='')
+					{
+					document.getElementById("dosagem").value = "";
+					}
+				else{
+					document.getElementById("dosagem").value = dados;
+					 
+					}
+				
+			}
+		});		
+	})
+});
+

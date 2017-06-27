@@ -1,0 +1,31 @@
+package ao.co.smpip.testejsp;
+
+import java.io.File;
+
+
+public class testejsp 
+{
+	public static final String PATH_CHAVE_PRIVADA = "C:/keysss/private.key";
+	public static void main(String[] args) {
+         
+		System.out.println(fone2("923 900 900"));
+    }
+	
+	static Long fone2(String temp)
+	{
+		//244 924-044-145
+		long aux =0;
+		try
+		{ 
+		String cod  = "244";
+		String num1 = temp.replace(" ", "");
+		String fonet= cod+num1;
+		aux = Long.parseLong(fonet);
+		
+		}
+		catch(NumberFormatException er){System.out.print(er);}
+		return aux;
+	}
+	
+	
+}

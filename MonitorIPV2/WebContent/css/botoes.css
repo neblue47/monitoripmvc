@@ -1,0 +1,216 @@
+input.btn-salvar{
+	    	    	
+	    	padding: 5px 15px 7px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/Save-icon.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 8px;	 
+			vertical-align: middle;
+			 
+	    }
+input.btn-modificar{
+	    	    	
+	    	padding: 5px 15px 7px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/save-icone.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 8px;	 
+			vertical-align: middle;
+			 
+	    }
+input.btn-internar{
+	    	    	
+	    	padding: 5px 15px 7px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/cama-2.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 8px;	 
+			vertical-align: middle;
+			 
+	    }
+	    
+	    
+	    input.btn-limpar{
+	    	padding: 5px 15px 7px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/Eraser-icon.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 8px;	 
+			vertical-align: middle;
+			 
+			}
+	    input.btn-eliminar{
+	    	padding: 5px 8px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/edit-delete2.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;			 
+			background-position: 2px 3px;	 
+			vertical-align: middle;
+			 
+			}
+	        input.btn-novo{
+	    	
+	    	padding: 5px 8px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/add10(1).png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			 background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 7px 7px;	 
+			vertical-align: middle;
+			 
+	    }
+	    
+	        input.btn-print{
+	    	
+	    	padding: 2px 8px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/print-1.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	    background-repeat: no-repeat;		 
+			background-position: 5px 5px;	 
+			vertical-align: middle;
+			 
+	    }
+	    
+	      input.btn-transfer{
+	    	
+	    	padding: 2px 8px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/transfer-1.png') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;			 
+			background-position: 5px 5px;	 
+			vertical-align: middle;
+			width: 400px;
+			 
+	    }
+	    
+	     input.btn-cancel{
+	    	padding: 5px 15px 7px;
+			color: #222;
+			font-size: 13px;
+			font-weight: normal;
+			font-variant: small-caps;
+			text-indent: 18px;
+			border: #ccc 1px Solid;
+			margin: 0 0 10px 8px;
+			background: url('../img/cancel.jpg') #F2F2F2;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-size: 18px;
+			border-radius: 3px;
+			cursor: pointer;	
+			background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;		 
+			background-position: 8px;	 
+			vertical-align: middle;
+			 
+			}
+			
+		input.btn-pesquisar{
+		padding: 8px 10px; 
+		color: #222;
+		font-size: 13px;
+		font-weight: normal;
+		font-variant: small-caps;
+		text-indent: 20px;
+		border: solid 1px #ccc;
+		margin: 0;
+		background-size: 200px;
+		background-position: 7px;
+		border-radius: 3px;
+		cursor: pointer;
+		background: url('../img/pesquisa.png') #F2F2F2;
+		vertical-align: middle;
+	   	background-color: #F2F2F2; 
+	   	background-repeat: no-repeat;
+	}
