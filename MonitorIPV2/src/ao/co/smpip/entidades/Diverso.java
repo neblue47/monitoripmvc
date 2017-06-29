@@ -34,6 +34,7 @@ public class Diverso {
 	 private String linktela;
 	 private String codTela;
 	 private String perfil;
+	 private Integer fk_perfil;
 	 
 	 private Integer id_mes;
 	 private String mes;
@@ -246,6 +247,12 @@ public class Diverso {
 	}
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
+	}
+	public Integer getFk_perfil() {
+		return fk_perfil;
+	}
+	public void setFk_perfil(Integer fk_perfil) {
+		this.fk_perfil = fk_perfil;
 	}
 	 
 	 

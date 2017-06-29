@@ -20,7 +20,7 @@ public class MetodosBuscas
 {
 	private Connection con ;
 	public MetodosBuscas() {
-		this.con = Conexao.getConexao();;
+		this.con = Conexao.getConexao();
 	}
 
 	
@@ -30,6 +30,7 @@ public class MetodosBuscas
 		List <Diverso> lista = new ArrayList<Diverso>();
 		String sql = "SELECT * FROM TBLESPECIALIDADE ";
 		try {
+			 con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -40,6 +41,7 @@ public class MetodosBuscas
 				 lista.add(fun);
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -52,6 +54,7 @@ public class MetodosBuscas
 		List <Diverso> lista = new ArrayList<Diverso>();
 		String sql = "SELECT * FROM TBLPROFISSAO ";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -74,6 +77,7 @@ public class MetodosBuscas
 		List <Diverso> lista = new ArrayList<Diverso>();
 		String sql = "SELECT * FROM TBLPROFISSAO where categoria = ?";
 		try {
+			 con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 preparador.setInt(1, cod);
 			 ResultSet rs = preparador.executeQuery();
@@ -213,31 +217,7 @@ public class MetodosBuscas
 		return lista;
 	}
 	
-	public List<Diverso> buscaTelas (int grupo,String mod)
-	{
-		List <Diverso> lista = new ArrayList<Diverso>();
-		String sql = "select DISTINCT id_tela, tela, linktela,codTela from vwacesso where id_grupo like ? and codMod like ? order by id_tela ";
-		try {
-			 PreparedStatement pr = con.prepareStatement(sql);
-			 pr.setInt(1, grupo);
-			 pr.setString(2, mod);
-			 ResultSet rs = pr.executeQuery();
-			 while(rs.next())
-			 {
-				 Diverso md = new Diverso();
-				 md.setTela(rs.getString("tela"));
-				 md.setLinktela(rs.getString("linktela"));
-				 md.setCodTela(rs.getString("codTela"));
-				 lista.add(md);
-			 }
-			 pr.close();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		
-		return lista;
-	}
+	
 	
 	public List<Diverso> buscaTCid ()
 	{

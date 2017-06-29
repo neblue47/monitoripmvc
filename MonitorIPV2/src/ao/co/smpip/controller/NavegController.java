@@ -63,13 +63,13 @@ public class NavegController extends HttpServlet {
 			if(mod!=null && mod.equals("ng"))
 			{
 				
-				 if(sc.iniciaSerial()){
+				/* if(sc.iniciaSerial()){
 					 
 				 }
 				 else
 				 {
 					 sc.close();
-				 }
+				 }*/
 				saida = request.getRequestDispatcher("index.jsp?mod=ng");
 				saida.forward(request, response);
 			}
@@ -416,10 +416,22 @@ public class NavegController extends HttpServlet {
 				}
 				
 				if(tela!=null && tela.equals("acss")){
-					List<Diverso> buscarPerifisTelas = new AcessosDAO().buscarPerifisTelas();
-					request.setAttribute("buscarPerifisTelas", buscarPerifisTelas); 
-					saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=acss");
-					saida.forward(request, response);
+					 AcessosDAO dDao = new AcessosDAO();
+					 //List<Diverso> buscarPerifisTelas = dDao.buscarPerifisTelas();
+					 List<Diverso> ListaTelas = dDao.buscarTelas();
+					 List<Diverso> ListaModulos = dDao.buscarModulos();
+					// request.setAttribute("buscarPerifisTelas", buscarPerifisTelas); 
+					 request.setAttribute("ListaTelas", ListaTelas);
+					 request.setAttribute("ListaModulos", ListaModulos);
+					 String acao = request.getParameter("acao");
+					 
+					 if(acao.isEmpty() && acao.equals("edit")){
+						 String codPrf = request.getParameter("perfil");
+						 Diverso tmpPerfil = new AcessosDAO().verPerfilPrivilegio(codPrf);
+						 request.setAttribute("tmpPerfil", tmpPerfil);
+					 }
+					 saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=acss");
+					 saida.forward(request, response);
 				}
 				if(tela!=null && tela.equals("actela")){
 					 

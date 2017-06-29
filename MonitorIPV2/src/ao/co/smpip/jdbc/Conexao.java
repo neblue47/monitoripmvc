@@ -9,13 +9,11 @@ import java.sql.*;
 		private static String pass = "sistema47";
 		private static Connection conn;
 		public static Connection getConexao(){
-			Connection conns = null;
-			if(conn != null)
-				 conns = conn; 
+		 
 			try {
 				Class.forName("org.gjt.mm.mysql.Driver");
-				if(conns == null)
-				conns = DriverManager.getConnection(url,user,pass);
+				 
+				conn = DriverManager.getConnection(url,user,pass);
 //				System.out.print("Conexao efectuada com sucesso...");
 			} catch (SQLException e) {
 				
@@ -24,7 +22,7 @@ import java.sql.*;
 				 
 				e.printStackTrace();
 			}
-			conn = conns;
-			return conns;
+		 
+			return conn;
 		}
 }

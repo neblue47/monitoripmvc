@@ -14,7 +14,7 @@
 			 	  <div class="widget-title">
 								 			  
 				  <h5><i class="fa fa-th"></i> Lista de Privilégios  </h5>
-				  <table id="table" data-toggle="table" data-height="468" data-pagination="true" data-search="true">
+				  <table id="table" data-toggle="table" data-height="475" data-pagination="true" data-search="true">
 					   <thead>
 							<tr>
 								<th data-field="Nome Posto" data-align="left">Perfil</th>
@@ -32,7 +32,7 @@
 								
 								<td>
 								  	
-								  	<a href="navegacao?mod=cf&pesquisar=ns&cod=${1}">								  	
+								  	<a href="navegacao?mod=cf&pesquisar=acss&acao=edit&perfil=${at.fk_perfil}">								  	
 								  		<i class="glyphicon glyphicon-hand-right" title="config"></i>								  														
 								  	</a>								
 								</td>
@@ -44,7 +44,7 @@
 			
 			</div>	
 			</c:if>
-			<c:if test="${empty armarios}">
+			<c:if test="${empty buscarPerifisTelas}">
 					 <div class="widget-title">
 					 	  <h5><i class="fa fa-th"></i> Lista de Privilégios </h5>
 						  <div id="agenda-perfil">						
@@ -54,7 +54,9 @@
 			</c:if>
 	  </div>
 	  <div class="col-md-5">
-		   <form  action="EquipaController" method="get">
+		   
+      	 <c:if test="${empty param.acao}">
+      	 <form  action="EquipaController" method="get">
        				<div class="widget-title">
        					  <h5><i class="fa fa-th"></i> Criar / Editar Perfil </h5>
        					  <div id="agenda-perfil">       					  
@@ -84,18 +86,21 @@
 					                     </tr>
 					                </thead>                  
 	                  				<tbody>
-	                  					<c:forEach var="at" items="${lista }">   
+	                  					<c:forEach var="at" items="${ListaTelas }">   
 	                  					<tr>
-	                    					<td>${at.nome } ${at.snome }</td>
-	                    					<td><input type="checkbox" name="opcao"  value="${at.id_entidade }" /></td>                 
+	                    					<td>${at.tela }  </td>
+	                    					<td><input type="checkbox" name="opcao"  value="${at.id_tela }" /></td>                 
 	                  					</tr>
 	                  					</c:forEach>	                  					                 
 	                  				</tbody>	   						
 	            			   </table>						
 			 		</div>
 				 <div class="pull-right" >
-	       			  <input type="hidden" name = "fkFun" value="${fkUsuario }">                 
-	                   <button type="submit" class="btn btn-success btn-sm" name="btpriv">
+	       			  <input type="hidden" name = "fkFun" value="${param.perfil }">                 
+	                   <button type="button" data-toggle="button" onClick="novo();" class="btn btn-default btn-sm" name="btpriv">
+						  		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo
+					   </button>
+					   <button type="submit" class="btn btn-success btn-sm" name="btpriv">
 						  		<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Salvar
 					   </button>			 
 					   <button type="reset" class="btn btn-primary btn-sm">
@@ -103,8 +108,73 @@
 					  </button>
 				</div>
       	 </form>
+      	 </c:if>
+      	 
+      	 <c:if test="${not empty param.acao}">
+      	 <form  action="AcessosController" method="get">
+       				<div class="widget-title">
+       					  <h5><i class="fa fa-th"></i> Criar Perfil </h5>
+       					  <div id="agenda-perfil">       					  
+		       				<div class="row pesAdmin"> 
+		       				  <div class="col-md-12">         
+			        	   		 	  <div class="form-group input-group input-group-addon-ajust">
+        				 	<span class="input-group-addon"> Perfil : </span>	            			
+            			 	<input class="form-control" name="desc" type="text" value="${tmpPerfil.perfil }"  required="required"/>
+        			    </div>
+	        		 
+       					<div class="form-group input-group input-group-addon-ajust">
+	        			 	 <span class="input-group-addon">Módulo : </span>     		   	 
+             				 <select class="form-control"  name="modulo" id="modulo" required="required">
+           							 <c:forEach var="atg" items="${ListaModulos}">
+				 							<option value="${atg.id_mod}"> ${atg.modulo} </option>
+									</c:forEach>									                
+           					 </select>             				
+	        			</div>    
+			        	   		  </div>
+			        	   		 </div>
+			        	   		</div>
+	        	   		 		<table  id="testli2" data-toggle="table" data-height="340" data-pagination="false" data-search="false" data-show-toggle="false" data-show-columns="false" data-show-refresh="false" >     
+					                <thead> 
+					                    <tr>
+					                        <th data-field="Telas" data-align="center">Telas</th>
+						            		<th data-field="Seleccione" data-align="center">Seleccione</th>
+					                     </tr>
+					                </thead>                  
+	                  				<tbody>
+	                  					<c:forEach var="at" items="${ListaTelas }">   
+	                  					<tr>
+	                    					<td>${at.tela }  </td>
+	                    					<td><input type="checkbox" name="opcao"  value="${at.id_tela }" /></td>                 
+	                  					</tr>
+	                  					</c:forEach>	                  					                 
+	                  				</tbody>	   						
+	            			   </table>						
+			 		</div>
+				 <div class="pull-right" >
+	       			  <input type="hidden" name = "perfil" value="${param.perfil }">                 
+	                  
+					   <button type="submit" class="btn btn-success btn-sm" name="btpriv">
+						  		<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Salvar
+					   </button>			 
+					   <button type="reset" class="btn btn-primary btn-sm">
+					 	 		<span class="fa fa-eraser" aria-hidden="true"></span> Limpar
+					  </button>
+					   <button type="button" data-toggle="button" onClick="cancelar();" class="btn btn-default btn-sm" name="btpriv">
+						  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+					   </button>
+				</div>
+      	 </form>
+      	 </c:if>
+      	 
 		</div>	
  </div>
-
+<script>
+function novo(){
+	location.href="navegacao?mod=cf&pesquisar=acss&acao=novo"; 
+}
+function cancelar(){
+	location.href="navegacao?mod=cf&pesquisar=acss"; 
+}
+</script>
 
  
