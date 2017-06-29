@@ -93,6 +93,36 @@ public class AcessosDAO {
 		return lista;
 	}
 	
+	public List<Diverso> buscarTelasPorPerfil (int perfil,int modulo)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from tbltela where fk_modulo = ? and id not in (select fk_tela   from vwprivilegios where fk_perfil = ? and fk_modulo = ?)";
+		try {
+			 System.out.println("JAJAJ");
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setInt(1, modulo);
+			 pr.setInt(2, perfil);
+			 pr.setInt(3, modulo);
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_tela(rs.getInt("Id"));
+				 md.setTela(rs.getString("tela"));
+				 md.setCodTela(rs.getString("cod_tela"));
+				 lista.add(md);
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
 	public List<Diverso> buscarModulos()
 	{
 		List <Diverso> lista = new ArrayList<Diverso>();

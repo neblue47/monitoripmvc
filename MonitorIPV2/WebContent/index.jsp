@@ -41,6 +41,7 @@
 <script src="js/tabs/jquery-1.10.2.js"></script>
 <script src="js/tabs/jquery-ui.js"></script>
 <script src="js/tabs/jquery.cookie.js"></script>
+<script src="js/ajaxtela.js"></script>
 <!-- /Tabs Script-->
 
 

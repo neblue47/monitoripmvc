@@ -91,14 +91,14 @@ $(document).ready(function(){
 	$('select[name=modulog]').on('change',function(){
 		$.ajax({
 			type: 'GET',
-			url : 'GrupGrController',
-			data: 'codigomodg='+$('select[name=modulog]').val()+'&'+'codGrupog='+$('select[name=grupog]').val(),
+			url : 'AjaxPrivController',
+			data: 'codmodulo='+$('select[name=modulo]').val()+'&'+'Idperfil='+$('#Idperfil').val(),
 			statusCode: {
 				404: function(){
-					//alert('Pagina n�o encontrada');
+					alert('Pagina nao encontrada');
 				},
 				500: function(){
-					//alert('Erro no servidor');
+					alert('Erro no servidor');
 				}
 			},
 			success: function (dados){
@@ -110,25 +110,16 @@ $(document).ready(function(){
 					
 					}
 				else{
-//							$("#testli thead").append("<tr >"+
-//											"<th data-field='Grupo' data-align='center'>Grupo</th>"+
-//											"<th data-field='Modulo' data-align='center'>Modulo</th>"+
-//											"<th data-field='Tela' data-align='center'>Tela</th>"+
-//											"<th data-field='Op�oes' data-align='center'>Opcoes</th>"+
-//		                          "</tr>");						
-				for(var i=0;i<pegados.length-1;i++)
-				{
-				var grupo = pegados[i].split("-")[0];
-				var modulo = pegados[i].split("-")[1];
-				var nomtela = pegados[i].split("-")[2];
-				var codtela = pegados[i].split("-")[3];
-				$("#testli tbody").append("<tr  >"+
-				      	"<td data-field='Grupo' data-align='center'>"+grupo +"</td>"+
-				      	"<td data-field='Modulo' data-align='center'>"+modulo +"</td>"+
-				      	"<td data-field='Tela' data-align='center'>"+nomtela +"</td>"+
-				      	"<td data-field='Opcoes' data-align='center'><input type='checkbox' name='opcao'  value='"+codtela+"'/></td>"+
-				     "</tr>");
-				}
+//												
+					for(var i=0;i<pegados.length-1;i++)
+					{
+						var codtela = pegados[i].split("-")[0];
+						var nomtela = pegados[i].split("-")[1];
+					    $("#testli tbody").append("<tr  >"+
+						                            "<td class='telas'> <div>"+nomtela+"</div> </td>"+
+	                                                "<td class='opcoes'> <div><input type='checkbox' name='opcao' id='opcao' value='"+codtela +"' /></div></td>"+
+	                                                "</tr>");
+					}
 			}
 				
 			}

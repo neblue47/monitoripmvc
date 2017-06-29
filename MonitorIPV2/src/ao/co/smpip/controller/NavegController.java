@@ -417,15 +417,15 @@ public class NavegController extends HttpServlet {
 				
 				if(tela!=null && tela.equals("acss")){
 					 AcessosDAO dDao = new AcessosDAO();
-					 //List<Diverso> buscarPerifisTelas = dDao.buscarPerifisTelas();
+					 List<Diverso> buscarPerifisTelas = dDao.buscarPerifisTelas();
 					 List<Diverso> ListaTelas = dDao.buscarTelas();
 					 List<Diverso> ListaModulos = dDao.buscarModulos();
-					// request.setAttribute("buscarPerifisTelas", buscarPerifisTelas); 
+					 request.setAttribute("buscarPerifisTelas", buscarPerifisTelas); 
 					 request.setAttribute("ListaTelas", ListaTelas);
 					 request.setAttribute("ListaModulos", ListaModulos);
 					 String acao = request.getParameter("acao");
 					 
-					 if(acao.isEmpty() && acao.equals("edit")){
+					 if(acao!=null && acao.equals("edit")){
 						 String codPrf = request.getParameter("perfil");
 						 Diverso tmpPerfil = new AcessosDAO().verPerfilPrivilegio(codPrf);
 						 request.setAttribute("tmpPerfil", tmpPerfil);
@@ -450,6 +450,7 @@ public class NavegController extends HttpServlet {
 				
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			 saida = request.getRequestDispatcher("index.jsp?mod=ajd");
 				saida.forward(request, response);
 		}

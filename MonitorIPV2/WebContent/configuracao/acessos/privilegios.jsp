@@ -151,7 +151,7 @@
 	            			   </table>						
 			 		</div>
 				 <div class="pull-right" >
-	       			  <input type="hidden" name = "perfil" value="${param.perfil }">                 
+	       			  <input type="hidden" name = "perfil" id = "Idperfil" value="${param.perfil }">                 
 	                  
 					   <button type="submit" class="btn btn-success btn-sm" name="btpriv">
 						  		<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Salvar
