@@ -19,7 +19,7 @@ public class AcessosDAO {
 	public List<Diverso> buscarPerifisTelas ()
 	{
 		List <Diverso> lista = new ArrayList<Diverso>();
-		String sql = "SELECT * from vwprivilegios LIMIT 20";
+		String sql = "select perfil, fk_perfil,modulo, count(tela) as qtd from vwprivilegios group by perfil, fk_perfil,modulo ";
 		try {
 			 con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
@@ -27,11 +27,35 @@ public class AcessosDAO {
 			 while(rs.next())
 			 {
 				 Diverso dd = new Diverso();
-				 dd.setId_mod(rs.getInt("fk_modulo"));
-				 dd.setModulo(rs.getString("modulo"));
-				 dd.setLinktela(rs.getString("controller"));
+				 dd.setModulo(rs.getString("modulo")); 
 				 dd.setPerfil(rs.getString("perfil"));
 				 dd.setFk_perfil(rs.getInt("fk_perfil"));
+				 dd.setQtd_telas(rs.getInt("qtd"));
+				 lista.add(dd);
+				  
+			 }
+			  
+			 preparador.close();
+			 con.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
+	public List<Diverso> buscarListaPerfil ()
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from tblperfil ";
+		try {
+			 con = Conexao.getConexao();
+			 PreparedStatement preparador = con.prepareStatement(sql);
+			 ResultSet rs = preparador.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso dd = new Diverso();
+				 dd.setPerfil(rs.getString("perfil"));
+				 dd.setFk_perfil(rs.getInt("id"));
 				 lista.add(dd);
 				  
 			 }
@@ -66,6 +90,8 @@ public class AcessosDAO {
 		}
 		return perfil;
 	}
+	
+	
 	public List<Diverso> buscarTelas ()
 	{
 		List <Diverso> lista = new ArrayList<Diverso>();
@@ -98,7 +124,7 @@ public class AcessosDAO {
 		List <Diverso> lista = new ArrayList<Diverso>();
 		String sql = "select * from tbltela where fk_modulo = ? and id not in (select fk_tela   from vwprivilegios where fk_perfil = ? and fk_modulo = ?)";
 		try {
-			 System.out.println("JAJAJ");
+			 
 			 con = Conexao.getConexao();
 			 PreparedStatement pr = con.prepareStatement(sql);
 			 pr.setInt(1, modulo);
@@ -112,6 +138,103 @@ public class AcessosDAO {
 				 md.setTela(rs.getString("tela"));
 				 md.setCodTela(rs.getString("cod_tela"));
 				 lista.add(md);
+				 System.out.println("JAJAJ");
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
+	public List<Diverso>AcessoModulosLogin (int idUsuario)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from vwperfilacessos where id_utilizador = ? group by fk_modulo order by fk_modulo";
+		try {
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setInt(1, idUsuario);
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_mod(rs.getInt("fk_modulo"));
+				 md.setModulo(rs.getString("modulo"));
+				 md.setMdlink(rs.getString("controller"));
+				 md.setCodCl(rs.getString("modcod"));
+				  
+				 lista.add(md);
+				System.out.println(idUsuario); 
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
+	public List<Diverso>AcessoTelasLogin (int idUsuario)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from vwperfilacessos where id_utilizador = ?  and obs_tela is null order by fk_tela";
+		try {
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setInt(1, idUsuario);
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_mod(rs.getInt("fk_modulo"));
+				 md.setModulo(rs.getString("modulo"));
+				 md.setMdlink(rs.getString("controller"));
+				 md.setCodCl(rs.getString("modcod"));
+				 md.setTela(rs.getString("tela"));
+				 md.setCodTela(rs.getString("cod_tela"));
+				 md.setId_tela(rs.getInt("fk_tela"));
+				  
+				 lista.add(md);
+				 
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
+	public List<Diverso>AcessoTelasPrivLogin (int idUsuario)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from vwperfilacessos where id_utilizador = ?  and obs_tela = 2 and fk_modulo = 3 order by fk_tela";
+		try {
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setInt(1, idUsuario);
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_mod(rs.getInt("fk_modulo"));
+				 md.setModulo(rs.getString("modulo"));
+				 md.setMdlink(rs.getString("controller"));
+				 md.setCodCl(rs.getString("modcod"));
+				 md.setTela(rs.getString("tela"));
+				 md.setCodTela(rs.getString("cod_tela"));
+				 md.setId_tela(rs.getInt("fk_tela"));
+				  
+				 lista.add(md);
+				 
 			 }
 			 pr.close();
 			 con.close();
@@ -151,41 +274,42 @@ public class AcessosDAO {
 		return lista;
 	}
 	public void novoPerifilTelas(List <Diverso> acessos){
-		/*int LastID=0;
+		int LastID=0;
 		String sql = "INSERT INTO tblperfil (perfil) value(?)";
 		try {
-			if(con.isClosed())
-			   con = Conexao.getConexao();
+			String perfil = acessos.get(0).getPerfil();
+			con = Conexao.getConexao();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, dd.getPerfil());
+			ps.setString(1, perfil);
 			ps.execute();
 			ResultSet rs = ps.executeQuery("SELECT LAST_INSERT_ID()");
 			if(rs.next()){
 				LastID = rs.getInt(1);
-				sql = "INSERT INTO tblprivilegio (fk_modulo,fk_tela,fk_perfil) value(?,?,?)";
-				ps.setInt(1, dd.getId_mod());
-				ps.setInt(2, dd.getId_tela());
-				ps.setInt(3, LastID);
-				ps.execute();
+				 for(Diverso dd: acessos){
+					   sql = "INSERT INTO tblprivilegio (fk_modulo,fk_tela,fk_perfil) value(?,?,?)";
+					    ps = con.prepareStatement(sql);
+					    ps.setInt(1, dd.getId_mod());
+						ps.setInt(2, dd.getId_tela());
+						ps.setInt(3, LastID);
+						ps.execute();
+				 }
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	public void EditarPerifilTelas(List <Diverso> acessos){
 		 
-		   String sql = "DELETE FROM tblprivilegio WHERE fk_perfil = ?";
+		   String sql = " ";
 		try {
 			if(!acessos.isEmpty()){
-				int fk_perfil = acessos.get(0).getFk_perfil();
-				con = Conexao.getConexao();
-				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1, fk_perfil);
-				ps.execute();
 				 
+				con = Conexao.getConexao();
+				PreparedStatement ps = con.prepareStatement(sql);				 
 				 for(Diverso dd: acessos){
-					 sql = "INSERT INTO tblprivilegio (fk_modulo,fk_tela,fk_perfil) value(?,?,?)";
+					   sql = "INSERT INTO tblprivilegio (fk_modulo,fk_tela,fk_perfil) value(?,?,?)";
+					    
 					    ps = con.prepareStatement(sql);
 					    ps.setInt(1, dd.getId_mod());
 						ps.setInt(2, dd.getId_tela());

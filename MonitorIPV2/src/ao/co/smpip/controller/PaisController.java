@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ao.co.smpip.entidades.Diverso;
+import ao.co.smpip.jdbc.AcessosDAO;
 import ao.co.smpip.utils.MetodosBuscas;
 
 /**
@@ -32,6 +33,7 @@ public class PaisController extends HttpServlet {
 		String pais = request.getParameter("codigopais");
 		String prov = request.getParameter("codigoprovincia");
 		String munc = request.getParameter("codigomunicipio");
+		
 		StringBuilder sb = new StringBuilder();
 		MetodosBuscas eDao = new MetodosBuscas();
 		try {
@@ -57,6 +59,16 @@ public class PaisController extends HttpServlet {
 					sb.append(lp.get(i).getProvincia()+"*"+lp.get(i).getNomeProv()+":");
 			}
 			
+			else{
+				System.out.println(0000000);
+				int codmodulo = Integer.parseInt(request.getParameter("codmodulo"));
+				int Idperfil = Integer.parseInt(request.getParameter("Idperfil"));
+				AcessosDAO acDao = new AcessosDAO(); 
+				List <Diverso> lt = acDao.buscarTelasPorPerfil(Idperfil,codmodulo);
+				 
+				for(int i=0;i<lt.size();i++)
+					sb.append(lt.get(i).getId_tela()+"-"+lt.get(i).getTela()+":");
+			}
 			
 			response.setContentType("text/plain");  
 		  	response.setCharacterEncoding("UTF-8"); 

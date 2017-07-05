@@ -10,7 +10,7 @@ import java.util.List;
 public class UserDAO 
 {
 	private Connection con = Conexao.getConexao();
-	
+	private EncriptaDecriptaRSA rsa;
 	public void cadastrar (Usuario usu)
 	{
 		String sql = "INSERT INTO tblutilizador (nome_ut,senha_ut,nivel_ut,FK_entidade) VALUES (?,?,?,?)";
@@ -62,7 +62,7 @@ public class UserDAO
 	public List<Usuario> buscaTodos ()
 	{
 		List <Usuario> lista = new ArrayList<Usuario>();
-		String sql = "SELECT * FROM tblutilizador ";
+		String sql = "select * from vwutilizadores w left join tblperfil p on w.fk_perfil = p.Id ";
 		try {
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 
@@ -71,10 +71,14 @@ public class UserDAO
 			 while(rs.next())
 			 {
 				 Usuario usu = new Usuario();
-				 usu.setId(rs.getInt("id_entidade"));
+				 usu.setId(rs.getInt("id_utilizador"));
 				 usu.setNome(rs.getString("nome_ut"));
+				 usu.setNomeComp(rs.getString("nome")+" "+rs.getString("snome"));
 				 usu.setSenha(rs.getString("senha_ut"));
 				 usu.setNivel(rs.getInt("nivel_ut"));
+				 usu.setPerfil(rs.getString("perfil"));
+				 usu.setFk_perfil(rs.getInt("fk_perfil"));
+				 usu.setHash_id(rsa.criptografa(toString(rs.getInt("id_utilizador"))));
 				 lista.add(usu);
 			 }
 			 preparador.close();
@@ -87,11 +91,12 @@ public class UserDAO
 	
 	public Usuario buscarPorId(String id)
 	{
-		Usuario usu = new Usuario();;
+		Usuario usu = new Usuario();
+		String codId = EncriptaDecriptaRSA.decriptografa(id);
 		String sql = "SELECT * FROM tblutilizador WHERE fk_entidade=?";
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
-			preparador.setString(1, id);
+			preparador.setString(1, codId);
 			ResultSet rs = preparador.executeQuery();
 			
 			if(rs.next())
@@ -102,6 +107,35 @@ public class UserDAO
 				String decifrada = EncriptaDecriptaRSA.decriptografa(rs.getString("senha_ut"));
 				usu.setSenha(decifrada);
 				usu.setNivel(rs.getInt("nivel_ut"));
+				usu.setFk_perfil(rs.getInt("fk_perfil"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return usu;
+	}
+	
+	public Usuario buscarPorIdUsu(String id)
+	{
+		Usuario usu = new Usuario();
+		String codId = EncriptaDecriptaRSA.decriptografa(id);
+		String sql = "SELECT * FROM tblutilizador WHERE id_utilizador=?";
+		try {
+			PreparedStatement preparador = con.prepareStatement(sql);
+			preparador.setString(1, codId);
+			ResultSet rs = preparador.executeQuery();
+			
+			if(rs.next())
+			{
+				
+				usu.setId(rs.getInt("fk_entidade"));
+				usu.setNome(rs.getString("nome_ut"));
+				String decifrada = EncriptaDecriptaRSA.decriptografa(rs.getString("senha_ut"));
+				usu.setSenha(decifrada);
+				usu.setNivel(rs.getInt("nivel_ut"));
+				usu.setFk_perfil(rs.getInt("fk_perfil"));
 			}
 			
 		} catch (SQLException e) {
@@ -152,6 +186,7 @@ public class UserDAO
 				
 				usua.setId(rs.getInt("fk_entidade"));
 				usua.setNome(rs.getString("nome_ut"));
+				usua.setFK_entidade(rs.getInt("id_utilizador"));
 				usua.setNomeComp(rs.getString("nome")+" "+rs.getString("snome"));
 				usua.setNivel(rs.getInt("nivel_ut"));
 		   }
@@ -197,5 +232,10 @@ public class UserDAO
 		{
 			cadastrar(usu);
 		}
+	}
+	
+	public String toString(Object ob) {
+		// TODO Auto-generated method stub
+		return ob.toString();
 	}
 }

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="row">
  	<div class="col-md-12">	
      <ul >
@@ -11,48 +13,41 @@
 	          {  
 	        	  if(cont.equals("f") )   {
 	     		     %>
-	                     <li class="ative"><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
-	                     <li><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
-	                     <li><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
-	                     <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
-	                      
+	     		     <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ad'}" > 
+	     		           <li <c:if test="${md.codTela eq 'f'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>  
 	                 <% }
 	        	  if (cont.equals("p") || cont.equals("Pesquisar")) { %>
-	                
-	                	<li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
-	                	<li class="ative"><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
-	                	<li><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
-	                	<li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
-	              	 
+	                <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ad'}" > 
+	     		           <li <c:if test="${md.codTela eq 'p'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
 	                <% } 
 				 if (cont.equals("u")) { %>
 	                
-		                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
-		                <li class="ative"><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
-	                 
-	                
+		                <c:forEach var="md" items="${AcessoTelas}">
+		     		        <c:if test="${md.codCl eq 'ad'}" > 
+		     		           <li <c:if test="${md.codTela eq 'u'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+		     		        </c:if>
+					    </c:forEach>
 	                <% }
 				 
 				 if (cont.equals("eq")) { %>
-	                
-		                <li ><a href="navegacao?mod=ad&pesquisar=f">Novo Funcionário<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
-		                <li class="ative"><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
-	                 
-	                
+		              <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ad'}" > 
+	     		           <li <c:if test="${md.codTela eq 'eq'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>	                
 	                <% }
 				 
 		         if (cont.equals("edit")) { %>
 	                
 		                <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
 		                <li class="ative"><a href="#">Editando<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=p">Listar Funcionário<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=u">Utilizadores<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=eq">Equipas<span></span></a></li>
-		                <li ><a href="navegacao?mod=ad&pesquisar=ag">Turnos<span></span></a></li>
+		                
 	                <% }
 		         if (cont.equals("arq")) { %>
 		                <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
@@ -68,73 +63,59 @@
             	  if(cont!=null && !cont.equals("")){
             		  if(cont.equals("pc")){%>
               		<!-- MENU SERVIÇO -->
-                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li> 
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li>
+                      <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'pc'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
               		<% }
             		  
             		  if(cont.equals("ps")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=ps">Armarios<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li>	 
+                      <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'ps'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>	 
               		 <% }
             		  
             		  if(cont.equals("rq")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li class="ative"><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li>	 
+                      <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'rq'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>	 
               		 <% }
             		  
             		  if(cont.equals("ht")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=ht">Historico<span></span></a></li>
-                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>	
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li> 
+                      <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'ht'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
               		 <% }
             		  
             		  if(cont.equals("rt")||cont.equals("rtd")||cont.equals("rts")||cont.equals("rtm")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li class="ative"><a href="navegacao?mod=ag&pesquisar=rt">Relatorios<span></span></a></li>
-                  	  <li><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>	
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li> 
+                      <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'rt' or md.codTela eq 'rtd' or md.codTela eq 'rts' or  md.codTela eq 'rtm' }" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
               		 <% }
             		  
             		  if(cont.equals("not")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li class="ative"><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>	 
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li>
+                       <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'not'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
               		 <% }
             		  
                      if(cont.equals("mts")){%>
-                      <li ><a href="navegacao?mod=ag&pesquisar=pc">Monitor<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ps">Armários<span></span></a></li>
-                      <li ><a href="navegacao?mod=ag&pesquisar=ht">Histórico<span></span></a></li>
-                      <li><a href="navegacao?mod=ag&pesquisar=rt">Relatórios<span></span></a></li>
-                  	  <li ><a href="navegacao?mod=ag&pesquisar=not">Notificações<span></span></a></li> 
-                  	  <li><a href="navegacao?mod=ag&pesquisar=rq">Equipas<span></span></a></li>	 
-                  	  <li class="ative"><a href="navegacao?mod=ag&pesquisar=mts">Manutenção<span></span></a></li>
+                       <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'ag'}" > 
+	     		           <li <c:if test="${md.codTela eq 'mts'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
                      <%}
             	  }
                 }
@@ -142,52 +123,68 @@
              if(mod.equals("cf")) {
             	 if(cont!=null && !cont.equals("")){
             		 if(cont.equals("nc")){%>
-                 	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=nc">Novo Armário<span></span></a></li>
-                 	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armários<span></span></a></li>
-                 	 <li ><a href="navegacao?mod=cf&pesquisar=cm">Configurar Monitor<span></span></a></li>
-                     <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
+                 	  <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'nc'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
                      
                <%}
                  if(cont.equals("mt")){%>
-                     <li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armário<span></span></a></li>
-                 	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armários<span></span></a></li>
-                 	 <li ><a href="navegacao?mod=cf&pesquisar=cm">Configurar Monitor<span></span></a></li>
-                     <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
-                      
+                     <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'mt'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach> 
                  <%}
                  if(cont.equals("cm")){%>
-	              	 <li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armário<span></span></a></li>
-	              	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armários<span></span></a></li>
-	                 <li class="ative"><a href="navegacao?mod=cf&pesquisar=cm">Configurar Monitor<span></span></a></li>
-	                 <li ><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
-                   
+	              	 <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'cm'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
                 <%}
                  
                  if(cont.equals("ns")){%>
-             	 	 <li ><a href="navegacao?mod=cf&pesquisar=nc">Novo Armário<span></span></a></li>
-             	  	 <li ><a href="navegacao?mod=cf&pesquisar=mt">Gerir Armários<span></span></a></li>
-                   	 <li ><a href="navegacao?mod=cf&pesquisar=cm">Configurar Monitor<span></span></a></li>
-                 	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=ns">Configurar Sensor<span></span></a></li>
-                  
+             	 	 <c:forEach var="md" items="${AcessoTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'ns'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+					  </c:forEach>
                 <%}
                  
                  if(cont.equals("acss")){%>
-         	 	 <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
-             	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=acss">Privilégios <span></span></a></li>
-               	 <li ><a href="navegacao?mod=cf&pesquisar=actela">Telas<span></span></a></li>
-             	 <li ><a href="navegacao?mod=cf&pesquisar=acmdl">Módulos<span></span></a></li>              
+         	 	 <li ><a href="navegacao?mod=cf" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
+             	 <c:forEach var="md" items="${AcessoPrivTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'ns'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+				</c:forEach>           
               <%}
                  if(cont.equals("actela")){%>
-         	 	 <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
-             	 <li ><a href="navegacao?mod=cf&pesquisar=acss">Privilégios <span></span></a></li>
-               	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=actela">Telas<span></span></a></li>
-             	 <li ><a href="navegacao?mod=cf&pesquisar=acmdl">Módulos<span></span></a></li>              
+         	 	 <li ><a href="navegacao?mod=cf" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
+             	 <c:forEach var="md" items="${AcessoPrivTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'actela'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+				</c:forEach>            
               <%}
                  if(cont.equals("acmdl")){%>
-         	 	 <li ><a onclick = "window.history.back()" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
-             	 <li ><a href="navegacao?mod=cf&pesquisar=acss">Privilégios <span></span></a></li>
-               	 <li ><a href="navegacao?mod=cf&pesquisar=actela">Telas<span></span></a></li>
-             	 <li class="ative"><a href="navegacao?mod=cf&pesquisar=acmdl">Módulos<span></span></a></li>              
+         	 	 <li ><a href="navegacao?mod=cf" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
+             	 <c:forEach var="md" items="${AcessoPrivTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'acmdl'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+				</c:forEach>     
+             	           
+              <%}
+                 if(cont.equals("acssu")){%>
+         	 	 <li ><a href="navegacao?mod=cf" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
+             	 <c:forEach var="md" items="${AcessoPrivTelas}">
+	     		        <c:if test="${md.codCl eq 'cf'}" > 
+	     		           <li <c:if test="${md.codTela eq 'acssu'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		        </c:if>
+				</c:forEach>         
               <%}
                  
                 

@@ -205,6 +205,9 @@
              	else if(pes.equals("actela")&& modcont.equals("cf") ){%>
        			<jsp:include page="configuracao/acessos/telas.jsp" />
     			<% }
+             	else if(pes.equals("acssu")&& modcont.equals("cf") ){%>
+       			<jsp:include page="configuracao/acessos/utilizadores.jsp" />
+    			<% }
              	
            
            }

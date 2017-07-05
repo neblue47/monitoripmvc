@@ -35,8 +35,8 @@ public class AcessosController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AcessosDAO acDAO = new AcessosDAO();
 		List<Diverso> acessos =  new ArrayList<Diverso>();
-		String perfil = request.getParameter("perfil");
-		String modulo = request.getParameter("modulo");
+		String perfil = request.getParameter("Idperfil");
+		String modulo = request.getParameter("codmodulo");
 		String [] telas = request.getParameterValues("opcao");
 		if(telas!=null && telas.length > 0){
 			int fk_perfil = Integer.parseInt(perfil);
@@ -51,14 +51,33 @@ public class AcessosController extends HttpServlet {
 			}
 			acDAO.EditarPerifilTelas(acessos);
 		}
+		
+		response.sendRedirect("navegacao?mod=cf&pesquisar=acss");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		AcessosDAO acDAO = new AcessosDAO();
+		List<Diverso> acessos =  new ArrayList<Diverso>();
+		String perfil = request.getParameter("perfil");
+		String modulo = request.getParameter("codmodulo");
+		String [] telas = request.getParameterValues("opcao");
+		if(telas!=null && telas.length > 0){
+			int fk_modulo = Integer.parseInt(modulo);
+			for(int i = 0;i < telas.length; i++)
+			{
+				Diverso dd = new Diverso();
+				dd.setPerfil(perfil);
+				dd.setId_mod(fk_modulo);
+				dd.setId_tela(Integer.parseInt(telas[i]));
+				acessos.add(dd);
+			}
+			acDAO.novoPerifilTelas(acessos);
+		}
+		
+		response.sendRedirect("navegacao?mod=cf&pesquisar=acss");
 	}
 
 }

@@ -35,14 +35,21 @@ public class AjaxPrivController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		int codmodulo = Integer.parseInt(request.getParameter("codmodulo"));
-		int Idperfil = Integer.parseInt(request.getParameter("Idperfil"));
-		AcessosDAO acDao = new AcessosDAO(); 
-		List <Diverso> lt = acDao.buscarTelasPorPerfil(Idperfil,codmodulo);
+		 
 		StringBuilder sb = new StringBuilder();
-		for(int i=0;i<lt.size();i++)
-			sb.append(lt.get(i).getId_tela()+"-"+lt.get(i).getTela()+":");
+		
+		try {
+			int codmodulo = Integer.parseInt(request.getParameter("codmodulo"));
+			int Idperfil = Integer.parseInt(request.getParameter("idperfil"));
+			AcessosDAO acDao = new AcessosDAO(); 
+			List <Diverso> lt = acDao.buscarTelasPorPerfil(Idperfil,codmodulo);
+			
+			for(int i=0;i<lt.size();i++)
+				sb.append(lt.get(i).getId_tela()+"-"+lt.get(i).getTela()+":");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		 
 		response.setContentType("text/plain");  
 	  	response.setCharacterEncoding("UTF-8"); 
 	  	response.getWriter().write(sb.toString()); 

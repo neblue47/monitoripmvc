@@ -1,6 +1,7 @@
 package ao.co.smpip.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ao.co.smpip.entidades.Diverso;
 import ao.co.smpip.entidades.Usuario;
+import ao.co.smpip.jdbc.AcessosDAO;
 import ao.co.smpip.jdbc.UserDAO;
 import ao.co.smpip.serial.SerialConexao;
 
@@ -61,10 +64,19 @@ public class LoginController extends HttpServlet {
 		if(uDao.existe_usuario(usu))
 		{
 			Usuario us = uDao.autenticar(usu);
+			List<Diverso>AcessoMudulos = new AcessosDAO().AcessoModulosLogin(us.getFK_entidade());
+			List<Diverso>AcessoTelas   = new AcessosDAO().AcessoTelasLogin(us.getFK_entidade());
+			List<Diverso>AcessoPrivTelas   = new AcessosDAO().AcessoTelasPrivLogin(us.getFK_entidade());
+			
 			System.out.println("Nome C: "+us.getNomeComp());
+			
 			sessao.setAttribute("nomeUsa", us.getNomeComp());
 			sessao.setAttribute("fkUsuario", us.getId());
 			sessao.setAttribute("nivelUs", us.getNivel());
+			
+			sessao.setAttribute("AcessoMudulos", AcessoMudulos);
+			sessao.setAttribute("AcessoTelas", AcessoTelas);
+			sessao.setAttribute("AcessoPrivTelas", AcessoPrivTelas);
 			sessao.setAttribute("tmp", 60);
 			System.out.println("CHEIYss");
 			response.sendRedirect("navegacao?mod=ng");

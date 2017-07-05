@@ -88,11 +88,11 @@ $(document).ready(function(){
 
 //-------------- Tabela Telas Gerir G--------------------- 
 $(document).ready(function(){
-	$('select[name=modulog]').on('change',function(){
+	$('select[name=modulo]').on('change',function(){
 		$.ajax({
 			type: 'GET',
 			url : 'AjaxPrivController',
-			data: 'codmodulo='+$('select[name=modulo]').val()+'&'+'Idperfil='+$('#Idperfil').val(),
+			data: 'codmodulo='+$('select[name=modulo]').val()+'&'+'Idperfil='+$('input[name=Idperfil]').val(),
 			statusCode: {
 				404: function(){
 					alert('Pagina nao encontrada');

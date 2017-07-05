@@ -8,6 +8,9 @@ public class Usuario implements Serializable
 	private String nome;
 	private String nomeComp;
 	private String senha;
+	private int fk_perfil;
+	private String perfil;
+	private String hash_id;
 	private int nivel;
 	private int FK_entidade;
 	private byte [] cifras;
@@ -53,6 +56,24 @@ public class Usuario implements Serializable
 	}
 	public void setFK_entidade(int fK_entidade) {
 		FK_entidade = fK_entidade;
+	}
+	public int getFk_perfil() {
+		return fk_perfil;
+	}
+	public void setFk_perfil(int fk_perfil) {
+		this.fk_perfil = fk_perfil;
+	}
+	public String getPerfil() {
+		return perfil;
+	}
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+	public String getHash_id() {
+		return hash_id;
+	}
+	public void setHash_id(String hash_id) {
+		this.hash_id = hash_id;
 	}
 	
 	

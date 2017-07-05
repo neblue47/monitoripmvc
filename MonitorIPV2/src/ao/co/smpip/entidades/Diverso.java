@@ -35,6 +35,7 @@ public class Diverso {
 	 private String codTela;
 	 private String perfil;
 	 private Integer fk_perfil;
+	 private Integer qtd_telas;
 	 
 	 private Integer id_mes;
 	 private String mes;
@@ -253,6 +254,12 @@ public class Diverso {
 	}
 	public void setFk_perfil(Integer fk_perfil) {
 		this.fk_perfil = fk_perfil;
+	}
+	public Integer getQtd_telas() {
+		return qtd_telas;
+	}
+	public void setQtd_telas(Integer qtd_telas) {
+		this.qtd_telas = qtd_telas;
 	}
 	 
 	 
