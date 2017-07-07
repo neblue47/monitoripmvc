@@ -23,3 +23,25 @@
 	  	</div>	  	
 	 </div>
  </div>
+ <input type="hidden" name="tmp" id="tmp" value="${tmp}">
+ <c:if test="${tmp >= 6000}" >
+	<script>
+	$(document).ready(function(){
+		confirmTela()});</script>
+</c:if>
+<script>
+function confirmTela() {     
+	var tmp = $("#tmp").val();
+	swal({
+		title : "",
+		text : "Tempo de Resposta da Tela do Monitor é "+tmp,
+		type : "warning",
+		 
+		confirmButtonColor : "#DD6B55",
+		confirmButtonText : "Sim!",
+		closeOnConfirm : true			
+	}, function() {
+		  
+	}); 
+	}
+</script>

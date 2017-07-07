@@ -77,8 +77,8 @@ public class LoginController extends HttpServlet {
 			sessao.setAttribute("AcessoMudulos", AcessoMudulos);
 			sessao.setAttribute("AcessoTelas", AcessoTelas);
 			sessao.setAttribute("AcessoPrivTelas", AcessoPrivTelas);
-			sessao.setAttribute("tmp", 60);
-			System.out.println("CHEIYss");
+			sessao.setAttribute("tmp", 6000);
+			//System.out.println("CHEIYss");
 			response.sendRedirect("navegacao?mod=ng");
 //			RequestDispatcher saida = request.getRequestDispatcher("index.jsp?mod=ng");
 //			saida.forward(request, response);

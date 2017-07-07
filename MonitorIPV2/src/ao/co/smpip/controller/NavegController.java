@@ -252,7 +252,7 @@ public class NavegController extends HttpServlet {
 					String tela = request.getParameter("pesquisar");
 					if(tela!=null && tela.equals("pc")){
 						 
-						request.setAttribute("tempAux", "1");
+						
 						saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=pc");
 						saida.forward(request, response);
 					}

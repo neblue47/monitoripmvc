@@ -13,33 +13,21 @@
    
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 
-<c:if test="${md.codCl eq 'ag'}" >
 
-</c:if>
 <script>
 $(document).ready(function(){
 	var tmp = $("#tmp").val();
-	var tempAux = $("#tempAux").val();
-	if(tempAux == 1){
-		setInterval(function(){
-			$("#mapa").load('servicos/telas/monitor.jsp')
-	    }, 1);
-		
-	}
-	if(tempAux > 1){
-		setInterval(function(){
-			$("#mapa").load('servicos/telas/monitor.jsp')
-	    }, 60000);
-		}
-	 
-
+	
+	setInterval(function(){
+		$("#mapa").load('servicos/telas/monitor.jsp')
+    }, tmp);
 	
 });
+
+
 </script>
 <div class="row">
-	<input type="text" name="tmp" id="tmp" value="${tmp}">
-	<input type="text" name="tempAux" id="tempAux" value="${tempAux}">
-	 
+	<input type="hidden" name="tmp" id="tmp" value="${tmp}">	 
 	<div class="col-md-12">
            <div id="mapa" >       </div>
     </div>

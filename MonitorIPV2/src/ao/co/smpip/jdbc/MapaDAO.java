@@ -23,6 +23,7 @@ public class MapaDAO
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwarmarios ";
 		try { 
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -42,6 +43,7 @@ public class MapaDAO
 				 lp.add(p);
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return lp;
@@ -51,6 +53,7 @@ public class MapaDAO
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwarmarioscomlogs   group by nome order by id_historico desc limit 3 ";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -70,6 +73,7 @@ public class MapaDAO
 				 lp.add(p);
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return lp;
@@ -79,6 +83,7 @@ public class MapaDAO
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM TBLPOSTO where descricao Like ? ";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 preparador.setString(1, termo);
 			 ResultSet rs = preparador.executeQuery();
@@ -94,6 +99,7 @@ public class MapaDAO
 				 lp.add(p);
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return lp;
@@ -104,6 +110,7 @@ public class MapaDAO
 		Posto p = new Posto();
 		String sql = "SELECT * FROM vwarmarios where id_armario = ? ";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 preparador.setInt(1, termo);
 			 ResultSet rs = preparador.executeQuery();
@@ -124,6 +131,7 @@ public class MapaDAO
 				  
 			 }
 			 preparador.close();
+			 con.close();;
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return p;
@@ -134,6 +142,7 @@ public class MapaDAO
 		Posto p = new Posto();
 		String sql = "SELECT * FROM vwlogs_sensores where id_historico = ? ";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 preparador.setInt(1, termo);
 			 ResultSet rs = preparador.executeQuery();
@@ -146,6 +155,7 @@ public class MapaDAO
 				 
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return p;
@@ -157,6 +167,7 @@ public class MapaDAO
 		List<Posto> lsLogs = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwlogs_sensores where id_armario = ? and data_evento = ?";
 		try {
+			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
 			 preparador.setInt(1, termo);
 			 preparador.setDate(2, data);
@@ -170,6 +181,7 @@ public class MapaDAO
 				 lsLogs.add(p);
 			 }
 			 preparador.close();
+			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
 		return lsLogs;
@@ -180,10 +192,12 @@ public class MapaDAO
 		int fun = 0;
 		String sql = "SELECT COUNT(*) ID FROM TBLENTIDADE";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement preparador = con.prepareStatement(sql);
 			ResultSet rs = preparador.executeQuery();
 			if(rs.last())
 				fun = rs.getInt("ID");
+			con.close();
 		}
 		catch(Exception e){}
 			return fun;
@@ -192,11 +206,13 @@ public class MapaDAO
 	{
 		String sql = "INSERT INTO TBLENTIDADE (ID_ENTIDADE,TIPO) VALUE (?,?)";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			ent.setInt(1, p.getFk_entidade() );
 			ent.setInt(2, 0 );
 			ent.execute();
 			ent.close();
+			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -206,6 +222,7 @@ public class MapaDAO
 		int LastID = -1;
 		String sql = "INSERT INTO tblarmarios (nome,descricao_google,lat,lng,qtd_lamp) VALUES (?,?,?,?,?)";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			ent.setString(1, p.getNomPosto());
 			ent.setString(2, p.getDescricao());
@@ -218,6 +235,7 @@ public class MapaDAO
 				LastID = rs.getInt(1);
 			}
 			ent.close();
+			con.close();
 			System.out.println("Cadastro de sucesso...ARMARIO");  
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -264,6 +282,7 @@ public class MapaDAO
 //		int LastID = -1;
 		String sql = "INSERT INTO tblenderecodoarmario (FK_armario,FK_provincia,FK_municipio,FK_distrito) VALUES (?,?,?,?)";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			ent.setInt(1, p.getFk_armario());
 			ent.setInt(2, p.getProvincia());
@@ -271,6 +290,7 @@ public class MapaDAO
 			ent.setInt(4, p.getDistrito());
 			ent.execute();
 			ent.close();
+			con.close();
 			System.out.println("Cadastro de sucesso...ENDERECO_ARMARIO");  
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -283,6 +303,7 @@ public class MapaDAO
 	{
 		String sql = "UPDATE tblarmarios SET nome = ?, qtd_lamp = ? WHERE id_armario = ?";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			
 			ent.setString(1, p.getNomPosto());
@@ -290,6 +311,7 @@ public class MapaDAO
 			ent.setInt(3, p.getIdPosto());
 			ent.execute();
 			ent.close();
+			con.close();
 			System.out.println("Editado com sucesso...ARMARIO");  
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -301,6 +323,7 @@ public class MapaDAO
 	{
 		String sql = "UPDATE tblenderecodoarmario SET FK_provincia = ?, FK_municipio = ? , FK_distrito = ? WHERE fk_armario = ?";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			
 			ent.setInt(1, p.getFk_provincia());
@@ -309,6 +332,7 @@ public class MapaDAO
 			ent.setInt(4, p.getIdPosto());
 			ent.execute();
 			ent.close();
+			con.close();
 			System.out.println("Editado com sucesso...ENDERECO_ARMARIO");  
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -321,11 +345,13 @@ public class MapaDAO
 //		int LastID = -1;
 		String sql = "INSERT INTO tblsensor (fk_armario,tipo,modelo) VALUES (?,?,?)";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			ent.setInt(1, p.getIdPosto());
 			ent.setString(2, p.getTipo());
 			ent.setString(3, p.getNomSensor());
 			ent.close();
+			con.close();
 			System.out.println("Cadastro de sucesso...ARMARIO-SENSOR");  
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -336,6 +362,7 @@ public class MapaDAO
 	{
 		String sql = "INSERT INTO tblhistorico (ID_POSTO,DESCRICAO_POSTO,LAT,LNG,DESCRICAO) VALUES (?,?,?,?,?,?)";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 			ent.setInt   (1, p.getFk_entidade());
 			ent.setString(2, p.getNomPosto());
@@ -345,6 +372,7 @@ public class MapaDAO
 			ent.setString(6, p.getDescricao());
 			ent.execute();
 			ent.close();
+			con.close();
 			System.out.println("Cadastro de sucesso...LOCALZ");  
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -360,6 +388,7 @@ public class MapaDAO
 				
 				
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -375,6 +404,7 @@ public class MapaDAO
 				 h.setDataEv(data);
 				 lp.add(h);
 			 }
+			 con.close();
 			 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -389,6 +419,7 @@ public class MapaDAO
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwlogs_sensores, vwarmarios where vwlogs_sensores.id_armario = vwarmarios.id_armario and id_historico not in (select fk_historico from tblmanutencao) group by id_sensor,data_evento,vwarmarios.id_armario ORDER BY id_historico desc, hora_evento asc LIMIT 0,20";				
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -406,6 +437,7 @@ public class MapaDAO
 				 lp.add(h);
 //				 System.out.println("OK");
 			 }
+			 con.close();
 			 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -420,6 +452,7 @@ public class MapaDAO
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwsensores ";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement preparador = con.prepareStatement(sql);
 			 ResultSet rs = preparador.executeQuery();
 			 while(rs.next())
@@ -432,7 +465,7 @@ public class MapaDAO
 				 h.setSensor(rs.getInt("id_sensor"));
 				 lp.add(h);
 			 }
-			 
+con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -463,12 +496,14 @@ public class MapaDAO
 	public void clear_manutencao(int FK_sensor,Date dataEv,int FK_historico) {
 		String sql = "Delete from tblhistoricos where fk_sensor = ? and data_evento = ? and id_historico <> ?";
 		try {
+			con = Conexao.getConexao();
 			PreparedStatement ent = con.prepareStatement(sql);
 		    ent.setInt(1, FK_sensor);
 		    ent.setDate(2, dataEv);
 		    ent.setInt(3, FK_historico);
 			ent.execute();
 			ent.close();
+con.close();
 			System.out.println("Clear Feito com sucesso...ARMARIO-SENSOR-MANUTEN");  
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -519,6 +554,7 @@ public class MapaDAO
 			ps.setString(2, p.getDescricao());
 			ps.setInt(3, p.getIdPosto());
 			ps.execute();
+			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
