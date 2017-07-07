@@ -118,7 +118,7 @@ public class NavegController extends HttpServlet {
 							hash_id = rsa.decriptografa(cod);
 						System.out.println(hash_id);	
 						Funcionario f = new FuncionarioDAO().getUtilizador(hash_id);
-						Usuario u = new UserDAO().buscarPorId(hash_id);
+						Usuario u = new UserDAO().buscarPorId(cod);
 						List <Funcionario> lista = new FuncionarioDAO().getFuncionario();
 						request.setAttribute("lista", lista);
 						request.setAttribute("nome_c", f.getNome()+" "+f.getSnome());
@@ -252,7 +252,7 @@ public class NavegController extends HttpServlet {
 					String tela = request.getParameter("pesquisar");
 					if(tela!=null && tela.equals("pc")){
 						 
-						
+						request.setAttribute("tempAux", "1");
 						saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=pc");
 						saida.forward(request, response);
 					}
@@ -450,7 +450,14 @@ public class NavegController extends HttpServlet {
 					}
 					if(tela!=null && tela.equals("acssu")){
 						List<Usuario> ListaUtilizadores = new UserDAO().buscaTodos () ;
-						List<Diverso> ListaPerfil = new AcessosDAO().buscarListaPerfil();
+						
+						String valorp = request.getParameter("valorp");
+						if(valorp!=null)
+							ListaUtilizadores = new UserDAO().buscaTodos (valorp);
+						else
+							ListaUtilizadores = new UserDAO().buscaTodos (); 
+						
+							List<Diverso> ListaPerfil = new AcessosDAO().buscarListaPerfil();
 						String cod = request.getParameter("cod");
 						if(cod!=null ){
 							Usuario usu = new UserDAO().buscarPorIdUsu(cod);

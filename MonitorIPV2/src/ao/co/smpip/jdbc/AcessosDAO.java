@@ -9,6 +9,7 @@ import java.util.List;
 
 import ao.co.smpip.entidades.Diverso;
 import ao.co.smpip.entidades.Funcionario;
+import ao.co.smpip.entidades.Usuario;
 import ao.co.smpip.security.EncriptaDecriptaRSA;
 
 public class AcessosDAO {
@@ -321,6 +322,43 @@ public class AcessosDAO {
 				con.close();
 			}
 			
+			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void AssociarPerfilUtilizador(Usuario d){
+		 
+		String  sql = "UPDATE tblutilizador SET fk_perfil = ? WHERE id_utilizador = ?";
+		try {
+			 		 
+				con = Conexao.getConexao();
+				PreparedStatement ps = con.prepareStatement(sql);				 
+				ps.setInt(1, d.getFk_perfil());
+				ps.setInt(2, d.getId());
+				ps.execute();
+				ps.close();
+				con.close();
+			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void EliminarPerfilUtilizador(int usu){
+		 
+		String  sql = "UPDATE tblutilizador SET fk_perfil = ? WHERE id_utilizador = ?";
+		try {
+			 		 
+				con = Conexao.getConexao();
+				PreparedStatement ps = con.prepareStatement(sql);				 
+				ps.setInt(1, 0);
+				ps.setInt(2, usu);
+				ps.execute();
+				ps.close();
+				con.close();
 			 
 		} catch (Exception e) {
 			e.printStackTrace();

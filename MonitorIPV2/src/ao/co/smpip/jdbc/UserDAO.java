@@ -89,6 +89,37 @@ public class UserDAO
 		return lista;
 	}
 	
+	public List<Usuario> buscaTodos (String aux)
+	{
+		List <Usuario> lista = new ArrayList<Usuario>();
+		String sql = "select * from vwutilizadores w left join tblperfil p on w.fk_perfil = p.Id  where w.nome_ut Like ? or w.nome LIKE ? ";
+		try {
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setString(1, "%"+aux+"%");
+			 pr.setString(2, "%"+aux+"%");
+			 ResultSet rs = pr.executeQuery();
+			 
+			 while(rs.next())
+			 {
+				 Usuario usu = new Usuario();
+				 usu.setId(rs.getInt("id_utilizador"));
+				 usu.setNome(rs.getString("nome_ut"));
+				 usu.setNomeComp(rs.getString("nome")+" "+rs.getString("snome"));
+				 usu.setSenha(rs.getString("senha_ut"));
+				 usu.setNivel(rs.getInt("nivel_ut"));
+				 usu.setPerfil(rs.getString("perfil"));
+				 usu.setFk_perfil(rs.getInt("fk_perfil"));
+				 usu.setHash_id(rsa.criptografa(toString(rs.getInt("id_utilizador"))));
+				 lista.add(usu);
+			 }
+			 pr.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
 	public Usuario buscarPorId(String id)
 	{
 		Usuario usu = new Usuario();
@@ -129,8 +160,8 @@ public class UserDAO
 			
 			if(rs.next())
 			{
-				
 				usu.setId(rs.getInt("fk_entidade"));
+				usu.setFK_entidade(rs.getInt("id_utilizador"));
 				usu.setNome(rs.getString("nome_ut"));
 				String decifrada = EncriptaDecriptaRSA.decriptografa(rs.getString("senha_ut"));
 				usu.setSenha(decifrada);

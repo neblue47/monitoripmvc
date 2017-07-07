@@ -19,7 +19,7 @@
 		                <input type="text" name="valorp"  class="form-control"  placeholder="pesquisar por nome ou numero interno e pressione enter	" required="required"/>			           	 	
 			        </div>	
 			        <input type="hidden" name="mod" value="cf" />
-			        <input type="hidden" name="pesquisar" value="u">			
+			        <input type="hidden" name="pesquisar" value="acssu">			
 			</div>
 	     </form> 
 		</div>	
@@ -34,6 +34,7 @@
 								<th data-field="Utilizador" data-align="left">Utilizador</th>
 								<th data-field="Perfil" data-align="left">Perfil</th>
 								<th data-field="Associar" data-align="center">Associar</th>
+								<th data-field="Eliminar" data-align="center">Eliminar</th>
 							</tr>
 					  </thead>
 		  			  <tbody>
@@ -43,7 +44,10 @@
 								<td>${at.nome}</td>
 								<td>${at.perfil}</td> 
 								<td>
-								  <a href="navegacao?mod=cf&pesquisar=acssu&cod=${at.hash_id}"><i class="glyphicon glyphicon-plus"></i></a>								
+								  <a href="navegacao?mod=cf&pesquisar=acssu&cod=${at.hash_id}"><i class="glyphicon glyphicon-plus"></i></a>
+								</td>
+								<td>
+								  <a href="#" onclick="confirmEliminar(${at.id})" ><i class="glyphicon glyphicon-remove"></i></a>								
 								</td>
 						    </tr>
 					</c:forEach>
@@ -63,44 +67,42 @@
 			</c:if>
 	  </div>
 	  <div class="col-md-4">
-		   <form method="post" action="usucontroller.do">
+		   <form method="post" action="PrivilegioController">
      			 <div class="widget-title pesAdmin">
      			 	  <h5><i class="fa fa-th"></i> Privilegios </h5>
      			 	  <div id="agenda-perfil"> 
      			 	  <div class="form-group input-group input-group-addon-ajust">
 	        			 	 <span class="input-group-addon">Nome : </span>	            			
-	            		     <input  name="numInt" type="text"  class="form-control" required="required" value="${usuTemp.nome }" readonly="readonly"/>
+	            		     <input  name="nomeUt" type="text"  class="form-control" required="required" value="${usuTemp.nome }" readonly="readonly"/>
 	      			 </div>
 	        			     			 
            				   	        					 
        				  <div class="form-group input-group input-group-addon-ajust">
 	        			 	 <span class="input-group-addon">Perfil : </span> 
-	        			 	 <select class="form-control"  name="codmodulo" id="codmodulo" required="required">
+	        			 	 <select class="form-control"  name="codperfil" id="codperfil" required="required">
            							 <option value=" "> Seleccione </option>
            							 <c:forEach var="atg" items="${listaPerfil}">
 				 							<option value="${atg.fk_perfil}" <c:if test="${atg.fk_perfil == usuTemp.fk_perfil}"> selected</c:if>> ${atg.perfil} </option>
 									</c:forEach>									                
            					 </select>    		   	             				
-	        		  </div>
-	        		  
-	        		 
-	        				 	        				   
-     					   <input name="txtid" type="hidden" value="${txtid}"/>
-     					    <input name="txtfk" type="hidden" value="${param.cod}"/>					    			   	  				
+	        		  </div>	        				 	        				   
+     					     
+     					    <input name="txtUt"   type="hidden" value="${usuTemp.FK_entidade}"/>					    			   	  				
 					  </div>
 					  
 					  <br/>
 				 </div>
 				 <div class="pull-right">						
-					            <button type="submit" class="btn btn-success btn-sm" name="salvar"   value="Salvar" <c:if test="${ empty usuTemp.fk_perfil or usuTemp.fk_perfil > 0}"> disabled = 'disabled'</c:if>>
+					            <button type="submit" class="btn btn-success btn-sm" name="salvar"   value="Salvar" <c:if test="${ empty usuTemp.fk_perfil }"> disabled = 'disabled'</c:if>>
 										  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Salvar
 								</button>
-					           <button type="submit" class="btn btn-success btn-sm" name="salvar" value="Salvar" <c:if test="${empty usuTemp.fk_perfil or usuTemp.fk_perfil == 0}"> disabled = 'disabled'</c:if>>
+					           <%-- <button type="submit" class="btn btn-success btn-sm" name="salvar" value="Salvar" <c:if test="${empty usuTemp.fk_perfil or usuTemp.fk_perfil == 0}"> disabled = 'disabled'</c:if>>
 										  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Modificar
-								</button>
-					            <button type="reset" class="btn btn-primary btn-sm" value="Limpar" value="Eliminar" name ="excluir" ${hab2}>
-									 	 	<span class="fa fa-eraser" aria-hidden="true"></span> Eliminar
-							    </button>
+								</button> --%>
+								<button type="button" data-toggle="button" onClick="cancelar();" class="btn btn-default btn-sm" <c:if test="${ empty usuTemp.fk_perfil or usuTemp.fk_perfil > 0}"> disabled = 'disabled'</c:if>>
+						  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+					   			</button>
+					            
 							</div>
 			</form>
 		</div>	
@@ -108,9 +110,24 @@
  
 <script>
 
-function new_perfil(aux) {
-	   window.open("administracao/funcionario/perfil.jsp?cod="+aux, 'Perfil','toolbar=0,scrollbars=1,location=10,directories=0,copyhistory=0,status=0,menubar=0,resizable=1,width=830,height=410,z-lock,screenX=90,screenY=0, Left=300, Top=20')
-	   }
+function cancelar(){
+	location.href="navegacao?mod=cf&pesquisar=acssu"; 
+}
+
+function confirmEliminar(cod) {     
+	swal({
+		title : "",
+		text : "Deseja eliminar o perfil a Utilizador?",
+		type : "warning",
+		showCancelButton : true,
+		cancelButtonText : "Não",
+		confirmButtonColor : "#DD6B55",
+		confirmButtonText : "Sim!",
+		closeOnConfirm : false			
+	}, function() {
+		location.href="PrivilegioController?txtUt="+cod;  
+	}); 
+	}
 </script>
 
  

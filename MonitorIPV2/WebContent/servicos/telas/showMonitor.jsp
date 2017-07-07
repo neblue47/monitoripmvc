@@ -12,15 +12,34 @@
          <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css"/>
    
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+<c:if test="${md.codCl eq 'ag'}" >
+
+</c:if>
 <script>
 $(document).ready(function(){
-	var code = "${tmp}";
-	setInterval(function(){
-		$("#mapa").load('servicos/telas/monitor.jsp')
-    }, 30000);
+	var tmp = $("#tmp").val();
+	var tempAux = $("#tempAux").val();
+	if(tempAux == 1){
+		setInterval(function(){
+			$("#mapa").load('servicos/telas/monitor.jsp')
+	    }, 1);
+		
+	}
+	if(tempAux > 1){
+		setInterval(function(){
+			$("#mapa").load('servicos/telas/monitor.jsp')
+	    }, 60000);
+		}
+	 
+
+	
 });
 </script>
 <div class="row">
+	<input type="text" name="tmp" id="tmp" value="${tmp}">
+	<input type="text" name="tempAux" id="tempAux" value="${tempAux}">
+	 
 	<div class="col-md-12">
            <div id="mapa" >       </div>
     </div>
