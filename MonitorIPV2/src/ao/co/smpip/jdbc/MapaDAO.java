@@ -560,6 +560,38 @@ con.close();
 		}
 	}
 	
+	public void atualizarTempoTela (int tempo) {
+		 
+		String sql = "Update tblparametros set tempotela = ? where Id = ?";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, tempo);
+			ps.setInt(2, 1);
+			ps.execute();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public int busacTempoTela () {
+		 int tempo = 6000;
+		String sql = "Select * from tblparametros ";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				tempo = rs.getInt("tempotela");
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return tempo;
+	}
+	
 	
 	
 	

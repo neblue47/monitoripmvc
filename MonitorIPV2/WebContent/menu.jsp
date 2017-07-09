@@ -11,7 +11,7 @@
              	    int nivelUs = (int)request.getSession().getAttribute("nivelUs");
              	    String nome_us = "";
                     
-		            if(menu.equals("ad") && nivelUs == 1){%>
+		            if(menu.equals("ad") ){%>
 			          <c:forEach var="md" items="${AcessoMudulos}">
 				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'ad'}" >class="ative"</c:if>	> <i class="fa fa-group"></i> ${md.modulo}</a></li>	
 					  </c:forEach>

@@ -252,7 +252,7 @@ public class NavegController extends HttpServlet {
 					String tela = request.getParameter("pesquisar");
 					if(tela!=null && tela.equals("pc")){
 						 
-						request.setAttribute("tempAux", "1");
+						request.setAttribute("tmp", new MapaDAO().busacTempoTela());
 						saida = request.getRequestDispatcher("index.jsp?mod=ag&pesquisar=pc");
 						saida.forward(request, response);
 					}
@@ -415,7 +415,7 @@ public class NavegController extends HttpServlet {
 					}
 					
 					if(tela!=null && tela.equals("cm")){
-						 
+						request.setAttribute("tmp", new MapaDAO().busacTempoTela());
 						saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=cm");
 						saida.forward(request, response);
 					}

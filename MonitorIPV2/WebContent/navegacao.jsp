@@ -24,7 +24,7 @@
 	 </div>
  </div>
  <input type="hidden" name="tmp" id="tmp" value="${tmp}">
- <c:if test="${tmp >= 6000}" >
+ <c:if test="${nivelUs eq '1'}" >
 	<script>
 	$(document).ready(function(){
 		confirmTela()});</script>

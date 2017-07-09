@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ao.co.smpip.jdbc.MapaDAO;
+
 /**
  * Servlet implementation class ExtraController
  */
@@ -34,8 +36,14 @@ public class ExtraController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
 		String tmp = request.getParameter("tmp");
 		HttpSession ss = request.getSession();
-		ss.setAttribute("tmp", tmp);
-		ss.setAttribute("msgOk", "msgOk");
+		try {
+			int tempo = Integer.parseInt(tmp);
+			new MapaDAO().atualizarTempoTela(tempo);
+			
+			ss.setAttribute("msgOk", "msgOk");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		response.sendRedirect("navegacao?mod=cf&pesquisar=cm");
 	}
 }
