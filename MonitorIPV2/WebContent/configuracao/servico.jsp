@@ -13,16 +13,27 @@
 			    			<div class="caption">
 					    		   <c:if test="${md.codTela eq 'nc'}" ><img src="icons/maisposto.png" /></c:if> 
 					    		   <c:if test="${md.codTela eq 'mt'}" ><img src="icons/Folder_categorize_fix.png" /></c:if> 
-					    		   <c:if test="${md.codTela eq 'cm'}" ><img src="icons/acesso.jpg" /></c:if>
-					    		   <c:if test="${md.codTela eq 'ns'}" ><img src="icons/acesso.jpg" /></c:if>   
+					    		   <c:if test="${md.codTela eq 'cm'}" ><img src="icons/Folder_categorize_fix.png" /></c:if>
+					    		   <c:if test="${md.codTela eq 'ns'}" ><img src="icons/Folder_categorize_fix.png" /></c:if>   
 					    		   ${md.tela}
 					    	</div>
 				    	</div>
 				    </a> 
 				</div>
 			</c:if>
-			</c:forEach> 	
-		    	  	
- 		</div>
+			</c:forEach> 
+			<c:if test="${nivelUs == 1 }">
+          	<div class="col-md-6">
+			     <a href="navegacao?mod=cf&pesquisar=acssu">
+				    <div class="thumbnail">
+				    	<div class="caption">
+				       		<img src="icons/acesso.jpg" />Acessos
+				        </div>	  	
+				 	</div>
+				 </a>
+	  		</div>
+          </c:if>	
+		    
+	 		</div>
 	</div>
 </div>
