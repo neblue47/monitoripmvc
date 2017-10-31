@@ -439,7 +439,14 @@ public class NavegController extends HttpServlet {
 						 saida.forward(request, response);
 					}
 					if(tela!=null && tela.equals("actela")){
-						 
+						String valor = request.getParameter("valorp");
+						List<Diverso> ListaDeTela = null;
+						if(valor!=null)
+							ListaDeTela = new AcessosDAO().buscarTelas(valor);
+						else
+							ListaDeTela = new AcessosDAO().buscarTelas();
+						
+						request.setAttribute("ListaDeTela", ListaDeTela);
 						saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=actela");
 						saida.forward(request, response);
 					}

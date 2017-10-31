@@ -9,30 +9,40 @@
 	<script src="tmp/jquery-ui.js"></script>
     <script src="tmp/jquery.maskedinput-1.3.min.js"></script>
  <div class="row">
-		<div class="col-md-7" >			
-			 <c:if test="${not empty armarios}">		
+		<div class="col-md-7" >	
+		<div class="widget-title">
+			<h5><i class="fa fa-th"></i> Filtro de Telas</h5>
+			<form action="navegacao" method="get">	
+			<div id="agenda-perfil" >
+					<div class="form-group input-group">
+				       	<span class="input-group-addon">Pesquisa </span>                    
+		                <input type="text" name="valorp"  class="form-control" value="${param.valorp}"  placeholder="pesquisar por nome ou numero interno e pressione enter	" required="required"/>			           	 	
+			        </div>	
+			        <input type="hidden" name="mod" value="cf" />
+			        <input type="hidden" name="pesquisar" value="actela">			
+			</div>
+	     </form> 
+		</div>		
+			 <c:if test="${not empty ListaDeTela}">		
 			 	  <div class="widget-title">
 								 			  
 				  <h5><i class="fa fa-th"></i> Lista de Telas do Sistema </h5>
 				  <table id="table" data-toggle="table" data-height="468" data-pagination="true" data-search="true">
 					   <thead>
 							<tr>
-								<th data-field="Nome Posto" data-align="left">Armario</th>
-								<th data-field="Descricao" data-align="left"> Sensor </th>
-								<th data-field="Lampada" data-align="center"> Modelo </th>
-								<th data-field="Editar" data-align="center">Config</th>
+								<th data-field="Tela" data-align="left">Tela</th>
+ 								<th data-field="Modulo" data-align="center"> Módulo </th>
+								<th data-field="Acção" data-align="center"> Acção </th>
+								 
 							</tr>
 					  </thead>
 		  			  <tbody>
-		  			  <c:forEach var="at" items="${armarios}">
+		  			  <c:forEach var="at" items="${ListaDeTela}">
 							<tr>
-								<td>${at.nomPosto}</td>
-								<td>${at.nomSensor}</td>
-								<td>${at.tipo}</td>
-								
+								<td>${at.tela}</td>
+								<td>${at.modulo}</td>	
 								<td>
-								  	
-								  	<a href="navegacao?mod=cf&pesquisar=ns&cod=${at.idPosto}">								  	
+								  	<a href="navegacao?mod=cf&pesquisar=ns&cod=${at.id_tela}">								  	
 								  		<i class="glyphicon glyphicon-wrench" title="config"></i>								  														
 								  	</a>								
 								</td>
@@ -44,7 +54,7 @@
 			
 			</div>	
 			</c:if>
-			<c:if test="${empty armarios}">
+			<c:if test="${empty ListaDeTela}">
 					 <div class="widget-title">
 					 	  <h5><i class="fa fa-th"></i> Lista de Telas do Sistema </h5>
 						  <div id="agenda-perfil">						

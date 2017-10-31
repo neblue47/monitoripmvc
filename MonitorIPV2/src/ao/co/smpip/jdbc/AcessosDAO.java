@@ -96,7 +96,7 @@ public class AcessosDAO {
 	public List<Diverso> buscarTelas ()
 	{
 		List <Diverso> lista = new ArrayList<Diverso>();
-		String sql = "Select * from tbltela order by tela asc limit 12";
+		String sql = "Select * from tbltela t, tblmodulo m where t.fk_modulo = m.id order by tela desc limit 12";
 		try {
 			 
 			 con = Conexao.getConexao();
@@ -108,6 +108,37 @@ public class AcessosDAO {
 				 md.setId_tela(rs.getInt("Id"));
 				 md.setTela(rs.getString("tela"));
 				 md.setCodTela(rs.getString("cod_tela"));
+				 md.setModulo(rs.getString("modulo"));
+				 lista.add(md);
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	
+	public List<Diverso> buscarTelas (String valor)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "Select * from tbltela t, tblmodulo m where t.fk_modulo = m.id  and (tela like ? or modulo like ? ) order by tela desc limit 12";
+		try {
+			 
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setString(1, valor+"%");
+			 pr.setString(2, valor+"%");
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_tela(rs.getInt("Id"));
+				 md.setTela(rs.getString("tela"));
+				 md.setCodTela(rs.getString("cod_tela"));
+				 md.setModulo(rs.getString("modulo"));
 				 lista.add(md);
 			 }
 			 pr.close();

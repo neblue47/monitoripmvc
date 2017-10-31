@@ -13,7 +13,7 @@
                     
 		            if(menu.equals("ad") && nivelUs == 1){%>
 			          <c:forEach var="md" items="${AcessoMudulos}">
-				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'ad'}" >class="ative"</c:if>	> <i class="fa fa-group"></i> ${md.modulo}</a></li>	
+				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'ad'}" >class="ative"</c:if>	> <i class="fa fa-adn"></i> ${md.modulo}</a></li>	
 					  </c:forEach>
 			          <%} 
 		            
@@ -24,13 +24,13 @@
 			          <%}
 		            if(menu.equals("cf")){ %>
 		             <c:forEach var="md" items="${AcessoMudulos}">
-				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'cf'}" >class="ative"</c:if>	> <i class="fa fa-group"></i> ${md.modulo}</a></li>	
+				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'cf'}" >class="ative"</c:if>	> <i class="glyphicon glyphicon-cog"></i> ${md.modulo}</a></li>	
 					  </c:forEach>
 			          <%}
 		            if(menu.equals("ajd")) 
 			            {%>
 			            <c:forEach var="md" items="${AcessoMudulos}">
-				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'ajd'}" >class="ative"</c:if>	> <i class="fa fa-group"></i> ${md.modulo}</a></li>	
+				 			<li><a href="${md.mdlink}?mod=${md.codCl}" <c:if test="${md.codCl eq 'ajd'}" >class="ative"</c:if>	> <i class="fa fa-question-circle"></i> ${md.modulo}</a></li>	
 					   </c:forEach>
 			           <%} %>  
 		          </ul>   
