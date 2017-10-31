@@ -277,7 +277,40 @@ public class AcessosDAO {
 		
 		return lista;
 	}
-	
+
+	public List<Diverso>AcessoTelasConfigLogin (int idUsuario)
+	{
+		List <Diverso> lista = new ArrayList<Diverso>();
+		String sql = "select * from vwperfilacessos where id_utilizador = ?  and obs_tela  is null and fk_modulo = 3 order by fk_tela;";
+		try {
+			 con = Conexao.getConexao();
+			 PreparedStatement pr = con.prepareStatement(sql);
+			 pr.setInt(1, idUsuario);
+			 ResultSet rs = pr.executeQuery();
+			 while(rs.next())
+			 {
+				 Diverso md = new Diverso();
+				 md.setId_mod(rs.getInt("fk_modulo"));
+				 md.setModulo(rs.getString("modulo"));
+				 md.setMdlink(rs.getString("controller"));
+				 md.setCodCl(rs.getString("modcod"));
+				 md.setTela(rs.getString("tela"));
+				 md.setCodTela(rs.getString("cod_tela"));
+				 md.setId_tela(rs.getInt("fk_tela"));
+				  
+				 lista.add(md);
+				 
+			 }
+			 pr.close();
+			 con.close();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+
 	public List<Diverso> buscarModulos()
 	{
 		List <Diverso> lista = new ArrayList<Diverso>();

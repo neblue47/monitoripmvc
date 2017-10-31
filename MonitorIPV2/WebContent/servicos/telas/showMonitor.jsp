@@ -14,21 +14,22 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
 
 
-<script>
-$(document).ready(function(){
-	var tmp = $("#tmp").val();
-	
-	setInterval(function(){
-		$("#mapa").load('servicos/telas/monitor.jsp')
-    }, tmp);
-	
-});
 
-
-</script>
 <div class="row">
 	<input type="hidden" name="tmp" id="tmp" value="${tmp}">	 
 	<div class="col-md-12">
            <div id="mapa" >       </div>
     </div>
 </div>
+ 
+<script>
+$(document).ready(function(){
+	var tmp = 6000;
+ 	debugger;
+	setInterval(function(){
+		$("#mapa").load('servicos/telas/monitor.jsp');
+		tmp = $("#tmp").val()
+    }, tmp);
+	
+});
+</script>

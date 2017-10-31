@@ -157,7 +157,7 @@
          	 	 <li ><a href="navegacao?mod=cf" style="color:#CCC; cursor: pointer;"><i class="fa fa-reply"></i></a></li>
              	 <c:forEach var="md" items="${AcessoPrivTelas}">
 	     		        <c:if test="${md.codCl eq 'cf'}" > 
-	     		           <li <c:if test="${md.codTela eq 'ns'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
+	     		           <li <c:if test="${md.codTela eq 'acss'}" >class="ative"</c:if>><a href="${md.mdlink}?mod=${md.codCl}&pesquisar=${md.codTela}" 	>   ${md.tela}</a></li>
 	     		        </c:if>
 				</c:forEach>           
               <%}

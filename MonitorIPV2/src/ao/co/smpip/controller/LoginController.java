@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import ao.co.smpip.entidades.Diverso;
 import ao.co.smpip.entidades.Usuario;
 import ao.co.smpip.jdbc.AcessosDAO;
+import ao.co.smpip.jdbc.MapaDAO;
 import ao.co.smpip.jdbc.UserDAO;
 import ao.co.smpip.serial.SerialConexao;
 
@@ -67,9 +68,10 @@ public class LoginController extends HttpServlet {
 			List<Diverso>AcessoMudulos = new AcessosDAO().AcessoModulosLogin(us.getFK_entidade());
 			List<Diverso>AcessoTelas   = new AcessosDAO().AcessoTelasLogin(us.getFK_entidade());
 			List<Diverso>AcessoPrivTelas   = new AcessosDAO().AcessoTelasPrivLogin(us.getFK_entidade());
+			List<Diverso>AcessoConfigTelas   = new AcessosDAO().AcessoTelasConfigLogin(us.getFK_entidade());
 			
 			System.out.println("Nome C: "+us.getNomeComp());
-			
+			int tempo = new MapaDAO().busacTempoTela();
 			sessao.setAttribute("nomeUsa", us.getNomeComp());
 			sessao.setAttribute("fkUsuario", us.getId());
 			sessao.setAttribute("nivelUs", us.getNivel());
@@ -77,7 +79,9 @@ public class LoginController extends HttpServlet {
 			sessao.setAttribute("AcessoMudulos", AcessoMudulos);
 			sessao.setAttribute("AcessoTelas", AcessoTelas);
 			sessao.setAttribute("AcessoPrivTelas", AcessoPrivTelas);
-			sessao.setAttribute("tmp", 6000);
+			sessao.setAttribute("AcessoConfigTelas", AcessoConfigTelas);
+			//System.out.println(tempo);
+			sessao.setAttribute("tmp", tempo);
 			//System.out.println("CHEIYss");
 			response.sendRedirect("navegacao?mod=ng");
 //			RequestDispatcher saida = request.getRequestDispatcher("index.jsp?mod=ng");
