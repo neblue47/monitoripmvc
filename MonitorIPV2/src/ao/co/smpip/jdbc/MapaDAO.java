@@ -11,6 +11,7 @@ import java.util.List;
 
 import ao.co.smpip.entidades.Diverso;
 import ao.co.smpip.entidades.ListaBean;
+import ao.co.smpip.entidades.Parametros;
 import ao.co.smpip.entidades.Posto;
 import ao.co.smpip.entidades.SerialBean;
 
@@ -590,6 +591,28 @@ con.close();
 		}
 		
 		return tempo;
+	}
+	
+	public Parametros buscarValoresArmarios () {
+		Parametros p = new Parametros();
+		String sql = "Select * from tblparametros ";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				{
+				 p.setFalhasPosto(rs.getDouble("falhaPosto"));
+				 p.setNormalPosto(rs.getDouble("normalPosto"));
+				 p.setMedianPosto(rs.getDouble("medianPosto"));
+				}
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return p;
 	}
 	
 	
