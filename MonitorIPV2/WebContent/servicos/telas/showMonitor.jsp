@@ -24,11 +24,11 @@
  
 <script>
 $(document).ready(function(){
-	var tmp = 6000;
- 	debugger;
+	var tmp = $("#tmp").val();
+ 	 
 	setInterval(function(){
-		$("#mapa").load('servicos/telas/monitor.jsp');
-		tmp = $("#tmp").val()
+		$("#mapa").load('servicos/telas/monitor.jsp')
+		
     }, tmp);
 	
 });
