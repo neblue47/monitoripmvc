@@ -10,6 +10,7 @@
     <%
       MapaDAO mp = new MapaDAO();
       List<Posto> lp = mp.buscaPorPostos(); 
+      Parametros pmt = mp.buscarValoresArmarios();
 
       
     %>
@@ -36,17 +37,17 @@
              var valor = <%=p.getStream()%>;
 //              alert(valor);
             
-             if( valor < 0.900)
+             if( valor <= <%=pmt.getFalhasPosto()%>)
             	 {
             	 image = 'http://maps.google.com/mapfiles/ms/icons/red.png';
             	 animacao = google.maps.Animation.BOUNCE;
             	 }
-             else if( valor < 1.900 && valor > 0.900)
+             else if( valor <= <%=pmt.getMedianPosto()%> && valor > <%=pmt.getFalhasPosto()%>)
         	 {
         	 image = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
         	 animacao = animacao;
         	 }
-             else
+             else if( valor >= <%=pmt.getNormalPosto()%> )
                  {
             	 image = 'http://maps.google.com/mapfiles/ms/icons/green.png';
             	 animacao = animacao;

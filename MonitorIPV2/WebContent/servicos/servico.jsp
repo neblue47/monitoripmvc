@@ -14,7 +14,7 @@
 					    		   <c:if test="${md.codTela eq 'pc'}" ><img src="icons/monitor.png" /></c:if> 
 					    		   <c:if test="${md.codTela eq 'ps'}" ><img src="icons/Map-Marker-icon.png" /></c:if> 
 					    		   <c:if test="${md.codTela eq 'ht'}" ><img src="icons/log.png" /></c:if>  
-					    		   <c:if test="${md.codTela eq 'rtd'}" ><img src="icons/relatorio.png" /></c:if>
+					    		   <c:if test="${md.codTela eq 'rtd' or md.codTela eq 'rt'}" ><img src="icons/relatorio.png" /></c:if>
 					    		   <c:if test="${md.codTela eq 'rq'}" ><img src="icons/consulta-icon.png" /></c:if> 
 					    		   <c:if test="${md.codTela eq 'not'}" ><img src="icons/notificacao.png" /></c:if>  
 					    		   <c:if test="${md.codTela eq 'mts'}" ><img src="icons/Folder_categorize_fix.png" /></c:if> 

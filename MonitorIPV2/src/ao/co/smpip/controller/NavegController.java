@@ -416,6 +416,7 @@ public class NavegController extends HttpServlet {
 					
 					if(tela!=null && tela.equals("cm")){
 						request.setAttribute("tmp", new MapaDAO().busacTempoTela());
+						request.setAttribute("postos", new MapaDAO().buscarValoresArmarios());
 						saida = request.getRequestDispatcher("index.jsp?mod=cf&pesquisar=cm");
 						saida.forward(request, response);
 					}
