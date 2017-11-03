@@ -55,7 +55,7 @@ public class NavegController extends HttpServlet {
 		String mod = request.getParameter("mod");
 		FuncionarioDAO fdao = new FuncionarioDAO();
 		SerialConexao sc = new SerialConexao();
-		HttpSession ss = request.getSession();
+		HttpSession ss = request.getSession(true);
 		if(ss!=null){
 			try {
 				
@@ -430,7 +430,6 @@ public class NavegController extends HttpServlet {
 						 request.setAttribute("ListaTelas", ListaTelas);
 						 request.setAttribute("ListaModulos", ListaModulos);
 						 String acao = request.getParameter("acao");
-						 
 						 if(acao!=null && acao.equals("edit")){
 							 String codPrf = request.getParameter("perfil");
 							 Diverso tmpPerfil = new AcessosDAO().verPerfilPrivilegio(codPrf);
