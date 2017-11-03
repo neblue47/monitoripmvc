@@ -45,8 +45,8 @@ public class MapaDAO
 			 }
 			 preparador.close();
 			 con.close();
-		} catch (SQLException e) {	System.out.println(e);}
-//		System.out.println("Tamanho: "+lp.size());
+		} catch (Exception e) 
+		{	e.printStackTrace();}
 		return lp;
 	}
 	public List<Posto> buscaPorPostos()
@@ -77,6 +77,39 @@ public class MapaDAO
 			 con.close();
 		} catch (SQLException e) {	System.out.println(e);}
 //		System.out.println("Tamanho: "+lp.size());
+		return lp;
+	}
+	
+	public List<Posto> buscaPorPostosOn()
+	{
+		List<Posto> lp = new ArrayList<Posto>();
+		int pos = 0;
+		String sql = "SELECT * FROM vwarmarios vw, tblsensor s where vw.id_armario = s.fk_armario and status = 1";
+		try {
+			con = Conexao.getConexao();
+			 PreparedStatement preparador = con.prepareStatement(sql);
+			 ResultSet rs = preparador.executeQuery();
+			 while(rs.next())
+			 {
+				 Posto p = new Posto();
+				 p.setIdPosto(rs.getInt("id_armario"));
+				 p.setLatitude(rs.getDouble("lat"));
+				 p.setLongitude(rs.getDouble("LNG"));
+				 p.setDescricao(rs.getString("descricao_google"));
+				 p.setNomPosto(rs.getString("nome"));
+				 p.setQdtLampada(rs.getInt("qtd_lamp"));
+				 p.setSensor(rs.getInt("id_sensor"));
+				 lp.add(p);
+			 }
+			 for (Posto p: lp) {
+				p.setStream(getLogPosto(p.getSensor()));
+				lp.set(pos, p);
+				pos++;
+			}
+			 preparador.close();
+			 con.close();
+		} catch (Exception e) {	e.printStackTrace();}
+	
 		return lp;
 	}
 	public List<Posto> buscaPorPostos(String termo)
@@ -117,7 +150,6 @@ public class MapaDAO
 			 ResultSet rs = preparador.executeQuery();
 			 if(rs.next())
 			 {
-				 
 				 p.setIdPosto(rs.getInt("id_armario"));
 				 p.setLatitude(rs.getDouble("LAT"));
 				 p.setLongitude(rs.getDouble("LNG"));
@@ -129,7 +161,7 @@ public class MapaDAO
 				 p.setFk_provincia(rs.getInt("FK_provincia"));
 				 p.setNomDistrito(rs.getString("distrito"));
 				 p.setNomMunicipio(rs.getString("municipio"));
-				  
+				 p.setStatus(rs.getInt("status"));
 			 }
 			 preparador.close();
 			 con.close();;
@@ -263,13 +295,13 @@ public class MapaDAO
 		}
 	}
 	
-	public void atualizaLogSerial(int status,int armario){
+	public void atualizaLogSerial(Posto p){
 		String sql = "Update tblarmarios set status = ? where id_armario = ?";
 		try {
 			con = Conexao.getConexao();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, status);
-			ps.setInt(2, armario);
+			ps.setInt(1, p.getStatus());
+			ps.setInt(2, p.getIdPosto());
 			ps.execute();
 			
 			ps.close();
@@ -385,7 +417,7 @@ public class MapaDAO
 	{
 		List<Posto> lp = new ArrayList<Posto>();
 		String sql = "SELECT * FROM vwlogs_sensores, vwarmarios "
-				   + "where vwlogs_sensores.id_armario = vwarmarios.id_armario ORDER BY id_historico desc,hora_evento DESC LIMIT 100";
+				   + "where vwlogs_sensores.id_armario = vwarmarios.id_armario ORDER BY id_historico desc,hora_evento asc LIMIT 100";
 				
 				
 		try {
@@ -524,7 +556,7 @@ con.close();
 				atualizarSensor(p);
 			else
 				novo_sensor(p);
-			
+			atualizaLogSerial(p);
 			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -541,6 +573,7 @@ con.close();
 			ps.setString(2, p.getNomSensor());
 			ps.setString(3, p.getDescricao());
 			ps.execute();
+			atualizaLogSerial(p);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -576,6 +609,20 @@ con.close();
 		}
 	}
 	
+	public void atualizarValoresArmarios (double n,double m) {
+		 
+		String sql = "Update tblparametros set normalPosto = ?, medianPosto = ? where Id = 1";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setDouble(1, n);
+			ps.setDouble(2, m);
+			ps.execute();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public int busacTempoTela () {
 		 int tempo = 6000;
 		String sql = "Select * from tblparametros ";
@@ -616,6 +663,20 @@ con.close();
 	}
 	
 	
-	
+	private double getLogPosto(int sensor)
+	{
+		String sql = "SELECT * FROM tblhistoricos WHERE  FK_sensor = ? order by tempoEvento desc limit 1";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, sensor);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				return rs.getDouble("valor_stream");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 }

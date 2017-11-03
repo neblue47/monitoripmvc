@@ -35,10 +35,22 @@ public class ExtraController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
 		String tmp = request.getParameter("tmp");
+		String normal = request.getParameter("normalPosto");
+		String median = request.getParameter("medianPosto");
 		HttpSession ss = request.getSession();
 		try {
-			int tempo = Integer.parseInt(tmp);
-			new MapaDAO().atualizarTempoTela(tempo);
+			if(tmp!=null)
+			{
+				int tempo = Integer.parseInt(tmp);
+				new MapaDAO().atualizarTempoTela(tempo);
+			}
+			if(normal!=null && median !=null)
+			{
+				double n1 = Double.parseDouble(normal);
+				double m2 = Double.parseDouble(median);
+				
+				new MapaDAO().atualizarValoresArmarios(n1,m2);
+			}
 			
 			ss.setAttribute("msgOk", "msgOk");
 		} catch (Exception e) {

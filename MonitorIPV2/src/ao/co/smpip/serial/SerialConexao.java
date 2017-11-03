@@ -9,8 +9,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Enumeration;
+import java.util.List;
 
 import ao.co.smpip.entidades.ListaBean;
+import ao.co.smpip.entidades.Posto;
 import ao.co.smpip.entidades.SerialBean;
 import ao.co.smpip.jdbc.MapaDAO;
 
@@ -25,7 +27,7 @@ public class SerialConexao implements SerialPortEventListener {
 	
 	private static final int TIME_OUT = 2000;
 	private static final int DATA_RATE = 9600;
-	
+	private List<Posto> lp = new MapaDAO().buscaPorPostosOn(); 
 	private String serialPortNome = "COM3";
 	// Metodo que inicializa a serial --
 	public boolean iniciaSerial(){
@@ -70,6 +72,11 @@ public class SerialConexao implements SerialPortEventListener {
 		}
 	}
 	
+	public List<SerialBean> logsSensores()
+	{
+		return null;
+	}
+	
 	@Override
 	public void serialEvent(SerialPortEvent evt) {
 		try {
@@ -101,6 +108,7 @@ public class SerialConexao implements SerialPortEventListener {
 	
 	public ListaBean getLogs(String [] logs){
 		ListaBean logss = new ListaBean();
+		
 		try {
 			int tam = logs.length;
 			for(int n = 0;n<tam; n++){
@@ -108,7 +116,11 @@ public class SerialConexao implements SerialPortEventListener {
 				sb.setId_posto(n+1);
 				sb.setDoSerial(logs[n]);
 				sb.setStream(Double.parseDouble(logs[n]));
-				logss.adLista(sb);
+				for(Posto p : lp){
+					if(p.getIdPosto() == sb.getId_posto())
+						logss.adLista(sb);
+				}
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

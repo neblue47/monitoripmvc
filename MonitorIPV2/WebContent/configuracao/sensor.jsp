@@ -55,11 +55,11 @@
 	  </div>
 	  <div class="col-md-5">
 		   <form method="post" action="SensorController">
-     			 <div class="widget-title pesAdmin">
+     			 <div class="widget-title  ">
      			 	  <h5><i class="fa fa-th"></i> Configurar Sensor </h5>
      			 	  <div id="agenda-perfil">     			 
            				   <div class="form-group input-group input-group-addon-ajust ">
-	        				 	<span class="input-group-addon"> Designação do Posto : </span>	            			
+	        				 	<span class="input-group-addon"> Armário : </span>	            			
 	            			 	<input class="form-control" name="desc" type="text" value="${posto.nomPosto }" readonly="readonly"/>
 	        			  </div>
 	        			  
@@ -74,7 +74,15 @@
 	        			  <div class="form-group input-group input-group-addon-ajust ">
 	        				 	<span class="input-group-addon"> Modelo : </span>	            			
 	            			 	<span id="lat_c"><input class="form-control" name="modelo"   type="text" required="required"/></span>
-	        			  </div>	        				   
+	        			  </div>
+	        			  <div class="form-group input-group input-group-addon-ajust">
+			    		 	    <span class="input-group-addon"> Status Sensor : </span>
+								<select class="form-control"  name="status" required="required" >
+				 						<option   > Seleccione... </option>
+				 						<option value="0" <c:if test="${posto.status == 0 }">selected</c:if> > Offline </option>
+				 						<option value="1" <c:if test="${posto.status == 1 }">selected</c:if> > Online </option>
+             					</select>
+             				</div>			          	    	        				   
      					   	    <input type="hidden" name="fkUsuario" value = "${fkUsuario }">	
      					   	    <input type="hidden" name="armario"   value = "${posto.idPosto }">			    			   	  				
 					  </div>
