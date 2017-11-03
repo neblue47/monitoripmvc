@@ -69,11 +69,11 @@
 	        			  </div>
 	        			  <div class="form-group input-group input-group-addon-ajust ">
 	        				 	<span class="input-group-addon"> Designação Sensor : </span>	            			
-	            			 	<input class="form-control" name="sensor" type="text"  required="required"/>
+	            			 	<input class="form-control" name="sensor" type="text"  required="required" value="${posto.tipo }"/>
 	        			  </div>
 	        			  <div class="form-group input-group input-group-addon-ajust ">
 	        				 	<span class="input-group-addon"> Modelo : </span>	            			
-	            			 	<span id="lat_c"><input class="form-control" name="modelo"   type="text" required="required"/></span>
+	            			 	<span id="lat_c"><input class="form-control" name="modelo"   type="text" required="required" value="${posto.nomSensor }"/></span>
 	        			  </div>
 	        			  <div class="form-group input-group input-group-addon-ajust">
 			    		 	    <span class="input-group-addon"> Status Sensor : </span>

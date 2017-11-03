@@ -142,7 +142,7 @@ public class MapaDAO
 	public Posto buscaPorPosto(int termo)
 	{
 		Posto p = new Posto();
-		String sql = "SELECT * FROM vwarmarios where id_armario = ? ";
+		String sql = "SELECT * FROM vwarmarios  a LEFT JOIN tblsensor ON a.id_armario = tblsensor.fk_armario WHERE  a.id_armario = ?";
 		try {
 			con = Conexao.getConexao();
 			 PreparedStatement preparador = con.prepareStatement(sql);
@@ -162,6 +162,8 @@ public class MapaDAO
 				 p.setNomDistrito(rs.getString("distrito"));
 				 p.setNomMunicipio(rs.getString("municipio"));
 				 p.setStatus(rs.getInt("status"));
+				 p.setNomSensor(rs.getString("modelo"));
+				 p.setTipo(rs.getString("tipo"));
 			 }
 			 preparador.close();
 			 con.close();;
