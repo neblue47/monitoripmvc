@@ -24,6 +24,7 @@ public class Posto
 	private String doSerial;
 	private double stream;
 	private String flag;
+	private int status;
 	
 	private Integer sensor;
 	private String nomSensor;
@@ -174,6 +175,12 @@ public class Posto
 	}
 	public void setNomEquipa(String nomEquipa) {
 		this.nomEquipa = nomEquipa;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	 
 	

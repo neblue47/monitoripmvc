@@ -67,14 +67,14 @@ public class NavegController extends HttpServlet {
 					}
 				if(mod!=null && mod.equals("ng"))
 				{
-					
-					/* if(sc.iniciaSerial()){
-						 
-					 }
-					 else
-					 {
-						 sc.close();
-					 }*/
+//					
+//					 if(sc.iniciaSerial()){
+//						 
+//					 }
+//					 else
+//					 {
+//						 sc.close();
+//					 }
 					saida = request.getRequestDispatcher("index.jsp?mod=ng");
 					saida.forward(request, response);
 				}

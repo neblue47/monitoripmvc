@@ -82,17 +82,20 @@ public class SensorController extends HttpServlet {
 		 String sensor = request.getParameter("sensor");
 		 String armario = request.getParameter("armario");
 		 String modelo = request.getParameter("modelo");
+		 String status = request.getParameter("status");
 		 
 		 try {
 			int codArm = Integer.parseInt(armario);
+			int state = Integer.parseInt(status);
 			Posto novoSensor = new Posto();
 			novoSensor.setIdPosto(codArm);
 			novoSensor.setNomSensor(sensor);
 			novoSensor.setDescricao(modelo);
+			novoSensor.setStatus(state);
 			new MapaDAO().configuraSensor(novoSensor);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		 
 		 response.sendRedirect("navegacao?mod=cf&pesquisar=ns");
