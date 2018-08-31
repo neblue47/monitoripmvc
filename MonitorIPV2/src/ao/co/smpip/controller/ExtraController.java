@@ -37,12 +37,18 @@ public class ExtraController extends HttpServlet {
 		String tmp = request.getParameter("tmp");
 		String normal = request.getParameter("normalPosto");
 		String median = request.getParameter("medianPosto");
+		String tamMap = request.getParameter("tamMap");
 		HttpSession ss = request.getSession();
 		try {
 			if(tmp!=null)
 			{
 				int tempo = Integer.parseInt(tmp);
 				new MapaDAO().atualizarTempoTela(tempo);
+			}
+			if(tamMap!=null)
+			{
+				int tam = Integer.parseInt(tamMap);
+				new MapaDAO().atualizarTamanhoTela(tam);
 			}
 			if(normal!=null && median !=null)
 			{

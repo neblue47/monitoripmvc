@@ -7,6 +7,7 @@
 <%@page import="ao.co.smpip.entidades.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
 <%--  <meta http-equiv= "refresh" content="${tmp}" /> --%>
+
     <%
       MapaDAO mp = new MapaDAO();
       List<Posto> lp = mp.buscaPorPostosOn(); 
@@ -14,8 +15,9 @@
 
       
     %>
-    
+    	
         <script type="text/javascript">
+        
           var infowindowsArray = [];
           var green ='http://maps.google.com/mapfiles/ms/icons/green.png';
           var red ='http://maps.google.com/mapfiles/ms/icons/red.png';
@@ -27,7 +29,7 @@
               var lon = <%=lp.get(0).getLongitude()%>;
               var cenLatlong   =   new google.maps.LatLng(lat, lon);
               var myOptions   =   {
-                                      zoom:11,
+                                      zoom:Number($('#tamMap').val()),
                                       center:cenLatlong,
                                       mapTypeId:google.maps.MapTypeId.ROADMAP,
                                       scrollwheel: false,

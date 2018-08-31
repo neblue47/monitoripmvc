@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" import="java.sql.*" pageEncoding="ISO-8859-1" errorPage="erros/404.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <div class="row">
  	<div class="col-md-12">	
      <ul >

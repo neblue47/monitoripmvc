@@ -80,9 +80,9 @@
 					<a href="navegacao?mod=ag&pesquisar=rtd"  class="btn btn-default btn-sm"  >
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
 					</a>
-					<button type="submit" class="btn btn-primary btn-sm" name="relat">
-						<span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir
-					</button>
+					<a href="relatorioprint.do" target="_black" class="btn btn-default btn-sm"  >
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Imprimir
+					</a>
 				</div>
 	 </c:if>
 		

@@ -16,7 +16,8 @@
 
 
 <div class="row">
-	<input type="hidden" name="tmp" id="tmp" value="${tmp}">	 
+	<input type="hidden" name="tmp" id="tmp" value="${tmp}">	
+	<input type="hidden" value="${tamMap}" id="tamMap"> 
 	<div class="col-md-12">
            <div id="mapa" >       </div>
     </div>

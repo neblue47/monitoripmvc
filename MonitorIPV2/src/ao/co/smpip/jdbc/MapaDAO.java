@@ -611,6 +611,21 @@ con.close();
 		}
 	}
 	
+	public void atualizarTamanhoTela (int tamMap) {
+		 
+		String sql = "Update tblparametros set tamMap = ? where Id = ?";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, tamMap);
+			ps.setInt(2, 1);
+			ps.execute();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void atualizarValoresArmarios (double n,double m) {
 		 
 		String sql = "Update tblparametros set normalPosto = ?, medianPosto = ? where Id = 1";
@@ -640,6 +655,23 @@ con.close();
 		}
 		
 		return tempo;
+	}
+	
+	public int busacTamanhoTela () {
+		 int tamMap = 11;
+		String sql = "Select * from tblparametros ";
+		try {
+			con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				tamMap = rs.getInt("tamMap");
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return tamMap;
 	}
 	
 	public Parametros buscarValoresArmarios () {

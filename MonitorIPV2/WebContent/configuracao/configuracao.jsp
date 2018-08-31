@@ -29,6 +29,31 @@
 				  
 				  </div>					
 			</form>
+			<br><br> 
+			 <form  method="post" action="ExtraController" name="nm_frmDados"> 
+   					 <div class="widget-title">
+   					  	  <h5><i class="fa fa-tasks"></i> Configurar Precisão Maps </h5>
+   				 		  <div id="agenda-perfil"> 
+   				 		  <div class="row">	   				 		  	   					
+   						  	   <div class="col-md-12"> 			  	
+									   <div class="form-group input-group">
+	        				 				<span class="input-group-addon">Ampliar / Reduzir:</span>	            			
+	            			 				<input type="text" class="form-control" required="required" name="tamMap" value="${tamMap}"    maxlength="5"  pattern="[0-9]+$"/>
+	        						   </div>
+									 
+							   </div>						  
+						  	   
+				  			</div>
+				 	   </div>	
+				 </div>
+				 <div class="pull-right">
+				 <input name="Id" type="hidden" id="Id" value=""/>				 
+				 <button type="submit" class="btn btn-success btn-sm" name="Modificar" value="Alterar" id ="salvar">
+					  <span class="fa  fa-pencil" aria-hidden="true"></span> Alterar
+				  </button>
+				  
+				  </div>					
+			</form>
 	</div>
 <div class="col-md-6"> 
  <div class="row">	   				 		  	   					
